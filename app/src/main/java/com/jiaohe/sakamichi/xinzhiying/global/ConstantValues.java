@@ -13,7 +13,7 @@ public class ConstantValues {
     /**
      * 是否完成新手指引的key
      */
-    public static final String IS_GUIDE_OVER = "is_guide_over";
+    //public static final String IS_GUIDE_OVER = "is_guide_over";
 
     /**
      * 服务器地址常量
@@ -51,5 +51,4 @@ public class ConstantValues {
      */
     public static final String CHECK_TOKEN_URL = SERVER_URL + "/isUserState";
     
-
 }

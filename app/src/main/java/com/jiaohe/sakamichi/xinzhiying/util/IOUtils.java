@@ -1,4 +1,4 @@
-package com.jiaohe.sakamichi.xinzhiying.utils;
+package com.jiaohe.sakamichi.xinzhiying.util;
 
 import java.io.Closeable;
 import java.io.IOException;

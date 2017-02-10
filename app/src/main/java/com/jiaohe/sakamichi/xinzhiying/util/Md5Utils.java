@@ -1,4 +1,4 @@
-package com.jiaohe.sakamichi.xinzhiying.utils;
+package com.jiaohe.sakamichi.xinzhiying.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
