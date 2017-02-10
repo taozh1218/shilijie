@@ -48,6 +48,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:hint="用户名"
+                android:inputType="number"
                 android:textCursorDrawable="@null"
                 android:textSize="13sp"/>
 
@@ -78,6 +79,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:hint="密码"
+                android:inputType="textPassword"
                 android:textCursorDrawable="@null"
                 android:textSize="13sp"/>
 

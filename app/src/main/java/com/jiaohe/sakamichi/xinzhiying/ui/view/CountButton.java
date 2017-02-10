@@ -86,7 +86,7 @@ public class CountButton extends Button implements View.OnClickListener {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            CountButton.this.setText(time / 1000 + " 秒S后重新发送");
+            CountButton.this.setText(time / 1000 + "S后重新发送");
             time -= 1000;
             if (time < 0) {
                 CountButton.this.setEnabled(true);

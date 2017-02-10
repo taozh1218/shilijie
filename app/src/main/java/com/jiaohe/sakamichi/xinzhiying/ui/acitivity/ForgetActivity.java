@@ -2,17 +2,49 @@ package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
+import com.jiaohe.sakamichi.xinzhiying.ui.view.CountButton;
+import com.jiaohe.sakamichi.xinzhiying.utils.LogUtils;
+import com.jiaohe.sakamichi.xinzhiying.utils.Md5Utils;
+import com.jiaohe.sakamichi.xinzhiying.utils.RegexUtils;
+import com.jiaohe.sakamichi.xinzhiying.utils.RequestUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ForgetActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private RequestQueue mRequestQueue;
+    private static final String TYPE_CHANGE_PW = "101";
+    private String tag = "ForgetActivity";
+
+
     private ImageButton mIb_back;
-    private Button mBtn_cert;
+    private CountButton mBtn_cert;
     private Button mBtn_confirm;
+    private EditText mEt_new_pw;
+    private EditText mEt_confirm_pw;
+    private EditText mEt_phone;
+    private EditText mEt_cert;
+    private String mPhoneNum;
+    private String mNewPW;
+    private String mConfirmPW;
+    private String mCert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +58,18 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
     private void initData() {
         mBtn_cert.setOnClickListener(this);
         mIb_back.setOnClickListener(this);
+        mBtn_confirm.setOnClickListener(this);
     }
 
     private void initView() {
         mIb_back = (ImageButton) findViewById(R.id.ib_back);
-        mBtn_cert = (Button) findViewById(R.id.btn_cert);
+        mBtn_cert = (CountButton) findViewById(R.id.btn_cert);
         mBtn_confirm = (Button) findViewById(R.id.btn_confirm);
+        mEt_phone = (EditText) findViewById(R.id.et_phone);
+        mEt_cert = (EditText) findViewById(R.id.et_cert);
+        mEt_new_pw = (EditText) findViewById(R.id.et_new_pw);
+        mEt_confirm_pw = (EditText) findViewById(R.id.et_confirm_pw);
+
     }
 
     @Override
@@ -41,10 +79,123 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.btn_cert:
-
+                mPhoneNum = mEt_phone.getText().toString().trim();
+                if (TextUtils.isEmpty(mPhoneNum)) { //手机号为空
+                    Toast.makeText(this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+                } else {
+                    getCertificate();
+                }
                 break;
             case R.id.btn_confirm:
+                mNewPW = mEt_new_pw.getText().toString().trim();
+                mConfirmPW = mEt_confirm_pw.getText().toString().trim();
+                mCert = mEt_cert.getText().toString().trim();
+
+                if (TextUtils.isEmpty(mNewPW) || TextUtils.isEmpty(mConfirmPW)) { //2次密码至少有一个为空
+                    Toast.makeText(this, "密码不能为空", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (mNewPW.equals(mConfirmPW)) {
+                        if (RegexUtils.checkPW(mNewPW)) {
+                            commitNewPW();
+                        } else {
+                            Toast.makeText(this, "密码必须为6-18位数字和字母组合", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(this, "2次密码不一致，请重新输入！", Toast.LENGTH_SHORT).show();
+                    }
+                }
                 break;
         }
+    }
+
+    private void commitNewPW() {
+        mRequestQueue = RequestUtils.getInstance(this);
+        String body = "phone=" + mPhoneNum + "&pass=" + Md5Utils.encode(mNewPW) + "&code=" + mCert;
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.FIND_PW_URL, body, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                LogUtils.d("修改密码结果=" + response.toString());
+                String result = null;
+                try {
+                    result = response.getString("result");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                switch (result) {
+                    case "RC100":
+                        Toast.makeText(ForgetActivity.this, "修改成功！", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "RC200":
+                        Toast.makeText(ForgetActivity.this, "修改失败！", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "RC201":
+                        Toast.makeText(ForgetActivity.this, "参数不完整！", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "RC300":
+                        Toast.makeText(ForgetActivity.this, "操作失败！", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "RC403":
+                        Toast.makeText(ForgetActivity.this, "服务不可用！", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "RC404":
+                        Toast.makeText(ForgetActivity.this, "验证码失效！", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(tag, "提交新密码失败");
+            }
+        }) {
+            @Override
+            public String getBodyContentType() {
+                if (getMethod() == Method.POST) {
+                    return "application/x-www-form-urlencoded";
+                }
+                return super.getBodyContentType();
+            }
+        };
+        mRequestQueue.add(request);
+    }
+
+    private void getCertificate() {
+        if (!RegexUtils.checkNum(mPhoneNum)) {//手机号格式不合法
+            Toast.makeText(this, "请正确填写手机号码", Toast.LENGTH_SHORT).show();
+        } else {
+            requestCert();
+            //禁用手机软键盘输入 以防修改手机号码
+            mEt_phone.setInputType(InputType.TYPE_NULL);
+        }
+    }
+
+    /**
+     * 请求服务器发送用户注册验证码
+     */
+    private void requestCert() {
+        mRequestQueue = RequestUtils.getInstance(this);
+        String body = "phone=" + mPhoneNum + "&type=" + TYPE_CHANGE_PW;
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.CERT_URL, body, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                LogUtils.d(response.toString());
+                //拿到短信后启用手机号码输入
+                mEt_phone.setInputType(InputType.TYPE_CLASS_NUMBER);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(tag, "获取失败 请重新获取验证码");
+            }
+        }) {
+            @Override
+            public String getBodyContentType() {
+                if (getMethod() == Method.POST) {
+                    return "application/x-www-form-urlencoded";
+                }
+                return super.getBodyContentType();
+            }
+        };
+        mRequestQueue.add(request);
     }
 }

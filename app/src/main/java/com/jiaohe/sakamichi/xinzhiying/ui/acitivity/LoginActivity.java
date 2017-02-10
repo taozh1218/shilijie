@@ -21,7 +21,9 @@ import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.utils.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.utils.Md5Utils;
 import com.jiaohe.sakamichi.xinzhiying.utils.RequestUtils;
+import com.jiaohe.sakamichi.xinzhiying.utils.SPUtils;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -35,14 +37,68 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String mPassword;
 
     private String tag = "LoginActivity";
+    private RequestQueue mRequestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //判断token是否存在
+        isLogIn();
+
         initView();
         initData();
+    }
+
+    private void isLogIn() {
+        String token = SPUtils.getString(this, "token", null);
+        isTokenValid(); //token是否有效
+        if (token != null || isTokenValid()) {
+            //登录成功跳转到主界面
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private boolean isTokenValid() {
+        final boolean[] isValid = {false};
+        mRequestQueue = RequestUtils.getInstance(this);
+        //post请求时getParams无需通过String直接传参
+        String body = "phone=" + SPUtils.getString(this, "phone", "");
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.CHECK_TOKEN_URL, body, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                LogUtils.d(response.toString());
+                try {
+                    String result = response.getString("result");
+                    if (result.equals("RC100")) {
+                        LogUtils.d("令牌有效");
+                        isValid[0] = true;
+                    } else {
+                        LogUtils.d("令牌失效");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(tag, error.getMessage());
+            }
+        }) {
+            @Override
+            public String getBodyContentType() {
+                if (getMethod() == Method.POST) {
+                    return "application/x-www-form-urlencoded";
+                }
+                return super.getBodyContentType();
+            }
+        };
+        mRequestQueue.add(request);
+        return isValid[0];
     }
 
     private void initData() {
@@ -90,13 +146,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void requestServer() {
-        RequestQueue requestQueue = RequestUtils.getInstance(this);
+        mRequestQueue = RequestUtils.getInstance(this);
         //post请求时getParams无效 需通过String直接传参
         String body = "phone=" + mPhoneNum + "&pass=" + Md5Utils.encode(mPassword);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.LOGIN_URL, body, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 LogUtils.d(response.toString());
+                try {
+                    String result = response.getString("result");
+                    if (result.equals("RC100")) {
+                        LogUtils.d("登录成功");
+                        //如果本地无缓存，则缓存返回的token和手机号码
+                        SPUtils.putString(LoginActivity.this, "phone", mPhoneNum);
+                        SPUtils.putString(LoginActivity.this, "token", response.getString("token"));
+                        //登录成功跳转到主界面
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    } else {
+                        LogUtils.d("登录失败");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -112,6 +184,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 return super.getBodyContentType();
             }
         };
-        requestQueue.add(request);
+        mRequestQueue.add(request);
     }
 }

@@ -3,6 +3,7 @@
           package="com.jiaohe.sakamichi.xinzhiying">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".global.MyApplication"
         android:allowBackup="true"
@@ -20,6 +21,8 @@
         <activity android:name=".ui.acitivity.RegActivity">
         </activity>
         <activity android:name=".ui.acitivity.ForgetActivity">
+        </activity>
+        <activity android:name=".ui.acitivity.MainActivity">
         </activity>
     </application>
 
