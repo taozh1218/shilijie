@@ -1,4 +1,4 @@
-package com.jiaohe.sakamichi.xinzhiying.util;
+package com.jiaohe.sakamichi.xinzhiying.ui.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

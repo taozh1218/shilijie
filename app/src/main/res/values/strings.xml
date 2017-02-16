@@ -2,4 +2,7 @@
     <string name="app_name">xinzhiying</string>
     <string name="forget_pw"><u>忘记密码？</u></string>
     <string name="hasAccount"><u>已有账号？登录</u></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

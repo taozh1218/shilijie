@@ -19,7 +19,7 @@
             android:background="@drawable/square_blue"
             android:orientation="horizontal">
 
-            <com.jiaohe.sakamichi.xinzhiying.util.AvatarImageView
+            <com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView
                 android:id="@+id/iv_icon"
                 android:layout_width="37dp"
                 android:layout_height="37dp"
@@ -85,17 +85,20 @@
         </RadioGroup>
     </LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"
+        android:orientation="vertical">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:src="@drawable/photo"
             android:text="drawer"
             />
-    </FrameLayout>
+    </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
 
