@@ -20,11 +20,10 @@ import com.alibaba.sdk.android.oss.ServiceException;
 import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback;
 import com.alibaba.sdk.android.oss.callback.OSSProgressCallback;
 import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider;
-import com.alibaba.sdk.android.oss.common.auth.OSSPlainTextAKSKCredentialProvider;
+import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider;
 import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
-import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
@@ -37,8 +36,9 @@ import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private RequestQueue mRequestQueue;
     private DrawerLayout mDl_root;
     private AvatarImageView mIv_icon;
     private ImageView mIv_camera;
@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mDl_root.openDrawer(Gravity.LEFT);
                 break;
             case R.id.btn_update:
-
                 requestSTS();
                 break;
         }
@@ -90,8 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     String id = response.getString("accessKeyId");
                     String secret = response.getString("accessKeySecret");
-                    //updateIcon(id, secret);
-                    straightUpload(id, secret);
+                    String securityToken = response.getString("securityToken");
+                    updateIcon(id, secret, securityToken);
+                    //straightUpload(id, secret, securityToken);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -99,23 +99,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onError(VolleyError error) {
-
             }
         });
     }
 
-    private void straightUpload(String id, String secret) {
+   /* private void straightUpload(String id, String secret, String token) {
         String endpoint = "http://oss.xinzhiying.net";
         // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
-        OSSCredentialProvider credentialProvider = new OSSPlainTextAKSKCredentialProvider(id, secret);
+        OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
         OSS oss = new OSSClient(getApplicationContext(), endpoint, credentialProvider);
         // 构造上传请求
-        PutObjectRequest put = new PutObjectRequest("jiaohe", "icon", Environment.getExternalStorageDirectory() + "/test.jpg");
+        final PutObjectRequest put = new PutObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon", Environment.getExternalStorageDirectory() + "/test.jpg");
 // 文件元信息的设置是可选的
 // ObjectMetadata metadata = new ObjectMetadata();
 // metadata.setContentType("application/octet-stream"); // 设置content-type
 // metadata.setContentMD5(BinaryUtil.calculateBase64Md5(uploadFilePath)); // 校验MD5
 // put.setMetadata(metadata);
+        put.setCallbackParam(new HashMap<String, String>() {
+            {
+                put("callbackUrl", "110.75.82.106/callback");
+                put("callbackHost", "oss-cn-hangzhou.aliyuncs.com");
+                put("callbackBodyType", "application/json");
+                put("callbackBody", "{\"mimeType\":${mimeType},\"size\":${size}}");
+            }
+        });
         try {
             PutObjectResult putResult = oss.putObject(put);
             Log.d("PutObject", "UploadSuccess");
@@ -131,27 +138,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.e("HostId", e.getHostId());
             Log.e("RawMessage", e.getRawMessage());
         }
-    }
+    }*/
 
-    private void updateIcon(String id, String secret) {
+    private void updateIcon(String id, String secret, final String token) {
         String endpoint = "http://oss.xinzhiying.net";
         // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
-        OSSCredentialProvider credentialProvider = new OSSPlainTextAKSKCredentialProvider(id, secret);
+        OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
         OSS oss = new OSSClient(getApplicationContext(), endpoint, credentialProvider);
-
         // 构造上传请求
         String path = Environment.getExternalStorageDirectory() + "/test.jpg";
-        PutObjectRequest put = new PutObjectRequest("jiaohe", "icon", path);
+        final PutObjectRequest put = new PutObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon", path);
+        put.setCallbackParam(new HashMap<String, String>() {
+            {
+                put("callbackUrl", ConstantValues.ICON_CALLBACK_URL);
+                put("callbackHost", "www.xinzhiying.net");
+                put("callbackBodyType", "application/json");
+                /*String body = "{\"phone\"" + SPUtils.getString(UIUtils.getContext(), "phone", "")
+                        + "},{\"token\"" + SPUtils.getString(UIUtils.getContext(), "token", "")
+                        + "},{\"object\"" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon" + "}";*/
+                String body = "{\"phone\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "\""
+                        + ",\"token\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "token", "") + "\""
+                        + ",\"object\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon" + "\"" + "}";
+                put("callbackBody", body);
+            }
+        });
         // 异步上传时可以设置进度回调
         put.setProgressCallback(new OSSProgressCallback<PutObjectRequest>() {
             @Override
             public void onProgress(PutObjectRequest request, long currentSize, long totalSize) {
+
                 Log.d("PutObject", "currentSize: " + currentSize + " totalSize: " + totalSize);
             }
         });
         OSSAsyncTask task = oss.asyncPutObject(put, new OSSCompletedCallback<PutObjectRequest, PutObjectResult>() {
             @Override
             public void onSuccess(PutObjectRequest request, PutObjectResult result) {
+                // 只有设置了servercallback，这个值才有数据
+                String serverCallbackReturnJson = result.getServerCallbackReturnBody();
+                Log.d("servercallback", serverCallbackReturnJson);
                 Log.d("PutObject", "UploadSuccess");
                 Log.d("ETag", result.getETag());
                 Log.d("RequestId", result.getRequestId());

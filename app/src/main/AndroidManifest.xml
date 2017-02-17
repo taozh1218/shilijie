@@ -10,16 +10,18 @@
     <application
         android:name=".global.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/android_template"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.acitivity.LoginActivity">
+        <activity android:name=".ui.acitivity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.acitivity.LoginActivity">
         </activity>
         <activity android:name=".ui.acitivity.RegActivity">
         </activity>
@@ -27,6 +29,7 @@
         </activity>
         <activity android:name=".ui.acitivity.MainActivity">
         </activity>
+
     </application>
 
 </manifest>

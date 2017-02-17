@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.jiaohe.sakamichi.xinzhiying.R;
@@ -27,7 +26,6 @@ import org.json.JSONObject;
 
 public class ForgetActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private RequestQueue mRequestQueue;
     private static final String TYPE_CHANGE_PW = "101";
     private String tag = "ForgetActivity";
 
@@ -36,12 +34,12 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
     private CountButton mBtn_cert;
     private Button mBtn_confirm;
     private EditText mEt_new_pw;
-    private EditText mEt_confirm_pw;
+    //private EditText mEt_confirm_pw;
     private EditText mEt_phone;
     private EditText mEt_cert;
     private String mPhoneNum;
     private String mNewPW;
-    private String mConfirmPW;
+    //private String mConfirmPW;
     private String mCert;
 
     @Override
@@ -66,8 +64,7 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
         mEt_phone = (EditText) findViewById(R.id.et_phone);
         mEt_cert = (EditText) findViewById(R.id.et_cert);
         mEt_new_pw = (EditText) findViewById(R.id.et_new_pw);
-        mEt_confirm_pw = (EditText) findViewById(R.id.et_confirm_pw);
-
+        //mEt_confirm_pw = (EditText) findViewById(R.id.et_confirm_pw);
     }
 
     @Override
@@ -86,21 +83,21 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btn_confirm:
                 mNewPW = mEt_new_pw.getText().toString().trim();
-                mConfirmPW = mEt_confirm_pw.getText().toString().trim();
+                //mConfirmPW = mEt_confirm_pw.getText().toString().trim();
                 mCert = mEt_cert.getText().toString().trim();
 
-                if (TextUtils.isEmpty(mNewPW) || TextUtils.isEmpty(mConfirmPW)) { //2次密码至少有一个为空
+                if (TextUtils.isEmpty(mNewPW) /*|| TextUtils.isEmpty(mConfirmPW)*/) { //2次密码至少有一个为空
                     Toast.makeText(this, "密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (mNewPW.equals(mConfirmPW)) {
-                        if (RegexUtils.checkPW(mNewPW)) {
-                            commitNewPW();
-                        } else {
-                            Toast.makeText(this, "密码必须为6-18位数字和字母组合", Toast.LENGTH_SHORT).show();
-                        }
+                    //if (mNewPW.equals(mConfirmPW)) {
+                    if (RegexUtils.checkPW(mNewPW)) {
+                        commitNewPW();
                     } else {
-                        Toast.makeText(this, "2次密码不一致，请重新输入！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "密码必须为6-18位数字和字母组合", Toast.LENGTH_SHORT).show();
                     }
+                    /*} else {
+                        Toast.makeText(this, "2次密码不一致，请重新输入！", Toast.LENGTH_SHORT).show();
+                    }*/
                 }
                 break;
         }
@@ -166,7 +163,7 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onSuccess(JSONObject response) {
                 //拿到短信后启用手机号码输入
-                mEt_phone.setInputType(InputType.TYPE_CLASS_NUMBER);
+                mEt_phone.setInputType(InputType.TYPE_CLASS_PHONE);
             }
 
             @Override

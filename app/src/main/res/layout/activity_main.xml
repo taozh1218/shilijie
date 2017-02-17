@@ -59,7 +59,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:src="@mipmap/android_template"
+                android:src="@mipmap/ic_launcher"
                 android:id="@+id/iv_test"
                 android:layout_width="45dp"
                 android:layout_height="45dp"

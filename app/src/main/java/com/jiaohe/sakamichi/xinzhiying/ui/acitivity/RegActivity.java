@@ -7,10 +7,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.jiaohe.sakamichi.xinzhiying.R;
@@ -36,21 +34,18 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
 
     private CountButton mBtn_cert;
     private Button mBtn_reg;
-    private EditText mEt_id;
+    private EditText mEt_phone;
     private EditText mEt_cert;
     private EditText mEt_pw;
-    private TextView mTv_hasAccount;
 
     private String mPhoneNum;
     private String mPassword;
     private String mCert;
 
-    private RequestQueue mRequestQueue;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reg);
+        setContentView(R.layout.activity_register);
 
         initView();
         initData();
@@ -59,23 +54,21 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
     private void initData() {
         mBtn_cert.setOnClickListener(this);
         mBtn_reg.setOnClickListener(this);
-        mTv_hasAccount.setOnClickListener(this);
     }
 
     private void initView() {
         mBtn_cert = (CountButton) findViewById(R.id.btn_cert);
         mBtn_reg = (Button) findViewById(R.id.btn_reg);
-        mEt_id = (EditText) findViewById(R.id.et_id);
+        mEt_phone = (EditText) findViewById(R.id.et_id);
         mEt_cert = (EditText) findViewById(R.id.et_cert);
         mEt_pw = (EditText) findViewById(R.id.et_pw);
-        mTv_hasAccount = (TextView) findViewById(R.id.tv_hasAccount);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_cert:
-                mPhoneNum = mEt_id.getText().toString().trim();
+                mPhoneNum = mEt_phone.getText().toString().trim();
                 if (TextUtils.isEmpty(mPhoneNum)) { //手机号为空
                     Toast.makeText(this, "手机号不能为空", Toast.LENGTH_SHORT).show();
                 } else {
@@ -84,11 +77,11 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
 
                 break;
             case R.id.btn_reg:
-                mPhoneNum = mEt_id.getText().toString().trim();
+                mPhoneNum = mEt_phone.getText().toString().trim();
                 mPassword = mEt_pw.getText().toString().trim();
                 mCert = mEt_cert.getText().toString().trim();
                 //启用用户名et的手机软键盘
-                mEt_id.setInputType(InputType.TYPE_CLASS_NUMBER);
+                mEt_phone.setInputType(InputType.TYPE_CLASS_PHONE);
                 if (TextUtils.isEmpty(mPhoneNum) || TextUtils.isEmpty(mCert) || TextUtils.isEmpty(mPassword)) {
                     Toast.makeText(this, "用户名，密码，验证码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
@@ -155,7 +148,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
         } else {
             requestCert();
             //禁用手机软键盘输入 以防修改手机号码
-            mEt_id.setInputType(InputType.TYPE_NULL);
+            mEt_phone.setInputType(InputType.TYPE_NULL);
         }
     }
 

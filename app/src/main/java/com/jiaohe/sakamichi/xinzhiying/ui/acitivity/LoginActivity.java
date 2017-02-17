@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.jiaohe.sakamichi.xinzhiying.R;
@@ -28,13 +27,13 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtn_login;
-    private Button mBtn_reg;
+    private TextView mTV_reg;
     private EditText mEt_id;
     private EditText mEt_pw;
     private TextView mTv_forget;
+    
     private String mPhoneNum;
     private String mPassword;
-
     private String tag = "LoginActivity";
 
     @Override
@@ -87,13 +86,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void initData() {
         mBtn_login.setOnClickListener(this);
-        mBtn_reg.setOnClickListener(this);
+        mTV_reg.setOnClickListener(this);
         mTv_forget.setOnClickListener(this);
     }
 
     private void initView() {
         mBtn_login = (Button) findViewById(R.id.btn_login);
-        mBtn_reg = (Button) findViewById(R.id.btn_reg);
+        mTV_reg = (TextView) findViewById(R.id.tv_reg);
         mEt_id = (EditText) findViewById(R.id.et_id);
         mEt_pw = (EditText) findViewById(R.id.et_pw);
         mTv_forget = (TextView) findViewById(R.id.tv_forget);
@@ -105,7 +104,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_login:
                 LoginServer();
                 break;
-            case R.id.btn_reg:
+            case R.id.tv_reg:
                 //跳转注册界面
                 Intent intent_reg = new Intent(this, RegActivity.class);
                 startActivity(intent_reg);
