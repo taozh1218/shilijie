@@ -18,8 +18,8 @@ public class ConstantValues {
     /**
      * 服务器地址常量
      */
-    public static final String SERVER_URL = "https://www.xinzhiying.net/rest/app";
-    //public static final String SERVER_URL = "http://zss1993.vicp.io/rest/app";
+    //public static final String SERVER_URL = "https://www.xinzhiying.net/rest/app";
+    public static final String SERVER_URL = "http://zss1993.vicp.io/rest/app";
 
     /**
      * 用户登录地址
@@ -51,4 +51,9 @@ public class ConstantValues {
      */
     public static final String CHECK_TOKEN_URL = SERVER_URL + "/isUserState";
     
+    /**
+     * 获取sts凭证的url
+     */
+    public static final String GET_STS_URL = SERVER_URL + "/getOssSts";
+
 }

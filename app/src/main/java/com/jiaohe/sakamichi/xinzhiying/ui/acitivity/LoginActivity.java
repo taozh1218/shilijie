@@ -10,18 +10,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.Md5Utils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +36,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String mPassword;
 
     private String tag = "LoginActivity";
-    private RequestQueue mRequestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +61,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private boolean isTokenValid() {
         final boolean[] isValid = {false};
-        mRequestQueue = RequestUtils.getInstance(this);
-        //post请求时getParams无需通过String直接传参
         String body = "phone=" + SPUtils.getString(this, "phone", "");
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.CHECK_TOKEN_URL, body, new Response.Listener<JSONObject>() {
+        RequestUtils.postJsonRequest(ConstantValues.CHECK_TOKEN_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
             @Override
-            public void onResponse(JSONObject response) {
-                LogUtils.d(response.toString());
+            public void onSuccess(JSONObject response) {
                 try {
                     String result = response.getString("result");
                     if (result.equals("RC100")) {
@@ -81,23 +76,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }
 
-            }
-        }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(tag, error.getMessage());
+            public void onError(VolleyError error) {
             }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                if (getMethod() == Method.POST) {
-                    return "application/x-www-form-urlencoded";
-                }
-                return super.getBodyContentType();
-            }
-        };
-        mRequestQueue.add(request);
+        });
         return isValid[0];
     }
 
@@ -146,13 +130,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void requestServer() {
-        mRequestQueue = RequestUtils.getInstance(this);
-        //post请求时getParams无效 需通过String直接传参
         String body = "phone=" + mPhoneNum + "&pass=" + Md5Utils.encode(mPassword);
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.LOGIN_URL, body, new Response.Listener<JSONObject>() {
+        RequestUtils.postJsonRequest(ConstantValues.LOGIN_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
             @Override
-            public void onResponse(JSONObject response) {
-                LogUtils.d(response.toString());
+            public void onSuccess(JSONObject response) {
                 try {
                     String result = response.getString("result");
                     if (result.equals("RC100")) {
@@ -168,22 +149,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onError(VolleyError error) {
                 VolleyLog.d(tag, error.getMessage());
             }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                if (getMethod() == Method.POST) {
-                    return "application/x-www-form-urlencoded";
-                }
-                return super.getBodyContentType();
-            }
-        };
-        mRequestQueue.add(request);
+        });
     }
 }

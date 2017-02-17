@@ -10,20 +10,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.CountButton;
-import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.Md5Utils;
 import com.jiaohe.sakamichi.xinzhiying.util.RegexUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,7 +44,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
     private String mPhoneNum;
     private String mPassword;
     private String mCert;
-    
+
     private RequestQueue mRequestQueue;
 
     @Override
@@ -108,62 +106,17 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    /*private void checkCert() {
-        mRequestQueue = RequestUtils.getInstance(this);
-        String checkCertBody = "code=" + mCert + "&phone=" + mPhoneNum;
-        JsonObjectRequest checkCertRequest = new JsonObjectRequest(Request.Method.POST, ConstantValues.CHECK_CERT_URL, checkCertBody, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    String result = response.getString("result");
-                    LogUtils.d("验证码校验：" + result);
-                    if (result.equals("RC100")) { //验证码有效
-                        LogUtils.d("验证码有效！");
-                        regUser(); //开始注册新用户
-                    } else {
-                        Toast.makeText(MyApplication.getContext(), "密码必须为6-18位数字和字母组合", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(tag, error.getMessage());
-            }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                if (getMethod() == Method.POST) {
-                    return "application/x-www-form-urlencoded";
-                }
-                return super.getBodyContentType();
-            }
-        };
-        mRequestQueue.add(checkCertRequest);
-    }*/
-
     /**
      * 注册用户
      */
     private void regUser() {
-        mRequestQueue = RequestUtils.getInstance(this);
         String regBody = "phone=" + mPhoneNum + "&pass=" + Md5Utils.encode(mPassword) + "&code=" + mCert;
-        JsonObjectRequest regRequest = new JsonObjectRequest(Request.Method.POST, ConstantValues.REG_URL, regBody, new Response.Listener<JSONObject>() {
+        RequestUtils.postJsonRequest(ConstantValues.REG_URL, regBody, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onSuccess(JSONObject response) {
                 try {
                     String result = response.getString("result");
                     switch (result) {
-                    /*{“result”:RC100}注册成功
-                      {“result”:RC200}注册失败
-	                  {“result”:RC201}参数不完整
-	                  {“result”:RC211}该用户已经存在
-	                  {“result”:RC213}验证码不正确
-	                  {“result”:RC300}操作异常
-	                  {“result”:RC403}服务不可用
-	                  {“result”:RC404}短信验证码失效*/
                         case "RC100":
                             Toast.makeText(MyApplication.getContext(), "恭喜您，注册成功！", Toast.LENGTH_SHORT).show();
                             finish();
@@ -187,23 +140,13 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onError(VolleyError error) {
                 VolleyLog.d(tag, error.getMessage());
             }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                if (getMethod() == Method.POST) {
-                    return "application/x-www-form-urlencoded";
-                }
-                return super.getBodyContentType();
-            }
-        };
-        mRequestQueue.add(regRequest);
+        });
     }
 
     private void getCertificate() {
@@ -220,28 +163,17 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
      * 请求服务器发送用户注册验证码
      */
     private void requestCert() {
-        mRequestQueue = RequestUtils.getInstance(this);
         String body = "phone=" + mPhoneNum + "&type=" + TYPE_REG;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.CERT_URL, body, new Response.Listener<JSONObject>() {
+        RequestUtils.postJsonRequest(ConstantValues.CERT_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
             @Override
-            public void onResponse(JSONObject response) {
-                LogUtils.d(response.toString());
+            public void onSuccess(JSONObject response) {
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onError(VolleyError error) {
                 VolleyLog.d(tag, "获取失败 请重新获取验证码");
             }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                if (getMethod() == Method.POST) {
-                    return "application/x-www-form-urlencoded";
-                }
-                return super.getBodyContentType();
-            }
-        };
-        mRequestQueue.add(request);
+        });
     }
 
 }

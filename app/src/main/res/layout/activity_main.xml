@@ -44,13 +44,34 @@
 
         </LinearLayout>
 
-        <android.support.v4.view.ViewPager
+        <!--<android.support.v4.view.ViewPager
             android:id="@+id/vp_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             >
-        </android.support.v4.view.ViewPager>
+        </android.support.v4.view.ViewPager>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:src="@mipmap/android_template"
+                android:id="@+id/iv_test"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="centerCrop"
+                />
+
+            <Button
+                android:text="update"
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
         <RadioGroup
             android:id="@+id/rg_navi"

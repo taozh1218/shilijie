@@ -10,19 +10,17 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.CountButton;
-import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.Md5Utils;
 import com.jiaohe.sakamichi.xinzhiying.util.RegexUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -109,12 +107,10 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void commitNewPW() {
-        mRequestQueue = RequestUtils.getInstance(this);
         String body = "phone=" + mPhoneNum + "&pass=" + Md5Utils.encode(mNewPW) + "&code=" + mCert;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.FIND_PW_URL, body, new Response.Listener<JSONObject>() {
+        RequestUtils.postJsonRequest(ConstantValues.FIND_PW_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
             @Override
-            public void onResponse(JSONObject response) {
-                LogUtils.d("修改密码结果=" + response.toString());
+            public void onSuccess(JSONObject response) {
                 String result = null;
                 try {
                     result = response.getString("result");
@@ -124,6 +120,7 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
                 switch (result) {
                     case "RC100":
                         Toast.makeText(ForgetActivity.this, "修改成功！", Toast.LENGTH_SHORT).show();
+                        finish();
                         break;
                     case "RC200":
                         Toast.makeText(ForgetActivity.this, "修改失败！", Toast.LENGTH_SHORT).show();
@@ -142,21 +139,12 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
                         break;
                 }
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onError(VolleyError error) {
                 VolleyLog.d(tag, "提交新密码失败");
             }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                if (getMethod() == Method.POST) {
-                    return "application/x-www-form-urlencoded";
-                }
-                return super.getBodyContentType();
-            }
-        };
-        mRequestQueue.add(request);
+        });
     }
 
     private void getCertificate() {
@@ -173,29 +161,18 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
      * 请求服务器发送用户注册验证码
      */
     private void requestCert() {
-        mRequestQueue = RequestUtils.getInstance(this);
         String body = "phone=" + mPhoneNum + "&type=" + TYPE_CHANGE_PW;
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ConstantValues.CERT_URL, body, new Response.Listener<JSONObject>() {
+        RequestUtils.postJsonRequest(ConstantValues.CERT_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
             @Override
-            public void onResponse(JSONObject response) {
-                LogUtils.d(response.toString());
+            public void onSuccess(JSONObject response) {
                 //拿到短信后启用手机号码输入
                 mEt_phone.setInputType(InputType.TYPE_CLASS_NUMBER);
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onError(VolleyError error) {
                 VolleyLog.d(tag, "获取失败 请重新获取验证码");
             }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                if (getMethod() == Method.POST) {
-                    return "application/x-www-form-urlencoded";
-                }
-                return super.getBodyContentType();
-            }
-        };
-        mRequestQueue.add(request);
+        });
     }
 }
