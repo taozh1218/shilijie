@@ -72,9 +72,9 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="19dp"
-            android:background="@drawable/btn_bg"
-            android:textColor="#FFFFFF"
-            android:textSize="13dp"/>
+            android:background="@drawable/btn_cert"
+            android:textColor="#54BCAF"
+            android:textSize="12dp"/>
 
         <EditText
             android:id="@+id/et_cert"
@@ -109,15 +109,6 @@
             android:inputType="textPassword"
             android:textColor="#393939"
             android:textSize="13sp"/>
-
-        <CheckBox
-            android:id="@+id/cb_displayPwd_forgetAct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="20dp"
-            android:button="@drawable/selector_password"
-            android:checked="false"/>
     </LinearLayout>
 
     <Button

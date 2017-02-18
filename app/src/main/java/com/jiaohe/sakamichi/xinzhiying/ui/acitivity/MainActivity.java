@@ -1,5 +1,8 @@
 package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
@@ -7,23 +10,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.alibaba.sdk.android.oss.ClientException;
-import com.alibaba.sdk.android.oss.OSS;
-import com.alibaba.sdk.android.oss.OSSClient;
-import com.alibaba.sdk.android.oss.ServiceException;
-import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback;
-import com.alibaba.sdk.android.oss.callback.OSSProgressCallback;
-import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider;
-import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider;
-import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
-import com.alibaba.sdk.android.oss.model.PutObjectRequest;
-import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.android.volley.VolleyError;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
@@ -36,7 +27,9 @@ import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private DrawerLayout mDl_root;
@@ -44,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView mIv_camera;
     private Button mBtn_update;
     private ImageView mIv_test;
+
+    private static final int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_CROP_IMAGE = 2;
+    private final String path = Environment.getExternalStorageDirectory() + "/crop_icon.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,136 +66,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_camera:
-
                 break;
             case R.id.iv_icon:
                 //点击头像弹出侧边栏
                 mDl_root.openDrawer(Gravity.LEFT);
                 break;
             case R.id.btn_update:
-                requestSTS();
+                choosePic();
                 break;
         }
     }
 
-    private void requestSTS() {
-        String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "&token=" + SPUtils.getString(UIUtils.getContext(), "token", "");
-        RequestUtils.postJsonRequest(ConstantValues.GET_STS_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
-            @Override
-            public void onSuccess(JSONObject response) {
-                try {
-                    String id = response.getString("accessKeyId");
-                    String secret = response.getString("accessKeySecret");
-                    String securityToken = response.getString("securityToken");
-                    updateIcon(id, secret, securityToken);
-                    //straightUpload(id, secret, securityToken);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onError(VolleyError error) {
-            }
-        });
+    private void choosePic() {
+        Intent i = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i, RESULT_LOAD_IMAGE);
     }
 
-   /* private void straightUpload(String id, String secret, String token) {
-        String endpoint = "http://oss.xinzhiying.net";
-        // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
-        OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
-        OSS oss = new OSSClient(getApplicationContext(), endpoint, credentialProvider);
-        // 构造上传请求
-        final PutObjectRequest put = new PutObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon", Environment.getExternalStorageDirectory() + "/test.jpg");
-// 文件元信息的设置是可选的
-// ObjectMetadata metadata = new ObjectMetadata();
-// metadata.setContentType("application/octet-stream"); // 设置content-type
-// metadata.setContentMD5(BinaryUtil.calculateBase64Md5(uploadFilePath)); // 校验MD5
-// put.setMetadata(metadata);
-        put.setCallbackParam(new HashMap<String, String>() {
-            {
-                put("callbackUrl", "110.75.82.106/callback");
-                put("callbackHost", "oss-cn-hangzhou.aliyuncs.com");
-                put("callbackBodyType", "application/json");
-                put("callbackBody", "{\"mimeType\":${mimeType},\"size\":${size}}");
-            }
-        });
-        try {
-            PutObjectResult putResult = oss.putObject(put);
-            Log.d("PutObject", "UploadSuccess");
-            Log.d("ETag", putResult.getETag());
-            Log.d("RequestId", putResult.getRequestId());
-        } catch (ClientException e) {
-            // 本地异常如网络异常等
-            e.printStackTrace();
-        } catch (ServiceException e) {
-            // 服务异常
-            Log.e("RequestId", e.getRequestId());
-            Log.e("ErrorCode", e.getErrorCode());
-            Log.e("HostId", e.getHostId());
-            Log.e("RawMessage", e.getRawMessage());
-        }
-    }*/
+    private void requestSTS() {
+        String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "")
+                + "&token=" + SPUtils.getString(UIUtils.getContext(), "token", "");
+        RequestUtils.postJsonRequest(ConstantValues.GET_STS_URL, body, UIUtils.getContext(),
+                new VolleyInterface(UIUtils.getContext(),
+                        VolleyInterface.mResponseListener,
+                        VolleyInterface.mErrorListener) {
+                    @Override
+                    public void onSuccess(JSONObject response) {
+                        try {
+                            String id = response.getString("accessKeyId");
+                            String secret = response.getString("accessKeySecret");
+                            String securityToken = response.getString("securityToken");
+                            //获取STS成功 请求上传头像
+                            RequestUtils.updateIcon(id, secret, securityToken, path);
+                            //straightUpload(id, secret, securityToken);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
 
-    private void updateIcon(String id, String secret, final String token) {
-        String endpoint = "http://oss.xinzhiying.net";
-        // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
-        OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
-        OSS oss = new OSSClient(getApplicationContext(), endpoint, credentialProvider);
-        // 构造上传请求
-        String path = Environment.getExternalStorageDirectory() + "/test.jpg";
-        final PutObjectRequest put = new PutObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon", path);
-        put.setCallbackParam(new HashMap<String, String>() {
-            {
-                put("callbackUrl", ConstantValues.ICON_CALLBACK_URL);
-                put("callbackHost", "www.xinzhiying.net");
-                put("callbackBodyType", "application/json");
-                /*String body = "{\"phone\"" + SPUtils.getString(UIUtils.getContext(), "phone", "")
-                        + "},{\"token\"" + SPUtils.getString(UIUtils.getContext(), "token", "")
-                        + "},{\"object\"" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon" + "}";*/
-                String body = "{\"phone\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "\""
-                        + ",\"token\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "token", "") + "\""
-                        + ",\"object\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon" + "\"" + "}";
-                put("callbackBody", body);
-            }
-        });
-        // 异步上传时可以设置进度回调
-        put.setProgressCallback(new OSSProgressCallback<PutObjectRequest>() {
-            @Override
-            public void onProgress(PutObjectRequest request, long currentSize, long totalSize) {
-
-                Log.d("PutObject", "currentSize: " + currentSize + " totalSize: " + totalSize);
-            }
-        });
-        OSSAsyncTask task = oss.asyncPutObject(put, new OSSCompletedCallback<PutObjectRequest, PutObjectResult>() {
-            @Override
-            public void onSuccess(PutObjectRequest request, PutObjectResult result) {
-                // 只有设置了servercallback，这个值才有数据
-                String serverCallbackReturnJson = result.getServerCallbackReturnBody();
-                Log.d("servercallback", serverCallbackReturnJson);
-                Log.d("PutObject", "UploadSuccess");
-                Log.d("ETag", result.getETag());
-                Log.d("RequestId", result.getRequestId());
-            }
-
-            @Override
-            public void onFailure(PutObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
-                // 请求异常
-                if (clientExcepion != null) {
-                    // 本地异常如网络异常等
-                    clientExcepion.printStackTrace();
-                }
-                if (serviceException != null) {
-                    // 服务异常
-                    Log.e("ErrorCode", serviceException.getErrorCode());
-                    Log.e("RequestId", serviceException.getRequestId());
-                    Log.e("HostId", serviceException.getHostId());
-                    Log.e("RawMessage", serviceException.getRawMessage());
-                }
-            }
-        });
-        // task.cancel(); // 可以取消任务
-        task.waitUntilFinished(); // 可以等待任务完成
+                    @Override
+                    public void onError(VolleyError error) {
+                    }
+                });
     }
 
     class MyAdapter extends FragmentPagerAdapter {
@@ -216,4 +125,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return 0;
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data != null) {
+            switch (requestCode) {
+                case RESULT_LOAD_IMAGE:
+                    if (data.getData() != null) {
+                        Uri iconUri = data.getData();
+                        startCropImage(iconUri); //剪裁开始
+                    }
+                    break;
+                case RESULT_CROP_IMAGE:
+                    Bundle extras = data.getExtras();
+                    if (extras != null) {
+                        Bitmap photo = extras.getParcelable("data");
+                        saveMyBitmap(photo); // 保存裁剪后的图片到SD  
+                    }
+                    //图片剪裁并保存完毕，准备上传
+                    requestSTS();
+                    break;
+            }
+        }
+    }
+
+    /**
+     * @param uri 需要剪裁照片的uri
+     *            开启系统的剪裁界面
+     */
+    public void startCropImage(Uri uri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        // 图片处于可裁剪状态
+        intent.putExtra("crop", "true");
+        // aspectX aspectY 是宽高的比例
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        // 是否之处缩放
+        intent.putExtra("scale", true);
+        // 设置图片的输出大小, 对于普通的头像,应该设置一下,可提高头像的上传速度
+        intent.putExtra("outputX", 300);
+        intent.putExtra("outputY", 300);
+        // 设置图片输出格式
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+        intent.putExtra("return-data", true);
+        // 关闭人脸识别
+        intent.putExtra("noFaceDetection", false);
+        startActivityForResult(intent, RESULT_CROP_IMAGE);
+    }
+
+    public void saveMyBitmap(Bitmap bitmap) {
+        File file = new File(Environment.getExternalStorageDirectory(),
+                "crop_icon.jpg");
+        try {
+            file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

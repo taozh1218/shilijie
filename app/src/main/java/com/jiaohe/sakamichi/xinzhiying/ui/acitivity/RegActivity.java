@@ -93,9 +93,6 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
                     }
                 }
                 break;
-            case R.id.tv_hasAccount:
-                finish(); //有密码则返回之前的登录页面
-                break;
         }
     }
 
