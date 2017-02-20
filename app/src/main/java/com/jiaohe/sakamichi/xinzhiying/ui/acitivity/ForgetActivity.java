@@ -46,7 +46,8 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
-
+        
+        UIUtils.initStateBar(ForgetActivity.this);
         initView();
         initData();
     }

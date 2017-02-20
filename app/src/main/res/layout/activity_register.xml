@@ -7,29 +7,32 @@
     android:background="#E5E5E5"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="#FFFFFF">
+        android:layout_height="80dp"
+        android:background="#FFFFFF"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/ib_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="22dp"
             android:background="@drawable/btn_return"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="27dp"
             android:layout_toRightOf="@id/ib_back"
             android:text="注册"
             android:textColor="#2f2f2f"
             android:textSize="18sp"/>
-    </RelativeLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -75,7 +78,7 @@
             android:textSize="12sp"/>
 
         <EditText
-            android:id="@+id/e"
+            android:id="@+id/et_cert_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

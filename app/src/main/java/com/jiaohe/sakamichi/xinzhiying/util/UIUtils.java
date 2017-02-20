@@ -1,11 +1,14 @@
 package com.jiaohe.sakamichi.xinzhiying.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Process;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
 
@@ -88,5 +91,14 @@ public class UIUtils {
     //7.根据id获取颜色状态选择器（PagerTab要求
     public static ColorStateList getColorStateList(int tabTextColorResId) {
         return getContext().getResources().getColorStateList(tabTextColorResId);
+    }
+
+    public static void initStateBar(Activity activity) { //初始化沉浸式状态栏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
     }
 }

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -37,6 +38,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
     private EditText mEt_phone;
     private EditText mEt_cert;
     private EditText mEt_pw;
+    private ImageButton mIb_back;
 
     private String mPhoneNum;
     private String mPassword;
@@ -47,6 +49,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        UIUtils.initStateBar(RegActivity.this);
         initView();
         initData();
     }
@@ -54,6 +57,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
     private void initData() {
         mBtn_cert.setOnClickListener(this);
         mBtn_reg.setOnClickListener(this);
+        mIb_back.setOnClickListener(this);
     }
 
     private void initView() {
@@ -62,6 +66,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
         mEt_phone = (EditText) findViewById(R.id.et_phone);
         mEt_cert = (EditText) findViewById(R.id.et_cert_reg);
         mEt_pw = (EditText) findViewById(R.id.et_pw);
+        mIb_back = (ImageButton) findViewById(R.id.ib_back);
     }
 
     @Override
@@ -92,6 +97,9 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
                         Toast.makeText(this, "密码必须为6-18位数字和字母组合", Toast.LENGTH_SHORT).show();
                     }
                 }
+                break;
+            case R.id.ib_back:
+                finish();
                 break;
         }
     }

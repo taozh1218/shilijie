@@ -3,7 +3,6 @@ package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
@@ -14,9 +13,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.jiaohe.sakamichi.xinzhiying.R;
@@ -47,14 +48,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int RESULT_CROP_IMAGE = 2;
     private final String path = Environment.getExternalStorageDirectory() + "/crop_icon.jpg";
+    private ImageView mIv_slide_icon;
+    private EditText mEt_search;
+    private ImageView mIv_qr;
+    private ImageView mIv_wei;
+    private ImageView mIv_dian;
+    private ImageView mIv_qi;
+    private ImageView mIv_search;
+    private ImageView mIv_scan;
+    private TextView mTv_id;
+    private TextView mTv_phone;
+    private TextView mTv_fame;
+    private TextView mTv_sign;
+    private TextView mTv_weather;
+    private TextView mTv_temperature;
+    private TextView mTv_wind;
+    private TextView mTv_location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initState();
-        initView();
+        UIUtils.initStateBar(MainActivity.this); //设置透明状态栏
+        initView(); //初始化MainActivity中控件
+        initSlideMenuView(); //初始化侧边栏中控件
+    }
+
+    private void initSlideMenuView() {
+        mEt_search = (EditText) findViewById(R.id.et_search);
+        mIv_slide_icon = (ImageView) findViewById(R.id.iv_slide_icon);
+        mIv_qr = (ImageView) findViewById(R.id.iv_qr);
+        mIv_wei = (ImageView) findViewById(R.id.iv_wei);
+        mIv_dian = (ImageView) findViewById(R.id.iv_dian);
+        mIv_qi = (ImageView) findViewById(R.id.iv_qi);
+        mIv_search = (ImageView) findViewById(R.id.iv_search);
+        mIv_scan = (ImageView) findViewById(R.id.iv_scan);
+        mTv_id = (TextView) findViewById(R.id.tv_id);
+        mTv_phone = (TextView) findViewById(R.id.tv_phone);
+        mTv_fame = (TextView) findViewById(R.id.tv_fame);
+        mTv_sign = (TextView) findViewById(R.id.tv_sign);
+        mTv_weather = (TextView) findViewById(R.id.tv_weather);
+        mTv_temperature = (TextView) findViewById(R.id.tv_temperature);
+        mTv_wind = (TextView) findViewById(R.id.tv_wind);
+        mTv_location = (TextView) findViewById(R.id.tv_location);
+        LinearLayout ll_address = (LinearLayout) findViewById(R.id.ll_address);
+        LinearLayout authentication = (LinearLayout) findViewById(R.id.ll_authentication);
+        LinearLayout join = (LinearLayout) findViewById(R.id.ll_join);
+        LinearLayout favourite = (LinearLayout) findViewById(R.id.ll_favourite);
+        LinearLayout market = (LinearLayout) findViewById(R.id.ll_market);
+        LinearLayout order = (LinearLayout) findViewById(R.id.ll_order);
+        LinearLayout wallet = (LinearLayout) findViewById(R.id.ll_wallet);
+        LinearLayout config = (LinearLayout) findViewById(R.id.ll_config);
+        
+        mIv_slide_icon.setOnClickListener(this);
     }
 
     private void initView() {
@@ -71,22 +118,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
         mVp_content.setAdapter(adapter);
     }
-
-    private void initState() { //初始化沉浸式状态栏
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
-    }
+    
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_camera:
                 break;
-            case R.id.iv_icon:
+            case R.id.iv_slide_icon:
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ib_menu:
                 mDl_root.openDrawer(Gravity.LEFT);
