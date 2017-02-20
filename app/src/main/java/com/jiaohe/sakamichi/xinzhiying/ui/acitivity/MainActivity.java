@@ -3,6 +3,7 @@ package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -32,6 +34,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ *
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private DrawerLayout mDl_root;
     private AvatarImageView mIv_icon;
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initState();
         initView();
     }
 
@@ -66,6 +72,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mVp_content.setAdapter(adapter);
     }
 
+    private void initState() { //初始化沉浸式状态栏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -73,16 +88,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.iv_icon:
                 break;
-            case R.id.btn_update:
-                choosePic();
-                break;
             case R.id.ib_menu:
                 mDl_root.openDrawer(Gravity.LEFT);
                 break;
         }
     }
 
-    private void choosePic() { //跳转到图片选择界面
+
+    /**
+     * 打开
+     */
+    private void choosePic() {
         Intent i = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(i, RESULT_LOAD_IMAGE);

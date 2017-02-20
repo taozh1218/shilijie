@@ -59,7 +59,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
     private void initView() {
         mBtn_cert = (CountButton) findViewById(R.id.btn_cert);
         mBtn_reg = (Button) findViewById(R.id.btn_reg);
-        mEt_phone = (EditText) findViewById(R.id.et_id);
+        mEt_phone = (EditText) findViewById(R.id.et_phone);
         mEt_cert = (EditText) findViewById(R.id.et_cert);
         mEt_pw = (EditText) findViewById(R.id.et_pw);
     }

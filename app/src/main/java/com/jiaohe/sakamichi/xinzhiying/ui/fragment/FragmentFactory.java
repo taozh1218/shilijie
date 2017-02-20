@@ -17,7 +17,15 @@ public class FragmentFactory {
                 case 0:
                     mFragment = new FameFragment();
                     break;
-               
+                case 1:
+                    mFragment = new MapFragment();
+                    break;
+                case 2:
+                    mFragment = new RelationFragment();
+                    break;
+                case 3:
+                    mFragment = new CircleFragment();
+                    break;
             }
             mFragmentMap.put(pos, mFragment);
         }

@@ -7,6 +7,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:fitsSystemWindows="true"
+        android:clipToPadding="true"
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -119,12 +121,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:orientation="vertical">
-
+        
+        <include layout="@layout/slide_menu_layout"/>
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
 
