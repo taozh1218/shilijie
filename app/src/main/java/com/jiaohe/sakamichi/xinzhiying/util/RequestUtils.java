@@ -12,6 +12,8 @@ import com.alibaba.sdk.android.oss.callback.OSSProgressCallback;
 import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider;
 import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
+import com.alibaba.sdk.android.oss.model.GetObjectRequest;
+import com.alibaba.sdk.android.oss.model.GetObjectResult;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.android.volley.DefaultRetryPolicy;
@@ -20,6 +22,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 
 /**
@@ -111,5 +115,45 @@ public class RequestUtils {
         });
         // task.cancel(); // 可以取消任务
         task.waitUntilFinished(); // 可以等待任务完成
+    }
+    
+    public static void downloadIcon(String id, String secret, String token){
+        String endpoint = "http://oss.xinzhiying.net";
+        // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
+        OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
+        OSS oss = new OSSClient(UIUtils.getContext(), endpoint, credentialProvider);
+        GetObjectRequest get = new GetObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", ""));
+        OSSAsyncTask task = oss.asyncGetObject(get, new OSSCompletedCallback<GetObjectRequest, GetObjectResult>() {
+            @Override
+            public void onSuccess(GetObjectRequest request, GetObjectResult result) {
+                // 请求成功
+                InputStream inputStream = result.getObjectContent();
+                byte[] buffer = new byte[2048];
+                int len;
+                try {
+                    while ((len = inputStream.read(buffer)) != -1) {
+                        // 处理下载的数据
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onFailure(GetObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
+                // 请求异常
+                if (clientExcepion != null) {
+                    // 本地异常如网络异常等
+                    clientExcepion.printStackTrace();
+                }
+                if (serviceException != null) {
+                    // 服务异常
+                    Log.e("ErrorCode", serviceException.getErrorCode());
+                    Log.e("RequestId", serviceException.getRequestId());
+                    Log.e("HostId", serviceException.getHostId());
+                    Log.e("RawMessage", serviceException.getRawMessage());
+                }
+            }
+        });
+
     }
 }

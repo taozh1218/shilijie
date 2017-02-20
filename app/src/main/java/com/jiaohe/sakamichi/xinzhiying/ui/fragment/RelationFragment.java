@@ -13,10 +13,10 @@ import com.jiaohe.sakamichi.xinzhiying.ui.view.LoadingLayout;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FameFragment extends BaseFragment {
+public class RelationFragment extends BaseFragment {
 
 
-    public FameFragment() {
+    public RelationFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class FameFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fame, container, false);
+        return inflater.inflate(R.layout.fragment_relation, container, false);
     }
 
     @Override
@@ -38,5 +38,13 @@ public class FameFragment extends BaseFragment {
         return null;
     }
 
+    @Override
+    public void loadData() {
+        super.loadData();
+    }
 
+    @Override
+    public LoadingLayout.ResultStat check(Object obj) {
+        return super.check(obj);
+    }
 }

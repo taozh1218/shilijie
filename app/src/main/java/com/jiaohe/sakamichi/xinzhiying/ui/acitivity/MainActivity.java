@@ -8,11 +8,12 @@ import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.android.volley.VolleyError;
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DrawerLayout mDl_root;
     private AvatarImageView mIv_icon;
     private ImageView mIv_camera;
-    private Button mBtn_update;
-    private ImageView mIv_test;
+    private ViewPager mVp_content;
+    private ImageButton mIb_menu;
 
     private static final int RESULT_LOAD_IMAGE = 1;
     private static final int RESULT_CROP_IMAGE = 2;
@@ -54,12 +55,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDl_root = (DrawerLayout) findViewById(R.id.dl_root);
         mIv_icon = (AvatarImageView) findViewById(R.id.iv_icon);
         mIv_camera = (ImageView) findViewById(R.id.iv_camera);
-        mBtn_update = (Button) findViewById(R.id.btn_update);
-        mIv_test = (ImageView) findViewById(R.id.iv_test);
+        mIb_menu = (ImageButton) findViewById(R.id.ib_menu);
+        mVp_content = (ViewPager) findViewById(R.id.vp_content);
 
         mIv_icon.setOnClickListener(this);
         mIv_camera.setOnClickListener(this);
-        mBtn_update.setOnClickListener(this);
+        mIb_menu.setOnClickListener(this);
+
+        MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
+        mVp_content.setAdapter(adapter);
     }
 
     @Override
@@ -68,21 +72,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.iv_camera:
                 break;
             case R.id.iv_icon:
-                //点击头像弹出侧边栏
-                mDl_root.openDrawer(Gravity.LEFT);
                 break;
             case R.id.btn_update:
                 choosePic();
                 break;
+            case R.id.ib_menu:
+                mDl_root.openDrawer(Gravity.LEFT);
+                break;
         }
     }
 
-    private void choosePic() {
+    private void choosePic() { //跳转到图片选择界面
         Intent i = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(i, RESULT_LOAD_IMAGE);
     }
 
+    /**
+     * 获取STS认证
+     */
     private void requestSTS() {
         String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "")
                 + "&token=" + SPUtils.getString(UIUtils.getContext(), "token", "");
@@ -110,8 +118,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
-    class MyAdapter extends FragmentPagerAdapter {
-        public MyAdapter(FragmentManager fm) {
+    class MainPagerAdapter extends FragmentPagerAdapter {
+        public MainPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -174,9 +182,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivityForResult(intent, RESULT_CROP_IMAGE);
     }
 
+    /**
+     * @param bitmap 剪裁后获取bitmap保存为本地jpg
+     */
     public void saveMyBitmap(Bitmap bitmap) {
-        File file = new File(Environment.getExternalStorageDirectory(),
-                "crop_icon.jpg");
+        File file = new File(Environment.getExternalStorageDirectory(), "crop_icon.jpg");
         try {
             file.createNewFile();
             FileOutputStream fos = new FileOutputStream(file);
