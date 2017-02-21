@@ -1,5 +1,6 @@
 package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -41,12 +42,13 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
     private String mNewPW;
     //private String mConfirmPW;
     private String mCert;
+    private ProgressDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
-        
+
         UIUtils.initStateBar(ForgetActivity.this);
         initView();
         initData();
@@ -89,9 +91,12 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
 
                 if (TextUtils.isEmpty(mNewPW) /*|| TextUtils.isEmpty(mConfirmPW)*/) { //2次密码至少有一个为空
                     Toast.makeText(this, "密码不能为空", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(mCert)) {
+                    Toast.makeText(this, "验证码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
                     //if (mNewPW.equals(mConfirmPW)) {
                     if (RegexUtils.checkPW(mNewPW)) {
+                        mDialog = ProgressDialog.show(this, "", "正在提交...", true, true);
                         commitNewPW();
                     } else {
                         Toast.makeText(this, "密码必须为6-18位数字和字母组合", Toast.LENGTH_SHORT).show();
@@ -117,22 +122,28 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
                 }
                 switch (result) {
                     case "RC100":
+                        mDialog.dismiss();
                         Toast.makeText(ForgetActivity.this, "修改成功！", Toast.LENGTH_SHORT).show();
                         finish();
                         break;
                     case "RC200":
+                        mDialog.dismiss();
                         Toast.makeText(ForgetActivity.this, "修改失败！", Toast.LENGTH_SHORT).show();
                         break;
                     case "RC201":
+                        mDialog.dismiss();
                         Toast.makeText(ForgetActivity.this, "参数不完整！", Toast.LENGTH_SHORT).show();
                         break;
                     case "RC300":
+                        mDialog.dismiss();
                         Toast.makeText(ForgetActivity.this, "操作失败！", Toast.LENGTH_SHORT).show();
                         break;
                     case "RC403":
+                        mDialog.dismiss();
                         Toast.makeText(ForgetActivity.this, "服务不可用！", Toast.LENGTH_SHORT).show();
                         break;
                     case "RC404":
+                        mDialog.dismiss();
                         Toast.makeText(ForgetActivity.this, "验证码失效！", Toast.LENGTH_SHORT).show();
                         break;
                 }

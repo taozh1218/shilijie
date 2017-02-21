@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         UIUtils.initStateBar(MainActivity.this); //设置透明状态栏
         initView(); //初始化MainActivity中控件
         initSlideMenuView(); //初始化侧边栏中控件
+
     }
 
     private void initSlideMenuView() {
@@ -100,8 +101,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LinearLayout order = (LinearLayout) findViewById(R.id.ll_order);
         LinearLayout wallet = (LinearLayout) findViewById(R.id.ll_wallet);
         LinearLayout config = (LinearLayout) findViewById(R.id.ll_config);
-        
+
         mIv_slide_icon.setOnClickListener(this);
+        mIv_qr.setOnClickListener(this);
+        mIv_scan.setOnClickListener(this);
     }
 
     private void initView() {
@@ -118,19 +121,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
         mVp_content.setAdapter(adapter);
     }
-    
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_camera:
+                
+                break;
+            case R.id.iv_scan:
+                //跳转到个人信息设置页面
+                Intent intent_scan = new Intent(MainActivity.this, ScanActivity.class);
+                startActivity(intent_scan);
                 break;
             case R.id.iv_slide_icon:
-                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-                startActivity(intent);
+                //跳转到个人信息设置页面
+                Intent intent_setting = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent_setting);
                 break;
             case R.id.ib_menu:
                 mDl_root.openDrawer(Gravity.LEFT);
+                break;
+            case R.id.iv_qr:
+                //跳转到我的二维码
+                Intent intent_qr = new Intent(MainActivity.this, QRCodeActivity.class);
+                startActivity(intent_qr);
                 break;
         }
     }

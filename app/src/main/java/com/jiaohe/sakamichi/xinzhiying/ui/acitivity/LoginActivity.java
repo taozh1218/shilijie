@@ -1,5 +1,6 @@
 package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -31,16 +32,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText mEt_id;
     private EditText mEt_pw;
     private TextView mTv_forget;
-    
+
     private String mPhoneNum;
     private String mPassword;
     private String tag = "LoginActivity";
+    private ProgressDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        UIUtils.initStateBar(LoginActivity.this);
         //判断token是否存在
         isLogIn();
 
@@ -102,7 +105,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_login:
-                LoginServer();
+                mDialog = ProgressDialog.show(this, "",
+                        "正在登录...", true, true);
+                Login();
                 break;
             case R.id.tv_reg:
                 //跳转注册界面
@@ -111,13 +116,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.tv_forget:
                 //跳转找回密码
-                Intent intent = new Intent(this, ForgetActivity.class);
-                startActivity(intent);
+                Intent intent_forget = new Intent(this, ForgetActivity.class);
+                startActivity(intent_forget);
                 break;
         }
     }
 
-    private void LoginServer() {
+    private void Login() {
         mPhoneNum = mEt_id.getText().toString().trim();
         mPassword = mEt_pw.getText().toString().trim();
         LogUtils.d(mPhoneNum + "=========" + mPassword);
@@ -140,6 +145,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         //如果本地无缓存，则缓存返回的token和手机号码
                         SPUtils.putString(LoginActivity.this, "phone", mPhoneNum);
                         SPUtils.putString(LoginActivity.this, "token", response.getString("token"));
+                        //关闭进度条对话框
+                        mDialog.dismiss();
                         //登录成功跳转到主界面
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {

@@ -93,7 +93,8 @@ public class UIUtils {
         return getContext().getResources().getColorStateList(tabTextColorResId);
     }
 
-    public static void initStateBar(Activity activity) { //初始化沉浸式状态栏
+    //8.初始化沉浸式状态栏
+    public static void initStateBar(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -101,4 +102,5 @@ public class UIUtils {
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
     }
+    
 }

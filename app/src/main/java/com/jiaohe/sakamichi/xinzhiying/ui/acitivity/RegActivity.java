@@ -1,5 +1,6 @@
 package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -43,6 +44,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
     private String mPhoneNum;
     private String mPassword;
     private String mCert;
+    private ProgressDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +94,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
                 } else {
                     if (RegexUtils.checkPW(mPassword)) {
                         // checkCert(); //是否为有效验证码
+                        mDialog = ProgressDialog.show(this, "", "正在注册", true, true);
                         regUser();
                     } else {
                         Toast.makeText(this, "密码必须为6-18位数字和字母组合", Toast.LENGTH_SHORT).show();
@@ -116,22 +119,32 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
                     String result = response.getString("result");
                     switch (result) {
                         case "RC100":
+                            mDialog.dismiss();
                             Toast.makeText(MyApplication.getContext(), "恭喜您，注册成功！", Toast.LENGTH_SHORT).show();
                             finish();
                             break;
                         case "RC211":
+                            mDialog.dismiss();
                             Toast.makeText(MyApplication.getContext(), "该用户已存在！", Toast.LENGTH_SHORT).show();
                             break;
                         case "RC200":
+                            mDialog.dismiss();
                             Toast.makeText(MyApplication.getContext(), "注册失败！", Toast.LENGTH_SHORT).show();
                             break;
+                        case "RC213":
+                            mDialog.dismiss();
+                            Toast.makeText(MyApplication.getContext(), "验证码错误", Toast.LENGTH_SHORT).show();
+                            break;
                         case "RC300":
+                            mDialog.dismiss();
                             Toast.makeText(MyApplication.getContext(), "操作异常！", Toast.LENGTH_SHORT).show();
                             break;
                         case "RC403":
+                            mDialog.dismiss();
                             Toast.makeText(MyApplication.getContext(), "服务不可用！", Toast.LENGTH_SHORT).show();
                             break;
                         case "RC404":
+                            mDialog.dismiss();
                             Toast.makeText(MyApplication.getContext(), "短信验证码失效！", Toast.LENGTH_SHORT).show();
                             break;
                     }
