@@ -3,8 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <item name="colorPrimary">@color/title</item>
+        <item name="colorPrimaryDark">@color/title_dark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
@@ -20,7 +22,7 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
-    
+
     <!--个人信息页面描述-->
     <style name="style_setting_key">
         <item name="android:layout_width">wrap_content</item>
@@ -39,5 +41,9 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_marginRight">14dp</item>
         <item name="android:textColor">#989797</item>
+    </style>
+
+    <style name="LoginTheme" parent="@style/AppTheme">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
     </style>
 </resources>
