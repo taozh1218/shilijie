@@ -44,8 +44,8 @@
         <activity android:name=".ui.acitivity.ChangeNameActivity">
         </activity>
         <activity android:name=".ui.acitivity.ChangeSignatureActivity">
-            
         </activity>
+        <activity android:name=".ui.acitivity.SystemSettingActivity"></activity>
     </application>
 
 </manifest>

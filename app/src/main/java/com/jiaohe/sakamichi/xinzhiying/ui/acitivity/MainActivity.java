@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -18,14 +19,20 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.UriUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 
 import org.json.JSONException;
@@ -73,6 +80,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         UIUtils.initStateBar(MainActivity.this); //设置透明状态栏
         initView(); //初始化MainActivity中控件
         initSlideMenuView(); //初始化侧边栏中控件
+        initUserIcon();
+        initUserMsg();
+    }
+
+    private void initUserMsg() {
+
+
+
+
+
+    }
+
+    private void initUserIcon() {
+        Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
+
+        if (isCache){
+            Glide.with(this).load(path).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(mIv_slide_icon);
+            Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uriFromFilePath);
+                mIv_icon.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            getInterImage();
+        }
 
     }
 
@@ -105,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_slide_icon.setOnClickListener(this);
         mIv_qr.setOnClickListener(this);
         mIv_scan.setOnClickListener(this);
+        config.setOnClickListener(this);
     }
 
     private void initView() {
@@ -130,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 
                 break;
             case R.id.iv_scan:
-                //跳转到个人信息设置页面
+                //跳转到扫一扫页面
                 Intent intent_scan = new Intent(MainActivity.this, ScanActivity.class);
                 startActivity(intent_scan);
                 break;
@@ -147,9 +182,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent_qr = new Intent(MainActivity.this, QRCodeActivity.class);
                 startActivity(intent_qr);
                 break;
+            case R.id.ll_config:
+                Intent intent_config = new Intent(MainActivity.this, SystemSettingActivity.class);
+                startActivity(intent_config);
+                break;
         }
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        initUserIcon();
+    }
 
     /**
      * 打开
@@ -179,6 +223,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             //获取STS成功 请求上传头像
                             RequestUtils.updateIcon(id, secret, securityToken, path);
                             //straightUpload(id, secret, securityToken);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(VolleyError error) {
+                    }
+                });
+    }
+
+    public void getInterImage() {
+        String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "")
+                + "&token=" + SPUtils.getString(UIUtils.getContext(), "token", "");
+        RequestUtils.postJsonRequest(ConstantValues.ICON_GETHEAD_URL, body, UIUtils.getContext(),
+                new VolleyInterface(UIUtils.getContext(),
+                        VolleyInterface.mResponseListener,
+                        VolleyInterface.mErrorListener) {
+                    @Override
+                    public void onSuccess(JSONObject response) {
+                        try {
+                            String result = response.getString("result");
+                            System.out.println("----请求成功"+result);
+                            if (result.equals("RC100")){
+                                //图片在服务器上的地址
+                                System.out.println("----请求成功");
+                                String imgurl = response.getString("imgurl");
+                                System.out.println("----请求成功"+imgurl);
+                                Glide.with(getApplicationContext()).load(imgurl).asBitmap().into(new SimpleTarget<Bitmap>() {
+                                    @Override
+                                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                                        mIv_icon.setImageBitmap(resource);
+                                        mIv_slide_icon.setImageBitmap(resource);
+                                        saveMyBitmap(resource);
+                                    }
+                                });
+
+                            }
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
