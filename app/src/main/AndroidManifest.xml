@@ -24,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.acitivity.LoginActivity"
+        <activity
+            android:name=".ui.acitivity.LoginActivity"
             android:theme="@style/LoginTheme"
             >
         </activity>
@@ -39,6 +40,8 @@
         <activity android:name=".ui.acitivity.QRCodeActivity">
         </activity>
         <activity android:name=".ui.acitivity.ScanActivity">
+        </activity>
+        <activity android:name=".ui.acitivity.ChangeNameActivity">
         </activity>
     </application>
 

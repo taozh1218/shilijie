@@ -55,7 +55,7 @@ public class ChangeNameActivity extends AppCompatActivity {
         token = SPUtils.getString(this, "token", "");
 
         if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(token) || !isTokenValid()) {
-            Toast.makeText(getApplicationContext(), "手机号错误，或令牌失效，请重新登录！", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "手机号错误，或令牌失效，请重新登录！", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -169,6 +169,6 @@ public class ChangeNameActivity extends AppCompatActivity {
             Log.d(TAG, "toast(),toast:" + toast);
             Toast.makeText(getApplicationContext(), toast, Toast.LENGTH_LONG).show();
         }
-
+        finish();
     }
 }
