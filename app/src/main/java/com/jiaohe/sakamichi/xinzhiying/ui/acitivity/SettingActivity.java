@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -69,7 +71,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initView() {
         ImageButton ib_back = (ImageButton) findViewById(R.id.ib_back);
+        TextView tv_nickname = (TextView) findViewById(R.id.tv_nickname);
+
         ib_back.setOnClickListener(this);
+        tv_nickname.setOnClickListener(this);
         ll_icon= (RelativeLayout) findViewById(R.id.ll_icon);
         ll_icon.setOnClickListener(this);
         iv_icon= (ImageView) findViewById(R.id.iv_icon);
@@ -77,9 +82,14 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()) {
             case R.id.ib_back:
                 finish();
+                break;
+            case R.id.tv_nickname:
+                intent = new Intent(this, ChangeNameActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_icon:
                 chagenUserIcon();

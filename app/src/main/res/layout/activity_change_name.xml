@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_change_name"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jiaohe.sakamichi.xinzhiying.ui.acitivity.ChangeNameActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_title_changeNameAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/title"
+        android:paddingLeft="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/img_back_changeNameAct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/back_icon"
+            />
+
+        <Button
+            android:id="@+id/btn_back_changeNameAct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:background="@null"
+            android:text="修改昵称"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/btn_save_changeNameAct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:text="保存"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title_changeNameAct"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp">
+
+        <EditText
+            android:id="@+id/edt_username_changeNameAct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@null"
+            android:hint="请输入新昵称"
+            android:maxLines="1"
+            />
+
+        <ImageView
+            android:id="@+id/img_editTextLine_changeNameAct"
+            android:layout_width="308dp"
+            android:layout_height="2dp"
+            android:layout_below="@id/edt_username_changeNameAct"
+            android:src="@mipmap/img_line"
+            />
+    </RelativeLayout>
+</RelativeLayout>

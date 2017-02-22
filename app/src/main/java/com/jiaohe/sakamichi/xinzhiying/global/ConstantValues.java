@@ -64,4 +64,7 @@ public class ConstantValues {
      * 用户登录获取头像地址
      */
     public static final String ICON_GETHEAD_URL=SERVER_URL+"/getHeadImgUrl";
+
+
+    public static final String CHANGE_USER_INFO = "https://www.xinzhiying.net/rest/app/editUser";
 }
