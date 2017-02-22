@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
@@ -66,7 +68,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initData() {
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
-        Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
+        //Boolean isUpload = SPUtils.getBoolean(this, "isUpload", true);
         if (isCache) {
             Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
             try {
@@ -76,10 +78,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 e.printStackTrace();
             }
         }
-        if (isUpload){
+       // if (isUpload){
             String nickname = SPUtils.getString(this, "nickname", "娇禾生物");
             mTv_nickname.setText(nickname);
-        }
+       // }
     }
 
     private void initView() {
@@ -118,27 +120,19 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 pickImageFromAlbum();
                 break;
             case R.id.button_determime:
-                String trim = ed_nickname.getText().toString().trim();
-                if (trim.equals("")){
+                String nickname = ed_nickname.getText().toString().trim();
+                if (TextUtils.isEmpty(nickname)){
                     Toast.makeText(this, "昵称不能为空", Toast.LENGTH_SHORT).show();
                 }else {
-                    SPUtils.putString(this,"nickname",trim);
+                    SPUtils.putString(this,"nickname",nickname);
                     SPUtils.putBoolean(this,"isUpload",true);
                     nicknamePopup.dismiss();
-                    mTv_nickname.setText(trim);
-                    //保存至本地 并上传到服务器
-                    uploadNickname(trim);
+                    mTv_nickname.setText(nickname);
                 }
                 break;
         }
     }
 
-    private void uploadNickname(String trim) {
-
-
-
-
-    }
 
     private void changeNickname() {
         View nicknameLayout = LayoutInflater.from(this).inflate(R.layout.layout_nickname_popupwindow, null);

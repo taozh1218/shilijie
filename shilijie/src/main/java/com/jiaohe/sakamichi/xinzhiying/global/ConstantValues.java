@@ -65,6 +65,12 @@ public class ConstantValues {
      */
     public static final String ICON_GETHEAD_URL=SERVER_URL+"/getHeadImgUrl";
 
-
-    public static final String CHANGE_USER_INFO = "https://www.xinzhiying.net/rest/app/editUser";
+    /**
+     * 用户用户上传信息地址
+     */
+    public static final String CHANGE_USER_INFO = SERVER_URL+"/editUser";
+    /**
+     * 获取用户信息的地址
+     */
+    public static final String GET_USER_INFO=SERVER_URL+"/getUser";
 }
