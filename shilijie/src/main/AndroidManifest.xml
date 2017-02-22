@@ -26,8 +26,7 @@
         </activity>
         <activity
             android:name=".ui.acitivity.LoginActivity"
-            android:theme="@style/LoginTheme"
-            >
+            android:theme="@style/LoginTheme">
         </activity>
         <activity android:name=".ui.acitivity.RegActivity">
         </activity>
@@ -45,7 +44,9 @@
         </activity>
         <activity android:name=".ui.acitivity.ChangeSignatureActivity">
         </activity>
-        <activity android:name=".ui.acitivity.SystemSettingActivity"></activity>
+        <activity android:name=".ui.acitivity.SystemSettingActivity"/>
+        <activity android:name=".ui.acitivity.SysSettingActivity">
+        </activity>
     </application>
 
 </manifest>

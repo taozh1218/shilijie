@@ -19,7 +19,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
@@ -183,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent_qr);
                 break;
             case R.id.ll_config:
-                Intent intent_config = new Intent(MainActivity.this, SystemSettingActivity.class);
+                Intent intent_config = new Intent(MainActivity.this, SysSettingActivity.class);
                 startActivity(intent_config);
                 break;
         }

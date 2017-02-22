@@ -1,16 +1,15 @@
 package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.jiaohe.sakamichi.xinzhiying.R;
 
-public class SystemSettingActivity extends AppCompatActivity {
+public class SysSettingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_system_setting);
-
+        setContentView(R.layout.activity_sys_setting);
     }
 }
