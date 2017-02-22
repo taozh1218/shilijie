@@ -49,6 +49,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     private RelativeLayout ll_icon;
     private PopupWindow mPopupWindow;
     private ImageView iv_icon;
+    private TextView mTv_nickname;
+    private TextView mTv_sign;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,25 +62,36 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         initData();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (SPUtils.getBoolean(this, "isResult", Boolean.FALSE)) {
+            mTv_nickname.setText(SPUtils.getString(this, "nickname", "娇禾生物"));
+        }
+        if (SPUtils.getBoolean(this, "isSignature", Boolean.FALSE)) {
+            mTv_sign.setText(SPUtils.getString(this, "signature", "有人的地方就有江湖"));
+        }
+    }
+
     private void initData() {
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
-        if (isCache){
+        if (isCache) {
             Glide.with(this).load(path).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_icon);
         }
     }
 
     private void initView() {
         ImageButton ib_back = (ImageButton) findViewById(R.id.ib_back);
-        TextView tv_nickname = (TextView) findViewById(R.id.tv_nickname);
-        TextView tv_sign = (TextView) findViewById(R.id.tv_sign);
+        mTv_nickname = (TextView) findViewById(R.id.tv_nickname);
+        mTv_sign = (TextView) findViewById(R.id.tv_sign);
 
         ib_back.setOnClickListener(this);
-        tv_nickname.setOnClickListener(this);
-        tv_sign.setOnClickListener(this);
+        mTv_nickname.setOnClickListener(this);
+        mTv_sign.setOnClickListener(this);
 
-        ll_icon= (RelativeLayout) findViewById(R.id.ll_icon);
+        ll_icon = (RelativeLayout) findViewById(R.id.ll_icon);
         ll_icon.setOnClickListener(this);
-        iv_icon= (ImageView) findViewById(R.id.iv_icon);
+        iv_icon = (ImageView) findViewById(R.id.iv_icon);
     }
 
     @Override
@@ -120,17 +134,17 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         //拍照
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriFromCamera);
-        startActivityForResult(intent,RESULT_CAMERA_IMAGE);
+        startActivityForResult(intent, RESULT_CAMERA_IMAGE);
     }
 
     private void chagenUserIcon() {
         //初始化popupwindow
         View popupLayout = LayoutInflater.from(this).inflate(R.layout.layout_popupwindow, null);
-        mPopupWindow = new PopupWindow(popupLayout, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,true);
+        mPopupWindow = new PopupWindow(popupLayout, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT, true);
         //初始化popupwindow里面的控件
         Button button_photo = (Button) popupLayout.findViewById(R.id.button_photo);
         Button button_album = (Button) popupLayout.findViewById(R.id.button_album);
-        Button button_back= (Button) popupLayout.findViewById(R.id.button_back);
+        Button button_back = (Button) popupLayout.findViewById(R.id.button_back);
         button_album.setOnClickListener(this);
         button_photo.setOnClickListener(this);
         button_back.setOnClickListener(this);
@@ -155,19 +169,19 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUriFromCamera);
                         mPopupWindow.dismiss();
-                        SPUtils.putBoolean(this,"isCache",true);
+                        SPUtils.putBoolean(this, "isCache", true);
                         iv_icon.setImageBitmap(bitmap);
                         saveMyBitmap(bitmap);
 
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }else {
+                } else {
 
                     Bitmap photo = data.getExtras().getParcelable("data");
                     iv_icon.setImageBitmap(photo);
                     mPopupWindow.dismiss();
-                    SPUtils.putBoolean(this,"isCache",true);
+                    SPUtils.putBoolean(this, "isCache", true);
                     saveMyBitmap(photo); // 保存裁剪后的图片到SD
                 }
                 //图片剪裁并保存完毕，准备上传
@@ -176,6 +190,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
+
     private void requestSTS() {
         String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "")
                 + "&token=" + SPUtils.getString(UIUtils.getContext(), "token", "");
@@ -196,11 +211,13 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                             e.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(VolleyError error) {
                     }
                 });
     }
+
     /**
      * @param bitmap 剪裁后获取bitmap保存为本地jpg
      */
@@ -216,14 +233,16 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
     }
+
     /**
      * 根据指定目录产生一条图片Uri
      */
-    private static Uri getImageUri(){
+    private static Uri getImageUri() {
         String imageName = new SimpleDateFormat("yyMMddHHmmss").format(new Date()) + ".jpg";
         String path = photoDir + imageName;
         return UriUtils.getUriFromFilePath(path);
     }
+
     private void startCropImage(Uri uri) {
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(uri, "image/*");

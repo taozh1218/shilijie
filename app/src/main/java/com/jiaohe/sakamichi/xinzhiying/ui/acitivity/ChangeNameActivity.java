@@ -19,12 +19,9 @@ import com.google.gson.Gson;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
-import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.ToastUtil;
-import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
-import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,45 +44,6 @@ public class ChangeNameActivity extends AppCompatActivity {
         init();
     }
 
-    /**
-     * 身份信息手否有效
-     */
-    private void isValidated() {
-        phone = SPUtils.getString(this, "phone", "");
-        token = SPUtils.getString(this, "token", "");
-
-        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(token) || !isTokenValid()) {
-//            Toast.makeText(getApplicationContext(), "手机号错误，或令牌失效，请重新登录！", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-    }
-
-    private boolean isTokenValid() {
-        final boolean[] isValid = {false};
-        String body = "phone=" + SPUtils.getString(this, "phone", "");
-        RequestUtils.postJsonRequest(ConstantValues.CHECK_TOKEN_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
-            @Override
-            public void onSuccess(JSONObject response) {
-                try {
-                    String result = response.getString("result");
-                    if (result.equals("RC100")) {
-                        LogUtils.d("令牌有效");
-                        isValid[0] = true;
-                    } else {
-                        LogUtils.d("令牌失效");
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onError(VolleyError error) {
-            }
-        });
-        return isValid[0];
-    }
 
     private void init() {
         ImageView img_back = (ImageView) findViewById(R.id.img_back_changeNameAct);
@@ -121,8 +79,10 @@ public class ChangeNameActivity extends AppCompatActivity {
     };
 
     private void requestServer(String json) {
-        isValidated();
+//        isValidated();
 
+        phone = SPUtils.getString(this, "phone", "");
+        token = SPUtils.getString(this, "token", "");
         RequestQueue requestQueue = RequestUtils.getInstance(this);
         //post请求时setParams无效 需通过String直接传参
         String body = "phone=" + phone + "&token=" + token + "&data=" + json;
