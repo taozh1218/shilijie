@@ -79,10 +79,9 @@ public class ChangeNameActivity extends AppCompatActivity {
     };
 
     private void requestServer(String json) {
-//        isValidated();
-
         phone = SPUtils.getString(this, "phone", "");
         token = SPUtils.getString(this, "token", "");
+
         RequestQueue requestQueue = RequestUtils.getInstance(this);
         //post请求时setParams无效 需通过String直接传参
         String body = "phone=" + phone + "&token=" + token + "&data=" + json;

@@ -91,12 +91,12 @@ public class ChangeSignatureActivity extends AppCompatActivity {
                 try {
                     String result = response.getString("result");
                     if (result.equals("RC100")) {
-                        SPUtils.putString(getApplicationContext(),"signature", mEdt_signature.getText().toString());
-                        SPUtils.putBoolean(getApplicationContext(),"isSignature", true);
-
+                        SPUtils.putString(getApplicationContext(), "signature", mEdt_signature.getText().toString());
+                        SPUtils.putBoolean(getApplicationContext(), "isSignature", true);
                     }
                     Log.d(TAG, "onResponse(),result:" + result);
                     toast(result);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

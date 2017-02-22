@@ -108,6 +108,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.tv_sign:
                 intent = new Intent(this, ChangeSignatureActivity.class);
                 startActivity(intent);
+                break;
             case R.id.ll_icon:
                 chagenUserIcon();
                 break;
