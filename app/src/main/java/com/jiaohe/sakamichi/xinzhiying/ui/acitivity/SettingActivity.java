@@ -24,9 +24,12 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     private void initView() {
         ImageButton ib_back = (ImageButton) findViewById(R.id.ib_back);
         TextView tv_nickname = (TextView) findViewById(R.id.tv_nickname);
+        TextView tv_sign = (TextView) findViewById(R.id.tv_sign);
 
         ib_back.setOnClickListener(this);
         tv_nickname.setOnClickListener(this);
+        tv_sign.setOnClickListener(this);
+
     }
 
     @Override
@@ -38,6 +41,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.tv_nickname:
                 intent = new Intent(this, ChangeNameActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_sign:
+                intent = new Intent(this, ChangeSignatureActivity.class);
                 startActivity(intent);
                 break;
         }

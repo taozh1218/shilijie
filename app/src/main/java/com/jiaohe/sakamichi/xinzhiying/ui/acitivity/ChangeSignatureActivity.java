@@ -19,19 +19,16 @@ import com.google.gson.Gson;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
-import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.ToastUtil;
-import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
-import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ChangeNameActivity extends AppCompatActivity {
+public class ChangeSignatureActivity extends AppCompatActivity {
 
-    private EditText mEdt_name;
+    private EditText mEdt_signature;
     private String phone;
     private String TAG = "ChangeNameAct";
     private String token;
@@ -41,56 +38,17 @@ public class ChangeNameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_name);
+        setContentView(R.layout.activity_change_signature);
 
 
         init();
     }
 
-    /**
-     * 身份信息手否有效
-     */
-    private void isValidated() {
-        phone = SPUtils.getString(this, "phone", "");
-        token = SPUtils.getString(this, "token", "");
-
-        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(token) || !isTokenValid()) {
-//            Toast.makeText(getApplicationContext(), "手机号错误，或令牌失效，请重新登录！", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-    }
-
-    private boolean isTokenValid() {
-        final boolean[] isValid = {false};
-        String body = "phone=" + SPUtils.getString(this, "phone", "");
-        RequestUtils.postJsonRequest(ConstantValues.CHECK_TOKEN_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
-            @Override
-            public void onSuccess(JSONObject response) {
-                try {
-                    String result = response.getString("result");
-                    if (result.equals("RC100")) {
-                        LogUtils.d("令牌有效");
-                        isValid[0] = true;
-                    } else {
-                        LogUtils.d("令牌失效");
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onError(VolleyError error) {
-            }
-        });
-        return isValid[0];
-    }
 
     private void init() {
-        ImageView img_back = (ImageView) findViewById(R.id.img_back_changeNameAct);
-        Button btn_save = (Button) findViewById(R.id.btn_save_changeNameAct);
-        mEdt_name = (EditText) findViewById(R.id.edt_username_changeNameAct);
+        ImageView img_back = (ImageView) findViewById(R.id.img_back_changeSignAct);
+        Button btn_save = (Button) findViewById(R.id.btn_save_changeSignAct);
+        mEdt_signature = (EditText) findViewById(R.id.edt_signature_changeSignAct);
 
         img_back.setOnClickListener(mOnClickListener);
         btn_save.setOnClickListener(mOnClickListener);
@@ -101,17 +59,17 @@ public class ChangeNameActivity extends AppCompatActivity {
         public void onClick(View v) {
             int id = v.getId();
             switch (id) {
-                case R.id.img_back_changeNameAct:
-                    ChangeNameActivity.this.finish();
+                case R.id.img_back_changeSignAct:
+                    ChangeSignatureActivity.this.finish();
                     break;
-                case R.id.btn_save_changeNameAct:
-                    String name = mEdt_name.getText().toString();
-                    if (TextUtils.isEmpty(name)) {
+                case R.id.btn_save_changeSignAct:
+                    String signature = mEdt_signature.getText().toString();
+                    if (TextUtils.isEmpty(signature)) {
                         Toast.makeText(getApplicationContext(), "不能为空！", Toast.LENGTH_SHORT).show();
                         break;
                     }
                     UserInfoBean userInfoBean = new UserInfoBean();
-                    userInfoBean.setUsername(name);
+                    userInfoBean.setSignature(signature);
                     mGson = new Gson();
                     String json = mGson.toJson(userInfoBean);
                     requestServer(json);
@@ -121,8 +79,6 @@ public class ChangeNameActivity extends AppCompatActivity {
     };
 
     private void requestServer(String json) {
-        isValidated();
-
         RequestQueue requestQueue = RequestUtils.getInstance(this);
         //post请求时setParams无效 需通过String直接传参
         String body = "phone=" + phone + "&token=" + token + "&data=" + json;
@@ -132,12 +88,10 @@ public class ChangeNameActivity extends AppCompatActivity {
                 try {
                     String result = response.getString("result");
                     if (result.equals("RC100")) {
-                        SPUtils.putString(getApplicationContext(), "nickname", mEdt_name.getText().toString());
-                        SPUtils.putBoolean(getApplicationContext(),"isResult",true);
+                        SPUtils.putString(getApplicationContext(),"setSignature", mEdt_signature.getText().toString());
                     }
                     Log.d(TAG, "onResponse(),result:" + result);
                     toast(result);
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
