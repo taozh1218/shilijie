@@ -81,6 +81,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView(); //初始化MainActivity中控件
         initSlideMenuView(); //初始化侧边栏中控件
         initUserIcon();
+        initUserMsg();
+    }
+
+    private void initUserMsg() {
+
+
+
+
+
     }
 
     private void initUserIcon() {
@@ -130,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_slide_icon.setOnClickListener(this);
         mIv_qr.setOnClickListener(this);
         mIv_scan.setOnClickListener(this);
+        config.setOnClickListener(this);
     }
 
     private void initView() {
@@ -155,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 
                 break;
             case R.id.iv_scan:
-                //跳转到个人信息设置页面
+                //跳转到扫一扫页面
                 Intent intent_scan = new Intent(MainActivity.this, ScanActivity.class);
                 startActivity(intent_scan);
                 break;
@@ -171,6 +181,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //跳转到我的二维码
                 Intent intent_qr = new Intent(MainActivity.this, QRCodeActivity.class);
                 startActivity(intent_qr);
+                break;
+            case R.id.ll_config:
+                Intent intent_config = new Intent(MainActivity.this, SystemSettingActivity.class);
+                startActivity(intent_config);
                 break;
         }
     }

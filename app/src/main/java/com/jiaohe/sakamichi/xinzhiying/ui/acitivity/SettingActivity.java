@@ -101,7 +101,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 pickImageFromCamera();
                 break;
             case R.id.button_album:
-
                 pickImageFromAlbum();
                 break;
         }
