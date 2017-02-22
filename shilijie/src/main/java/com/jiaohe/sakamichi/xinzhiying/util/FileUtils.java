@@ -23,13 +23,7 @@ public class FileUtils {
         File fromFile = new File(fromPath);
         File toFile = new File(toPath);
 
-        if (!fromFile.exists()) {
-            return;
-        }
-        if (!fromFile.isFile()) {
-            return;
-        }
-        if (!fromFile.canRead()) {
+        if (!fromFile.exists() || !fromFile.isFile() || !fromFile.isFile()) {
             return;
         }
         if (!toFile.getParentFile().exists()) {
