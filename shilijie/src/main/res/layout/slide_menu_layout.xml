@@ -14,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="35dp">
 
             <com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView
                 android:id="@+id/iv_slide_icon"
@@ -68,6 +68,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:orientation="vertical">
 
                 <TextView
@@ -78,10 +79,23 @@
                     android:textColor="#FFFFFF"
                     android:textSize="9sp"/>
 
-                <LinearLayout
+
+
+                <TextView
+                    android:id="@+id/tv_sign"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
+                    android:text="签名：有人的地方就有江湖"
+                    android:textColor="#FFFFFF"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="9sp"/>
+                <LinearLayout
+                    android:id="@+id/ll_approve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <TextView
@@ -115,15 +129,6 @@
                         android:src="@drawable/qi_grey"/>
 
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tv_sign"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="签名：有人的地方就有江湖"
-                    android:textColor="#FFFFFF"
-                    android:textSize="9sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -256,7 +261,7 @@
                 android:textSize="12sp"/>
         </LinearLayout>
 
-        <LinearLayout
+       <!-- <LinearLayout
             android:id="@+id/ll_join"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -276,7 +281,7 @@
                 android:text="店铺/企业加盟"
                 android:textColor="#000000"
                 android:textSize="12sp"/>
-        </LinearLayout>
+        </LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/ll_favourite"

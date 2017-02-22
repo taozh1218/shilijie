@@ -93,20 +93,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initUserIcon() {
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
-
+        Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
         if (isCache){
-            Glide.with(this).load(path).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(mIv_slide_icon);
+            //Glide.with(this).load(path).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(mIv_slide_icon);
             Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uriFromFilePath);
                 mIv_icon.setImageBitmap(bitmap);
+                mIv_slide_icon.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }else{
             getInterImage();
         }
-
+        if (isUpload){
+            String nickname = SPUtils.getString(this, "nickname", "娇禾生物");
+            mTv_id.setText(nickname);
+        }else {
+            getInterUserInfo();
+        }
     }
 
     private void initSlideMenuView() {
@@ -128,7 +134,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTv_location = (TextView) findViewById(R.id.tv_location);
         LinearLayout ll_address = (LinearLayout) findViewById(R.id.ll_address);
         LinearLayout authentication = (LinearLayout) findViewById(R.id.ll_authentication);
-        LinearLayout join = (LinearLayout) findViewById(R.id.ll_join);
         LinearLayout favourite = (LinearLayout) findViewById(R.id.ll_favourite);
         LinearLayout market = (LinearLayout) findViewById(R.id.ll_market);
         LinearLayout order = (LinearLayout) findViewById(R.id.ll_order);
@@ -194,44 +199,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initUserIcon();
     }
 
-    /**
-     * 打开
-     */
-    private void choosePic() {
-        Intent i = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(i, RESULT_LOAD_IMAGE);
-    }
 
-    /**
-     * 获取STS认证
-     */
-    private void requestSTS() {
-        String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "")
-                + "&token=" + SPUtils.getString(UIUtils.getContext(), "token", "");
-        RequestUtils.postJsonRequest(ConstantValues.GET_STS_URL, body, UIUtils.getContext(),
-                new VolleyInterface(UIUtils.getContext(),
-                        VolleyInterface.mResponseListener,
-                        VolleyInterface.mErrorListener) {
-                    @Override
-                    public void onSuccess(JSONObject response) {
-                        try {
-                            String id = response.getString("accessKeyId");
-                            String secret = response.getString("accessKeySecret");
-                            String securityToken = response.getString("securityToken");
-                            //获取STS成功 请求上传头像
-                            RequestUtils.updateIcon(id, secret, securityToken, path);
-                            //straightUpload(id, secret, securityToken);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
 
-                    @Override
-                    public void onError(VolleyError error) {
-                    }
-                });
-    }
 
     public void getInterImage() {
         String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "")
@@ -258,19 +227,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         saveMyBitmap(resource);
                                     }
                                 });
-
                             }
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-
                     @Override
                     public void onError(VolleyError error) {
                     }
                 });
+    }
+    /**
+     * @param bitmap 剪裁后获取bitmap保存为本地jpg
+     */
+    public void saveMyBitmap(Bitmap bitmap) {
+        File file = new File(Environment.getExternalStorageDirectory(), "crop_icon.jpg");
+        try {
+            file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //获取用户信息
+    public void getInterUserInfo() {
+
     }
 
     class MainPagerAdapter extends FragmentPagerAdapter {
@@ -289,68 +274,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data != null) {
-            switch (requestCode) {
-                case RESULT_LOAD_IMAGE:
-                    if (data.getData() != null) {
-                        Uri iconUri = data.getData();
-                        startCropImage(iconUri); //剪裁开始
-                    }
-                    break;
-                case RESULT_CROP_IMAGE:
-                    Bundle extras = data.getExtras();
-                    if (extras != null) {
-                        Bitmap photo = extras.getParcelable("data");
-                        saveMyBitmap(photo); // 保存裁剪后的图片到SD  
-                    }
-                    //图片剪裁并保存完毕，准备上传
-                    requestSTS();
-                    break;
-            }
-        }
-    }
 
-    /**
-     * @param uri 需要剪裁照片的uri
-     *            开启系统的剪裁界面
-     */
-    public void startCropImage(Uri uri) {
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(uri, "image/*");
-        // 图片处于可裁剪状态
-        intent.putExtra("crop", "true");
-        // aspectX aspectY 是宽高的比例
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        // 是否之处缩放
-        intent.putExtra("scale", true);
-        // 设置图片的输出大小, 对于普通的头像,应该设置一下,可提高头像的上传速度
-        intent.putExtra("outputX", 300);
-        intent.putExtra("outputY", 300);
-        // 设置图片输出格式
-        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-        intent.putExtra("return-data", true);
-        // 关闭人脸识别
-        intent.putExtra("noFaceDetection", false);
-        startActivityForResult(intent, RESULT_CROP_IMAGE);
-    }
 
-    /**
-     * @param bitmap 剪裁后获取bitmap保存为本地jpg
-     */
-    public void saveMyBitmap(Bitmap bitmap) {
-        File file = new File(Environment.getExternalStorageDirectory(), "crop_icon.jpg");
-        try {
-            file.createNewFile();
-            FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-            fos.flush();
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 }
