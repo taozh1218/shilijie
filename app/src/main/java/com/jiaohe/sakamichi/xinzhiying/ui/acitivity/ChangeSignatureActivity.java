@@ -79,6 +79,9 @@ public class ChangeSignatureActivity extends AppCompatActivity {
     };
 
     private void requestServer(String json) {
+        phone = SPUtils.getString(this, "phone", "");
+        token = SPUtils.getString(this, "token", "");
+
         RequestQueue requestQueue = RequestUtils.getInstance(this);
         //post请求时setParams无效 需通过String直接传参
         String body = "phone=" + phone + "&token=" + token + "&data=" + json;
@@ -88,7 +91,9 @@ public class ChangeSignatureActivity extends AppCompatActivity {
                 try {
                     String result = response.getString("result");
                     if (result.equals("RC100")) {
-                        SPUtils.putString(getApplicationContext(),"setSignature", mEdt_signature.getText().toString());
+                        SPUtils.putString(getApplicationContext(),"signature", mEdt_signature.getText().toString());
+                        SPUtils.putBoolean(getApplicationContext(),"isSignature", true);
+
                     }
                     Log.d(TAG, "onResponse(),result:" + result);
                     toast(result);
