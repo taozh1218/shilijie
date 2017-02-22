@@ -61,4 +61,6 @@ public class ConstantValues {
      */
     public static final String ICON_CALLBACK_URL = SERVER_URL + "/headImgsBack";
 
+
+    public static final String CHANGE_USER_INFO = "https://www.xinzhiying.net/rest/app/editUser";
 }

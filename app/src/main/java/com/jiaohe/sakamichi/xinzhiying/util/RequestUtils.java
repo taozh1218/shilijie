@@ -18,7 +18,9 @@ import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
 
@@ -31,11 +33,19 @@ import java.util.HashMap;
  */
 
 public class RequestUtils {
+    private static RequestQueue mRequestQueue;
 
     private RequestUtils() {
         super();
     }
 
+
+    public static synchronized RequestQueue getInstance(Context ctx) {
+        if (mRequestQueue == null) {
+            mRequestQueue = Volley.newRequestQueue(ctx);
+        }
+        return mRequestQueue;
+    }
 
     public static void postJsonRequest(String url, String body, Context ctx, VolleyInterface vi) {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, body, vi.loadingListener(), vi.errorListener()) {
@@ -56,8 +66,7 @@ public class RequestUtils {
      * @param id
      * @param secret
      * @param token
-     * @param path
-     * 上传头像到阿里云oss服务器
+     * @param path   上传头像到阿里云oss服务器
      */
     public static void updateIcon(String id, String secret, String token, String path) {
         String endpoint = "http://oss.xinzhiying.net";
@@ -65,7 +74,7 @@ public class RequestUtils {
         OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
         OSS oss = new OSSClient(UIUtils.getContext(), endpoint, credentialProvider);
         // 构造上传请求
-        final PutObjectRequest put = new PutObjectRequest("jiaohe","images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon",path);
+        final PutObjectRequest put = new PutObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon", path);
         put.setCallbackParam(new HashMap<String, String>() {
             {
                 put("callbackUrl", ConstantValues.ICON_CALLBACK_URL);
@@ -116,8 +125,8 @@ public class RequestUtils {
         // task.cancel(); // 可以取消任务
         task.waitUntilFinished(); // 可以等待任务完成
     }
-    
-    public static void downloadIcon(String id, String secret, String token){
+
+    public static void downloadIcon(String id, String secret, String token) {
         String endpoint = "http://oss.xinzhiying.net";
         // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
         OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
@@ -138,6 +147,7 @@ public class RequestUtils {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onFailure(GetObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
                 // 请求异常
