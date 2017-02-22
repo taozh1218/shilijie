@@ -60,5 +60,8 @@ public class ConstantValues {
      * 上传头像后的回调地址
      */
     public static final String ICON_CALLBACK_URL = SERVER_URL + "/headImgsBack";
-
+    /**
+     * 用户登录获取头像地址
+     */
+    public static final String ICON_GETHEAD_URL=SERVER_URL+"/getHeadImgUrl";
 }

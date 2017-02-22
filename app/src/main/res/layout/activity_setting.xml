@@ -37,15 +37,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"/>
         </LinearLayout>
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
@@ -106,8 +99,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/setting_divider"/>
-
             <RelativeLayout
+                android:id="@+id/ll_sign"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    style="@style/style_setting_key"
+                    android:text="签名"/>
+
+                <TextView
+                    android:id="@+id/tv_sign"
+                    style="@style/style_setting_value"
+                    android:text="有人的地方就有江湖"/>
+            </RelativeLayout>
+           <!-- <RelativeLayout
                 android:id="@+id/ll_gender"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
@@ -323,13 +329,12 @@
                     android:id="@+id/tv_hobby"
                     style="@style/style_setting_value"
                     android:text="填写兴趣爱好，发现志同道合的人"/>
-            </RelativeLayout>
+            </RelativeLayout>-->
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="50dp"/>
         </LinearLayout>
-    </ScrollView>
-    </LinearLayout>
+
 
