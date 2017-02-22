@@ -4,29 +4,26 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
-import com.jiaohe.sakamichi.xinzhiying.util.ImageUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
@@ -72,9 +69,12 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     private void initView() {
         ImageButton ib_back = (ImageButton) findViewById(R.id.ib_back);
         TextView tv_nickname = (TextView) findViewById(R.id.tv_nickname);
+        TextView tv_sign = (TextView) findViewById(R.id.tv_sign);
 
         ib_back.setOnClickListener(this);
         tv_nickname.setOnClickListener(this);
+        tv_sign.setOnClickListener(this);
+
         ll_icon= (RelativeLayout) findViewById(R.id.ll_icon);
         ll_icon.setOnClickListener(this);
         iv_icon= (ImageView) findViewById(R.id.iv_icon);
@@ -91,6 +91,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 intent = new Intent(this, ChangeNameActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.tv_sign:
+                intent = new Intent(this, ChangeSignatureActivity.class);
+                startActivity(intent);
             case R.id.ll_icon:
                 chagenUserIcon();
                 break;
