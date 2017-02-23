@@ -37,7 +37,6 @@
         <activity android:name=".ui.acitivity.QRCodeActivity"></activity>
         <activity android:name=".ui.acitivity.ScanActivity"></activity>
         <activity android:name=".ui.acitivity.SysSettingActivity"></activity>
-        <activity android:name=".ui.acitivity.SignActivity"></activity>
     </application>
 
 </manifest>
