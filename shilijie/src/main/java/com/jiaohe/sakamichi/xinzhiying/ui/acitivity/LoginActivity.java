@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void initKeyBord() {
             //进入登录页面直接弹出软键盘
-            mEt_id.requestFocus();
+        mEt_id.requestFocus();
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 imm.showSoftInput(mEt_id, InputMethodManager.RESULT_SHOWN);
                 imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
-        }, 300); //设置300毫秒的时长
+        }, 0); //设置300毫秒的时长
 
     }
 
@@ -78,8 +78,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         isTokenValid(); //token是否有效
         if (token != null || isTokenValid()) {
             //登录成功跳转到主界面
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
             startActivity(intent);
 
         }
@@ -96,6 +97,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if (result.equals("RC100")) {
                         LogUtils.d("令牌有效");
                         isValid[0] = true;
+
                     } else {
                         LogUtils.d("令牌失效");
                     }

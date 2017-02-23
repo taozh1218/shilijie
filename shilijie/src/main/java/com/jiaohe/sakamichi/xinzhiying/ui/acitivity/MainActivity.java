@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -141,22 +142,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTv_phone = (TextView) findViewById(R.id.tv_phone);
         mTv_fame = (TextView) findViewById(R.id.tv_fame);
         mTv_sign = (TextView) findViewById(R.id.tv_sign);
-        mTv_weather = (TextView) findViewById(R.id.tv_weather);
+       /* mTv_weather = (TextView) findViewById(R.id.tv_weather);
         mTv_temperature = (TextView) findViewById(R.id.tv_temperature);
         mTv_wind = (TextView) findViewById(R.id.tv_wind);
-        mTv_location = (TextView) findViewById(R.id.tv_location);
+        mTv_location = (TextView) findViewById(R.id.tv_location);*/
         LinearLayout ll_address = (LinearLayout) findViewById(R.id.ll_address);
-        LinearLayout authentication = (LinearLayout) findViewById(R.id.ll_authentication);
-        LinearLayout favourite = (LinearLayout) findViewById(R.id.ll_favourite);
-        LinearLayout market = (LinearLayout) findViewById(R.id.ll_market);
-        LinearLayout order = (LinearLayout) findViewById(R.id.ll_order);
-        LinearLayout wallet = (LinearLayout) findViewById(R.id.ll_wallet);
-        LinearLayout config = (LinearLayout) findViewById(R.id.ll_config);
-
+        LinearLayout ll_authentication = (LinearLayout) findViewById(R.id.ll_authentication);
+        LinearLayout ll_favourite = (LinearLayout) findViewById(R.id.ll_favourite);
+        LinearLayout ll_market = (LinearLayout) findViewById(R.id.ll_market);
+        LinearLayout ll_order = (LinearLayout) findViewById(R.id.ll_order);
+        LinearLayout ll_wallet = (LinearLayout) findViewById(R.id.ll_wallet);
+        LinearLayout ll_config = (LinearLayout) findViewById(R.id.ll_config);
+        LinearLayout ll_sign = (LinearLayout) findViewById(R.id.ll_sign);
         mIv_slide_icon.setOnClickListener(this);
         mIv_qr.setOnClickListener(this);
         mIv_scan.setOnClickListener(this);
-        config.setOnClickListener(this);
+        ll_config.setOnClickListener(this);
+        ll_sign.setOnClickListener(this);
     }
 
     private void initView() {
@@ -200,8 +202,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent_qr);
                 break;
             case R.id.ll_config:
+                //跳转到设置页面
                 Intent intent_config = new Intent(MainActivity.this, SysSettingActivity.class);
                 startActivity(intent_config);
+                break;
+            case R.id.ll_sign:
+                //跳转到签名页面
+                Intent intent_sign=new Intent(MainActivity.this,SignActivity.class);
+                startActivity(intent_sign);
                 break;
         }
     }
