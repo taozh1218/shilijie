@@ -22,8 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.bumptech.glide.Glide;
 import com.jiaohe.sakamichi.xinzhiying.R;
-import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
@@ -68,7 +68,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initData() {
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
-        //Boolean isUpload = SPUtils.getBoolean(this, "isUpload", true);
         if (isCache) {
             Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
             try {

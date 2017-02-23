@@ -148,6 +148,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         SPUtils.putString(LoginActivity.this, "token", response.getString("token"));
                         //关闭进度条对话框
                         mDialog.dismiss();
+
                         //登录成功跳转到主界面
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
@@ -157,11 +158,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     e.printStackTrace();
                 }
             }
-
             @Override
             public void onError(VolleyError error) {
                 VolleyLog.d(tag, error.getMessage());
             }
         });
     }
+
 }

@@ -1,6 +1,7 @@
 package com.jiaohe.sakamichi.xinzhiying.util;
 
 import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 
 import com.alibaba.sdk.android.oss.ClientException;
@@ -24,8 +25,12 @@ import com.android.volley.toolbox.Volley;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 
 /**
@@ -34,7 +39,6 @@ import java.util.HashMap;
 
 public class RequestUtils {
     private static RequestQueue mRequestQueue;
-
     private RequestUtils() {
         super();
     }
@@ -126,23 +130,30 @@ public class RequestUtils {
         task.waitUntilFinished(); // 可以等待任务完成
     }
 
-    public static void downloadIcon(String id, String secret, String token) {
+    public static void downloadIcon(String id, String secret, final String token) {
         String endpoint = "http://oss.xinzhiying.net";
         // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
         OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
-        OSS oss = new OSSClient(UIUtils.getContext(), endpoint, credentialProvider);
-        GetObjectRequest get = new GetObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", ""));
+        final OSS oss = new OSSClient(UIUtils.getContext(), endpoint, credentialProvider);
+        GetObjectRequest get = new GetObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "")+"_icon");
         OSSAsyncTask task = oss.asyncGetObject(get, new OSSCompletedCallback<GetObjectRequest, GetObjectResult>() {
             @Override
             public void onSuccess(GetObjectRequest request, GetObjectResult result) {
                 // 请求成功
                 InputStream inputStream = result.getObjectContent();
+                try {
+                    OutputStream os = new FileOutputStream(new File(Environment.getExternalStorageDirectory(),"crop_icon.jpg"));
+
                 byte[] buffer = new byte[2048];
                 int len;
-                try {
+                StringBuilder stringBuilder = new StringBuilder();
                     while ((len = inputStream.read(buffer)) != -1) {
                         // 处理下载的数据
+                        os.write(buffer,0,len);
                     }
+                 os.close();
+                    inputStream.close();
+                    SPUtils.putBoolean(MyApplication.getContext(), "isCache",true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -164,6 +175,7 @@ public class RequestUtils {
                 }
             }
         });
+        task.waitUntilFinished(); // 可以等待任务完成
 
     }
 }
