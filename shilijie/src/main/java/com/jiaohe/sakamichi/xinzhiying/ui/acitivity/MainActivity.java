@@ -22,10 +22,11 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.google.gson.Gson;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
@@ -50,9 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView mIv_camera;
     private ViewPager mVp_content;
     private ImageButton mIb_menu;
-
-    private static final int RESULT_LOAD_IMAGE = 1;
-    private static final int RESULT_CROP_IMAGE = 2;
+    private String phone;
+    private String token ;
     private final String path = Environment.getExternalStorageDirectory() + "/crop_icon.jpg";
     private ImageView mIv_slide_icon;
     private EditText mEt_search;
@@ -75,19 +75,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        initData();
         UIUtils.initStateBar(MainActivity.this); //设置透明状态栏
         initView(); //初始化MainActivity中控件
         initSlideMenuView(); //初始化侧边栏中控件
+
         initUserIcon();
         initUserMsg();
     }
 
+    private void initData() {
+        phone = SPUtils.getString(this, "phone", "");
+        token = SPUtils.getString(this, "token", "");
+
+    }
+
     private void initUserMsg() {
-
-
-
-
+        Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
+        if (isUpload){
+            System.out.println("走这了");
+            String nickname = SPUtils.getString(this, "nickname", "娇禾生物");
+            String sign = SPUtils.getString(this, "sign", "有人的地方就有江湖");
+            mTv_sign.setText(sign);
+            mTv_id.setText(nickname);
+        }else {
+            getInterUserInfo();
+        }
 
     }
 
@@ -95,11 +108,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
 
         if (isCache){
-            Glide.with(this).load(path).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(mIv_slide_icon);
             Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uriFromFilePath);
                 mIv_icon.setImageBitmap(bitmap);
+                mIv_slide_icon.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -128,7 +141,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTv_location = (TextView) findViewById(R.id.tv_location);
         LinearLayout ll_address = (LinearLayout) findViewById(R.id.ll_address);
         LinearLayout authentication = (LinearLayout) findViewById(R.id.ll_authentication);
-        LinearLayout join = (LinearLayout) findViewById(R.id.ll_join);
         LinearLayout favourite = (LinearLayout) findViewById(R.id.ll_favourite);
         LinearLayout market = (LinearLayout) findViewById(R.id.ll_market);
         LinearLayout order = (LinearLayout) findViewById(R.id.ll_order);
@@ -192,50 +204,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onRestart() {
         super.onRestart();
         initUserIcon();
+        uploadUserMsg();
+        initUserMsg();
     }
 
-    /**
-     * 打开
-     */
-    private void choosePic() {
-        Intent i = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(i, RESULT_LOAD_IMAGE);
+    private void uploadUserMsg() {
+        Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
+        if (isUpload){
+            UserInfoBean userInfoBean = new UserInfoBean();
+            userInfoBean.setUsername(SPUtils.getString(this,"nickname","娇禾生物"));
+            userInfoBean.setSignature(SPUtils.getString(this,"sign","有人的地方就有江湖"));
+            Gson mGson = new Gson();
+            String json = mGson.toJson(userInfoBean);
+            //上传
+            upLoadUserInfo(json);
+        }
+
+
     }
 
-    /**
-     * 获取STS认证
-     */
-    private void requestSTS() {
-        String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "")
-                + "&token=" + SPUtils.getString(UIUtils.getContext(), "token", "");
-        RequestUtils.postJsonRequest(ConstantValues.GET_STS_URL, body, UIUtils.getContext(),
+    private void upLoadUserInfo(String json) {
+        //String phone = SPUtils.getString(this, "phone", "");
+        //String token = SPUtils.getString(this, "token", "");
+        String body ="phone="+phone+"&token="+token+"&data="+json;
+        RequestUtils.postJsonRequest(ConstantValues.CHANGE_USER_INFO, body, UIUtils.getContext(),
                 new VolleyInterface(UIUtils.getContext(),
                         VolleyInterface.mResponseListener,
                         VolleyInterface.mErrorListener) {
                     @Override
                     public void onSuccess(JSONObject response) {
                         try {
-                            String id = response.getString("accessKeyId");
-                            String secret = response.getString("accessKeySecret");
-                            String securityToken = response.getString("securityToken");
-                            //获取STS成功 请求上传头像
-                            RequestUtils.updateIcon(id, secret, securityToken, path);
-                            //straightUpload(id, secret, securityToken);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            String result = response.getString("result");
+                            if (result.equals("RC100")){
+                                System.out.println("上传成功");
+                                SPUtils.putBoolean(getApplicationContext(),"isUpload",false);
+                            }
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
                         }
                     }
-
                     @Override
                     public void onError(VolleyError error) {
                     }
                 });
+
+
     }
 
+
     public void getInterImage() {
-        String body = "phone=" + SPUtils.getString(UIUtils.getContext(), "phone", "")
-                + "&token=" + SPUtils.getString(UIUtils.getContext(), "token", "");
+        String body = "phone=" + phone
+                + "&token=" + token;
         RequestUtils.postJsonRequest(ConstantValues.ICON_GETHEAD_URL, body, UIUtils.getContext(),
                 new VolleyInterface(UIUtils.getContext(),
                         VolleyInterface.mResponseListener,
@@ -258,19 +277,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         saveMyBitmap(resource);
                                     }
                                 });
-
                             }
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-
                     @Override
                     public void onError(VolleyError error) {
                     }
                 });
+    }
+    /**
+     * @param bitmap 剪裁后获取bitmap保存为本地jpg
+     */
+    public void saveMyBitmap(Bitmap bitmap) {
+        File file = new File(Environment.getExternalStorageDirectory(), "crop_icon.jpg");
+        try {
+            file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //获取用户信息
+    public void getInterUserInfo() {
+        String body = "phone="+phone+"&token="+token;
+        RequestUtils.postJsonRequest(ConstantValues.GET_USER_INFO, body, UIUtils.getContext(),
+                new VolleyInterface(UIUtils.getContext(),
+                        VolleyInterface.mResponseListener,
+                        VolleyInterface.mErrorListener) {
+                    @Override
+                    public void onSuccess(JSONObject response) {
+                        try {
+                            String result = response.getString("result");
+                            if (result.equals("RC100")){
+                                String data = response.getString("data");
+                                System.out.println("----"+data);
+                                Gson gson = new Gson();
+                                UserInfoBean userInfoBean = gson.fromJson(data, UserInfoBean.class);
+                                mTv_sign.setText(userInfoBean.getSignature());
+                                mTv_id.setText(userInfoBean.getUsername());
+                                SPUtils.putString(getApplicationContext(),"nickname",userInfoBean.getUsername());
+                                System.out.println("----"+userInfoBean.getUsername());
+                                SPUtils.putBoolean(getApplicationContext(),"isUpload",false);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public void onError(VolleyError error) {
+                    }
+                });
+
+
     }
 
     class MainPagerAdapter extends FragmentPagerAdapter {
@@ -289,68 +353,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data != null) {
-            switch (requestCode) {
-                case RESULT_LOAD_IMAGE:
-                    if (data.getData() != null) {
-                        Uri iconUri = data.getData();
-                        startCropImage(iconUri); //剪裁开始
-                    }
-                    break;
-                case RESULT_CROP_IMAGE:
-                    Bundle extras = data.getExtras();
-                    if (extras != null) {
-                        Bitmap photo = extras.getParcelable("data");
-                        saveMyBitmap(photo); // 保存裁剪后的图片到SD  
-                    }
-                    //图片剪裁并保存完毕，准备上传
-                    requestSTS();
-                    break;
-            }
-        }
-    }
 
-    /**
-     * @param uri 需要剪裁照片的uri
-     *            开启系统的剪裁界面
-     */
-    public void startCropImage(Uri uri) {
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(uri, "image/*");
-        // 图片处于可裁剪状态
-        intent.putExtra("crop", "true");
-        // aspectX aspectY 是宽高的比例
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        // 是否之处缩放
-        intent.putExtra("scale", true);
-        // 设置图片的输出大小, 对于普通的头像,应该设置一下,可提高头像的上传速度
-        intent.putExtra("outputX", 300);
-        intent.putExtra("outputY", 300);
-        // 设置图片输出格式
-        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-        intent.putExtra("return-data", true);
-        // 关闭人脸识别
-        intent.putExtra("noFaceDetection", false);
-        startActivityForResult(intent, RESULT_CROP_IMAGE);
-    }
 
-    /**
-     * @param bitmap 剪裁后获取bitmap保存为本地jpg
-     */
-    public void saveMyBitmap(Bitmap bitmap) {
-        File file = new File(Environment.getExternalStorageDirectory(), "crop_icon.jpg");
-        try {
-            file.createNewFile();
-            FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-            fos.flush();
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 }

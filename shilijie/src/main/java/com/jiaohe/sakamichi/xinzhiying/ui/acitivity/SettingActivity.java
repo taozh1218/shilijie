@@ -8,22 +8,24 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
+import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
@@ -46,11 +48,11 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     public static String photoDir = Environment.getExternalStorageDirectory() + "/";
     private final String path = Environment.getExternalStorageDirectory() + "/crop_icon.jpg";
     private Uri imageUriFromCamera;
-    private RelativeLayout ll_icon;
-    private PopupWindow mPopupWindow;
-    private ImageView iv_icon;
+    private RelativeLayout ll_icon,ll_nickname;
+    private PopupWindow mPopupWindow,nicknamePopup;
+    private AvatarImageView iv_icon;
     private TextView mTv_nickname;
-    private TextView mTv_sign;
+    private EditText ed_nickname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,52 +64,48 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         initData();
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        if (SPUtils.getBoolean(this, "isResult", Boolean.FALSE)) {
-            mTv_nickname.setText(SPUtils.getString(this, "nickname", "娇禾生物"));
-        }
-        if (SPUtils.getBoolean(this, "isSignature", Boolean.FALSE)) {
-            mTv_sign.setText(SPUtils.getString(this, "signature", "有人的地方就有江湖"));
-        }
-    }
+
 
     private void initData() {
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
+        //Boolean isUpload = SPUtils.getBoolean(this, "isUpload", true);
         if (isCache) {
-            Glide.with(this).load(path).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_icon);
+            Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uriFromFilePath);
+                iv_icon.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+       // if (isUpload){
+            String nickname = SPUtils.getString(this, "nickname", "娇禾生物");
+            mTv_nickname.setText(nickname);
+       // }
     }
 
     private void initView() {
         ImageButton ib_back = (ImageButton) findViewById(R.id.ib_back);
         mTv_nickname = (TextView) findViewById(R.id.tv_nickname);
-        mTv_sign = (TextView) findViewById(R.id.tv_sign);
 
         ib_back.setOnClickListener(this);
         mTv_nickname.setOnClickListener(this);
-        mTv_sign.setOnClickListener(this);
 
         ll_icon = (RelativeLayout) findViewById(R.id.ll_icon);
         ll_icon.setOnClickListener(this);
-        iv_icon = (ImageView) findViewById(R.id.iv_icon);
+        iv_icon = (AvatarImageView) findViewById(R.id.iv_icon);
+        ll_nickname= (RelativeLayout) findViewById(R.id.ll_nickname);
+        ll_nickname.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        Intent intent;
         switch (v.getId()) {
             case R.id.ib_back:
                 finish();
                 break;
-            case R.id.tv_nickname:
-               /* intent = new Intent(this, ChangeNameActivity.class);
-                startActivity(intent);*/
-                break;
-            case R.id.tv_sign:
-                /*intent = new Intent(this, ChangeSignatureActivity.class);
-                startActivity(intent);*/
+            case R.id.ll_nickname:
+                changeNickname();
                 break;
             case R.id.ll_icon:
                 chagenUserIcon();
@@ -121,7 +119,31 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.button_album:
                 pickImageFromAlbum();
                 break;
+            case R.id.button_determime:
+                String nickname = ed_nickname.getText().toString().trim();
+                if (TextUtils.isEmpty(nickname)){
+                    Toast.makeText(this, "昵称不能为空", Toast.LENGTH_SHORT).show();
+                }else {
+                    SPUtils.putString(this,"nickname",nickname);
+                    SPUtils.putBoolean(this,"isUpload",true);
+                    nicknamePopup.dismiss();
+                    mTv_nickname.setText(nickname);
+                }
+                break;
         }
+    }
+
+
+    private void changeNickname() {
+        View nicknameLayout = LayoutInflater.from(this).inflate(R.layout.layout_nickname_popupwindow, null);
+        nicknamePopup = new PopupWindow(nicknameLayout,WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT,true);
+        ed_nickname= (EditText) nicknameLayout.findViewById(R.id.et_nickname);
+        Button button_determine= (Button) nicknameLayout.findViewById(R.id.button_determime);
+        button_determine.setOnClickListener(this);
+        nicknamePopup.setFocusable(true);
+        nicknamePopup.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+        nicknamePopup.showAtLocation(ll_icon, Gravity.CENTER, 0, 0);
+
     }
 
     private void pickImageFromAlbum() {
@@ -159,13 +181,22 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case RESULT_LOAD_IMAGE:
+                if (resultCode == RESULT_CANCELED) {   //取消操作
+                    return;
+                }
                 Uri iconUri = data.getData();
                 startCropImage(iconUri); //剪裁开始
                 break;
             case RESULT_CAMERA_IMAGE:
+                if (resultCode == RESULT_CANCELED) {
+                    return;
+                }
                 startCropImage(imageUriFromCamera);
                 break;
             case RESULT_CROP_IMAGE:
+                if (resultCode == RESULT_CANCELED) {
+                    return;
+                }
                 if (data == null) {
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUriFromCamera);
@@ -173,13 +204,12 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                         SPUtils.putBoolean(this, "isCache", true);
                         iv_icon.setImageBitmap(bitmap);
                         saveMyBitmap(bitmap);
-
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 } else {
-
-                    Bitmap photo = data.getExtras().getParcelable("data");
+                    Bundle extras = data.getExtras();
+                    Bitmap photo = extras.getParcelable("data");
                     iv_icon.setImageBitmap(photo);
                     mPopupWindow.dismiss();
                     SPUtils.putBoolean(this, "isCache", true);
