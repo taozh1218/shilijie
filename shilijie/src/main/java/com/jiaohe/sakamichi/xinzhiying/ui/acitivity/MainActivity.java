@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
@@ -28,6 +29,7 @@ import com.google.gson.Gson;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
+import com.jiaohe.sakamichi.xinzhiying.ui.fragment.FragmentFactory;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager mVp_content;
     private ImageButton mIb_menu;
     private String phone;
-    private String token ;
+    private String token;
     private final String path = Environment.getExternalStorageDirectory() + "/crop_icon.jpg";
     private ImageView mIv_slide_icon;
     private EditText mEt_search;
@@ -92,13 +94,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initUserMsg() {
         Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
-        if (isUpload){
+        if (isUpload) {
             System.out.println("走这了");
             String nickname = SPUtils.getString(this, "nickname", "娇禾生物");
             String sign = SPUtils.getString(this, "sign", "有人的地方就有江湖");
             mTv_sign.setText(sign);
             mTv_id.setText(nickname);
-        }else {
+        } else {
             getInterUserInfo();
         }
 
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initUserIcon() {
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
 
-        if (isCache){
+        if (isCache) {
             Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uriFromFilePath);
@@ -116,13 +118,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             getInterImage();
         }
 
     }
 
     private void initSlideMenuView() {
+        RadioGroup rg_navi = (RadioGroup) findViewById(R.id.rg_navi);
         mEt_search = (EditText) findViewById(R.id.et_search);
         mIv_slide_icon = (ImageView) findViewById(R.id.iv_slide_icon);
         mIv_qr = (ImageView) findViewById(R.id.iv_qr);
@@ -151,6 +154,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_qr.setOnClickListener(this);
         mIv_scan.setOnClickListener(this);
         config.setOnClickListener(this);
+        //设置radiogroup
+        rg_navi.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rb_fame:
+                        mVp_content.setCurrentItem(0, false);
+                        break;
+                    case R.id.rb_map:
+                        mVp_content.setCurrentItem(1, false);
+                        break;
+                    case R.id.rb_relation:
+                        mVp_content.setCurrentItem(2, false);
+                        break;
+                    case R.id.rb_circle:
+                        mVp_content.setCurrentItem(3, false);
+                        break;
+                }
+            }
+        });
     }
 
     private void initView() {
@@ -173,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_camera:
-                
+
                 break;
             case R.id.iv_scan:
                 //跳转到扫一扫页面
@@ -210,10 +233,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void uploadUserMsg() {
         Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
-        if (isUpload){
+        if (isUpload) {
             UserInfoBean userInfoBean = new UserInfoBean();
-            userInfoBean.setUsername(SPUtils.getString(this,"nickname","娇禾生物"));
-            userInfoBean.setSignature(SPUtils.getString(this,"sign","有人的地方就有江湖"));
+            userInfoBean.setUsername(SPUtils.getString(this, "nickname", "娇禾生物"));
+            userInfoBean.setSignature(SPUtils.getString(this, "sign", "有人的地方就有江湖"));
             Gson mGson = new Gson();
             String json = mGson.toJson(userInfoBean);
             //上传
@@ -226,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void upLoadUserInfo(String json) {
         //String phone = SPUtils.getString(this, "phone", "");
         //String token = SPUtils.getString(this, "token", "");
-        String body ="phone="+phone+"&token="+token+"&data="+json;
+        String body = "phone=" + phone + "&token=" + token + "&data=" + json;
         RequestUtils.postJsonRequest(ConstantValues.CHANGE_USER_INFO, body, UIUtils.getContext(),
                 new VolleyInterface(UIUtils.getContext(),
                         VolleyInterface.mResponseListener,
@@ -235,14 +258,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onSuccess(JSONObject response) {
                         try {
                             String result = response.getString("result");
-                            if (result.equals("RC100")){
+                            if (result.equals("RC100")) {
                                 System.out.println("上传成功");
-                                SPUtils.putBoolean(getApplicationContext(),"isUpload",false);
+                                SPUtils.putBoolean(getApplicationContext(), "isUpload", false);
                             }
                         } catch (JSONException e1) {
                             e1.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(VolleyError error) {
                     }
@@ -263,12 +287,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onSuccess(JSONObject response) {
                         try {
                             String result = response.getString("result");
-                            System.out.println("----请求成功"+result);
-                            if (result.equals("RC100")){
+                            System.out.println("----请求成功" + result);
+                            if (result.equals("RC100")) {
                                 //图片在服务器上的地址
                                 System.out.println("----请求成功");
                                 String imgurl = response.getString("imgurl");
-                                System.out.println("----请求成功"+imgurl);
+                                System.out.println("----请求成功" + imgurl);
                                 Glide.with(getApplicationContext()).load(imgurl).asBitmap().into(new SimpleTarget<Bitmap>() {
                                     @Override
                                     public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
@@ -283,11 +307,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             e.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(VolleyError error) {
                     }
                 });
     }
+
     /**
      * @param bitmap 剪裁后获取bitmap保存为本地jpg
      */
@@ -303,9 +329,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
     }
+
     //获取用户信息
     public void getInterUserInfo() {
-        String body = "phone="+phone+"&token="+token;
+        String body = "phone=" + phone + "&token=" + token;
         RequestUtils.postJsonRequest(ConstantValues.GET_USER_INFO, body, UIUtils.getContext(),
                 new VolleyInterface(UIUtils.getContext(),
                         VolleyInterface.mResponseListener,
@@ -314,21 +341,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onSuccess(JSONObject response) {
                         try {
                             String result = response.getString("result");
-                            if (result.equals("RC100")){
+                            if (result.equals("RC100")) {
                                 String data = response.getString("data");
-                                System.out.println("----"+data);
+                                System.out.println("----" + data);
                                 Gson gson = new Gson();
                                 UserInfoBean userInfoBean = gson.fromJson(data, UserInfoBean.class);
                                 mTv_sign.setText(userInfoBean.getSignature());
                                 mTv_id.setText(userInfoBean.getUsername());
-                                SPUtils.putString(getApplicationContext(),"nickname",userInfoBean.getUsername());
-                                System.out.println("----"+userInfoBean.getUsername());
-                                SPUtils.putBoolean(getApplicationContext(),"isUpload",false);
+                                SPUtils.putString(getApplicationContext(), "nickname", userInfoBean.getUsername());
+                                System.out.println("----" + userInfoBean.getUsername());
+                                SPUtils.putBoolean(getApplicationContext(), "isUpload", false);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(VolleyError error) {
                     }
@@ -344,16 +372,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public Fragment getItem(int position) {
-            return null;
+            return FragmentFactory.create(position);
         }
 
         @Override
         public int getCount() {
-            return 0;
+            return 4;
         }
     }
-
-
 
 
 }
