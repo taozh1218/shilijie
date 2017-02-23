@@ -92,7 +92,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="已认证："
+                        android:text="未认证："
                         android:textColor="#FFFFFF"
                         android:textSize="11sp"/>
 
@@ -130,7 +130,7 @@
                         android:id="@+id/tv_sign"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="签名：有人的地方就有江湖"
+                        android:text="签名：编辑个性签名"
                         android:layout_alignParentRight="true"
                         android:textColor="#FFFFFF"
                         android:textSize="11sp"/>
@@ -169,7 +169,7 @@
             android:maxLength="20"
             android:textColor="#FEFFFF"
             android:textColorHint="#FEFFFF"
-            android:textSize="9sp"/>
+            android:textSize="11sp"/>
 
         <ImageView
             android:id="@+id/iv_scan"
@@ -320,7 +320,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
-            android:layout_marginTop="21dp"
+            android:layout_marginTop="27dp"
             android:gravity="center_vertical">
 
             <ImageView

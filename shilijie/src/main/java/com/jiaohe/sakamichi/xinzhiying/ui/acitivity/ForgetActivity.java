@@ -177,7 +177,6 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
                 //拿到短信后启用手机号码输入
                 mEt_phone.setInputType(InputType.TYPE_CLASS_PHONE);
             }
-
             @Override
             public void onError(VolleyError error) {
                 VolleyLog.d(tag, "获取失败 请重新获取验证码");
