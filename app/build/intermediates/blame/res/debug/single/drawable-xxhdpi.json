@@ -1,0 +1,390 @@
+[
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_menu_qr.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_menu_qr.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\img_cb.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\img_cb.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\img_account.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\img_account.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\btn_enter.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\btn_enter.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\dian_grey.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\dian_grey.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_selector_disabled_holo_dark.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\dian_white.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\dian_white.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\btn_return.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\btn_return.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_menu_scan.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_menu_scan.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\photo_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\photo_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_voice_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_pressed_holo_dark.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_menu_share_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\input_cursor.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\input_cursor.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_btn_check_to_on_mtrl_015.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_textfield_default_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\location.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\location.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_market_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_market_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\btn_bg.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\btn_bg.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\qi_grey.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\qi_grey.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_text_cursor_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_text_cursor_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\map_check.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\map_check.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\circle_uncheck.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\circle_uncheck.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\title.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\title.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\btn_confirm.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\btn_confirm.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\input_bg.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\input_bg.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_menu_search.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_menu_search.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_btn_rating_star_on_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_menu_divider.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_menu_divider.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\img_password.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\img_password.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\setting_bg2.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\setting_bg2.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_pressed_holo_light.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_config.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_config.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_btn_radio_to_on_mtrl_000.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\et_background.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\et_background.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\actionbar_high.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\actionbar_high.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\relation_uncheck.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\relation_uncheck.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\default_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\default_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_btn_radio_to_on_mtrl_015.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\fame_uncheck.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\fame_uncheck.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_address_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_address_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\circle_check.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\circle_check.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_focused_holo.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_selector_disabled_holo_light.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\scan_qrcode_bg.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\scan_qrcode_bg.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\qi_white.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\qi_white.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\btn_login.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\btn_login.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\logo.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\wei_grey.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\wei_grey.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\back_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\back_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_menu_bg.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_menu_bg.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\navi_bg.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\navi_bg.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_favourite_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_favourite_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\fame_check.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\fame_check.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\icon_gallery.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\icon_gallery.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\menu_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\menu_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\setting_divider.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\setting_divider.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_search_bg.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_search_bg.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_wallet_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_wallet_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_longpressed_holo.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_clear_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_clear_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_divider_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_authentication_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_authentication_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\img_dividingline.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\img_dividingline.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_switch_track_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\icon_photograph.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\icon_photograph.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_join_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_join_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\img_background.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\img_background.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\setting_bg1.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\setting_bg1.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\wei_white.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\wei_white.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_popup_background_mtrl_mult.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_order_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_order_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\map_uncheck.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\map_uncheck.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_search_api_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_go_search_api_mtrl_alpha.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_ic_go_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\slide_menu_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\slide_menu_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xxhdpi\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\relation_check.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\relation_check.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\btn_cert.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-xxhdpi\\btn_cert.png"
+    }
+]
