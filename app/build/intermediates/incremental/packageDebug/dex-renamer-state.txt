@@ -1,0 +1,7 @@
+#Wed Feb 22 15:00:28 CST 2017
+base.0=C\:\\workplace_of_git\\app\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_dcbe272c3a1dda989e2fff302e022fd9c3f326a9
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\workplace_of_git\\app\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_5e760d0051b9ecb71fdc755f8ba1992e4e445118\\classes.dex
+base.1=C\:\\workplace_of_git\\app\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_5e760d0051b9ecb71fdc755f8ba1992e4e445118
+file.0=C\:\\workplace_of_git\\app\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_dcbe272c3a1dda989e2fff302e022fd9c3f326a9\\classes.dex

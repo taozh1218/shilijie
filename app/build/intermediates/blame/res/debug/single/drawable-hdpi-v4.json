@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_identify_code_press.xml",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-hdpi\\bg_identify_code_press.xml"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_identify_code_normal.xml",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\drawable-hdpi\\bg_identify_code_normal.xml"
+    }
+]

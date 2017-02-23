@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E5E5"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#FFFFFF"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="22dp"
+            android:background="@drawable/btn_return"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="27dp"
+            android:layout_toRightOf="@id/ib_back"
+            android:text="注册"
+            android:textColor="#2f2f2f"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/toolbar_dropshadow"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="#FFFFFF"
+        android:paddingLeft="19dp">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:hint="请输入手机号码"
+            android:inputType="phone"
+            android:textColor="#393939"
+            android:textSize="13sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:paddingLeft="19dp">
+
+        <com.jiaohe.sakamichi.xinzhiying.ui.view.CountButton
+            android:id="@+id/btn_cert"
+            android:layout_width="95dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="19dp"
+            android:background="@drawable/btn_cert"
+            android:text="获取验证码"
+            android:textColor="#54BCAF"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/et_cert_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/btn_cert"
+            android:background="@null"
+            android:hint="请输入短信验证码"
+            android:inputType="number"
+            android:textColor="#393939"
+            android:textSize="13sp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:paddingLeft="19dp">
+
+        <EditText
+            android:id="@+id/et_pw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:focusableInTouchMode="true"
+            android:hint="请设置密码"
+            android:inputType="textPassword"
+            android:textColor="#393939"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_reg"
+        android:layout_width="317dp"
+        android:layout_height="46dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/btn_bg"
+        android:text="确定"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册/登录代表您已同意十里街"
+            android:textColor="#848484"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/tv_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《用户协议》"
+            android:textColor="#709EFC"
+            android:textSize="10sp"/>
+    </LinearLayout>
+</LinearLayout>
