@@ -69,31 +69,21 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.acitivity.LoginActivity"
-            android:theme="@style/LoginTheme">
-        </activity>
-        <activity android:name=".ui.acitivity.RegActivity">
-        </activity>
-        <activity android:name=".ui.acitivity.ForgetActivity">
-        </activity>
-        <activity android:name=".ui.acitivity.MainActivity">
-        </activity>
-        <activity android:name=".ui.acitivity.SettingActivity">
-        </activity>
-        <activity android:name=".ui.acitivity.QRCodeActivity">
-        </activity>
-        <activity android:name=".ui.acitivity.ScanActivity">
-        </activity>
-        <activity android:name=".ui.acitivity.SysSettingActivity">
-        </activity>
-        <activity android:name=".ui.acitivity.ChangeSignatureActivity">
-        </activity>
-        
+            android:theme="@style/LoginTheme"/>
+        <activity android:name=".ui.acitivity.RegActivity"/>
+        <activity android:name=".ui.acitivity.ForgetActivity"/>
+        <activity android:name=".ui.acitivity.MainActivity"/>
+        <activity android:name=".ui.acitivity.SettingActivity"/>
+        <activity android:name=".ui.acitivity.QRCodeActivity"/>
+        <activity android:name=".ui.acitivity.ScanActivity"/>
+        <activity android:name=".ui.acitivity.SysSettingActivity"/>
+        <activity android:name=".ui.acitivity.ChangeSignatureActivity"></activity>
+
 
         <!-- 设置环信应用的 appkey 换成自己的-->
         <meta-data
