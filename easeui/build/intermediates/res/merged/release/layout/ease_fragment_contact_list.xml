@@ -6,11 +6,11 @@
     android:background="@color/common_bg"
     android:orientation="vertical">
 
-    <com.hyphenate.easeui.widget.EaseTitleBar
+    <!--<com.hyphenate.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        hyphenate:titleBarTitle="@string/address_book" />
+        hyphenate:titleBarTitle="@string/address_book" />-->
 
     <include
         android:id="@+id/search_bar_view"
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
             <!-- hyphenate:ctsListInitialLetterBg="#abc" -->
-
+        
     </FrameLayout>
 
 </LinearLayout>

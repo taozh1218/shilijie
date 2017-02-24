@@ -1,13 +1,45 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.jiaohe.sakamichi.xinzhiying.ui.fragment.RelationFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/fl_root_relation"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.jiaohe.sakamichi.xinzhiying.ui.fragment.RelationFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RadioGroup
+        android:id="@+id/rg_selector"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="关系页面"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-</FrameLayout>
+        <RadioButton
+            android:id="@+id/rb_chat_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#0c00c0"
+            android:button="@null"
+            android:text="聊天"
+            android:textColor="#FFFFFF"/>
+
+        <RadioButton
+            android:id="@+id/rb_contact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ff0000"
+            android:button="@null"
+            android:text="好友"
+            android:textColor="#FFFFFF"/>
+    </RadioGroup>
+
+    <com.jiaohe.sakamichi.xinzhiying.ui.view.NoScrollViewPager
+        android:id="@+id/vp_chat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#cccccc">
+    </com.jiaohe.sakamichi.xinzhiying.ui.view.NoScrollViewPager>
+
+</LinearLayout>

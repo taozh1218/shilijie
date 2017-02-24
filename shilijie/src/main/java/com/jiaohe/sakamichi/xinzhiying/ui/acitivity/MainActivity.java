@@ -10,16 +10,15 @@ import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.alibaba.sdk.android.oss.ClientException;
@@ -36,6 +35,8 @@ import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
+import com.jiaohe.sakamichi.xinzhiying.ui.fragment.FragmentFactory;
+import com.jiaohe.sakamichi.xinzhiying.ui.fragment.RelationFragment;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.NoScrollViewPager;
 import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
@@ -61,10 +62,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DrawerLayout mDl_root;
     private AvatarImageView mIv_icon;
     private ImageView mIv_camera;
-    private ViewPager mVp_content;
+    private NoScrollViewPager mVp_content;
     private ImageButton mIb_menu;
     private String phone;
-    private String token ;
+    private String token;
     private final String path = Environment.getExternalStorageDirectory() + "/crop_icon.jpg";
     private ImageView mIv_slide_icon;
     private EditText mEt_search;
@@ -83,14 +84,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mTv_wind;
     private TextView mTv_location;
     private Handler handler = new Handler();
+    private RadioGroup mRg_navi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initData();
         UIUtils.initStateBar(MainActivity.this); //设置透明状态栏
+
         initView(); //初始化MainActivity中控件
         initSlideMenuView(); //初始化侧边栏中控件
+        initData();
+
         initUserIcon();
         initUserMsg();
     }
@@ -103,13 +108,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initUserMsg() {
         Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
-        LogUtils.d(""+isUpload);
-        if (isUpload){
+        LogUtils.d("" + isUpload);
+        if (isUpload) {
             String nickname = SPUtils.getString(this, "nickname", "娇禾生物");
             String sign = SPUtils.getString(this, "sign", "有人的地方就有江湖");
             mTv_sign.setText(sign);
             mTv_id.setText(nickname);
-        }else {
+        } else {
             getInterUserInfo();
         }
 
@@ -117,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initUserIcon() {
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
-        if (isCache){
+        if (isCache) {
             Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uriFromFilePath);
@@ -126,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             getInterImage();
         }
 
@@ -145,10 +150,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTv_phone = (TextView) findViewById(R.id.tv_phone);
         mTv_fame = (TextView) findViewById(R.id.tv_fame);
         mTv_sign = (TextView) findViewById(R.id.tv_sign);
-       /* mTv_weather = (TextView) findViewById(R.id.tv_weather);
-        mTv_temperature = (TextView) findViewById(R.id.tv_temperature);
-        mTv_wind = (TextView) findViewById(R.id.tv_wind);
-        mTv_location = (TextView) findViewById(R.id.tv_location);*/
         LinearLayout ll_address = (LinearLayout) findViewById(R.id.ll_address);
         LinearLayout ll_authentication = (LinearLayout) findViewById(R.id.ll_authentication);
         LinearLayout ll_favourite = (LinearLayout) findViewById(R.id.ll_favourite);
@@ -157,11 +158,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LinearLayout ll_wallet = (LinearLayout) findViewById(R.id.ll_wallet);
         LinearLayout ll_config = (LinearLayout) findViewById(R.id.ll_config);
         LinearLayout ll_sign = (LinearLayout) findViewById(R.id.ll_sign);
+
+
         mIv_slide_icon.setOnClickListener(this);
         mIv_qr.setOnClickListener(this);
         mIv_scan.setOnClickListener(this);
         ll_config.setOnClickListener(this);
         ll_sign.setOnClickListener(this);
+
     }
 
     private void initView() {
@@ -169,14 +173,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_icon = (AvatarImageView) findViewById(R.id.iv_icon);
         mIv_camera = (ImageView) findViewById(R.id.iv_camera);
         mIb_menu = (ImageButton) findViewById(R.id.ib_menu);
-        mVp_content = (ViewPager) findViewById(R.id.vp_content);
+        mVp_content = (NoScrollViewPager) findViewById(R.id.vp_content);
+        mRg_navi = (RadioGroup) findViewById(R.id.rg_navi);
 
         mIv_icon.setOnClickListener(this);
         mIv_camera.setOnClickListener(this);
         mIb_menu.setOnClickListener(this);
-
+        //绑定radiogroup和viewpager
         MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
         mVp_content.setAdapter(adapter);
+        mVp_content.setPagingEnabled(false);
+        mVp_content.setOffscreenPageLimit(2);
+        mRg_navi.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rb_fame:
+                        mVp_content.setCurrentItem(0, false);
+                        break;
+                    case R.id.rb_map:
+                        mVp_content.setCurrentItem(1, false);
+                        break;
+                    case R.id.rb_relation:
+                        mVp_content.setCurrentItem(2, false);
+                        break;
+                    case R.id.rb_circle:
+                        mVp_content.setCurrentItem(3, false);
+                        break;
+                }
+            }
+        });
     }
 
 
@@ -184,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_camera:
-                
+                //EMClient.getInstance().contactManager().addContact("");
                 break;
             case R.id.iv_scan:
                 //跳转到扫一扫页面
@@ -211,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ll_sign:
                 //跳转到签名页面
-                Intent intent_sign=new Intent(MainActivity.this,ChangeSignatureActivity.class);
+                Intent intent_sign = new Intent(MainActivity.this, ChangeSignatureActivity.class);
                 startActivity(intent_sign);
                 break;
         }
@@ -227,10 +253,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void uploadUserMsg() {
         Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
-        if (isUpload){
+        if (isUpload) {
             UserInfoBean userInfoBean = new UserInfoBean();
-            userInfoBean.setUsername(SPUtils.getString(this,"nickname","娇禾生物"));
-            userInfoBean.setSignature(SPUtils.getString(this,"sign","有人的地方就有江湖"));
+            userInfoBean.setUsername(SPUtils.getString(this, "nickname", "娇禾生物"));
+            userInfoBean.setSignature(SPUtils.getString(this, "sign", "有人的地方就有江湖"));
             Gson mGson = new Gson();
             String json = mGson.toJson(userInfoBean);
             //上传
@@ -241,7 +267,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void upLoadUserInfo(String json) {
-        String body ="phone="+phone+"&token="+token+"&data="+json;
+        String body = "phone=" + phone + "&token=" + token + "&data=" + json;
         RequestUtils.postJsonRequest(ConstantValues.CHANGE_USER_INFO, body, UIUtils.getContext(),
                 new VolleyInterface(UIUtils.getContext(),
                         VolleyInterface.mResponseListener,
@@ -250,13 +276,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onSuccess(JSONObject response) {
                         try {
                             String result = response.getString("result");
-                            if (result.equals("RC100")){
-                                SPUtils.putBoolean(getApplicationContext(),"isUpload",false);
+                            if (result.equals("RC100")) {
+                                SPUtils.putBoolean(getApplicationContext(), "isUpload", false);
                             }
                         } catch (JSONException e1) {
                             e1.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(VolleyError error) {
                     }
@@ -302,17 +329,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
                 OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, securityToken);
                 OSS oss = new OSSClient(UIUtils.getContext(), endpoint, credentialProvider);
-                GetObjectRequest get = new GetObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "")+"_icon");
+                GetObjectRequest get = new GetObjectRequest("jiaohe", "images/app/headimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_icon");
                 try {
-                    GetObjectResult getResult  = oss.getObject(get);
+                    GetObjectResult getResult = oss.getObject(get);
                     //
                     InputStream inputStream = getResult.getObjectContent();
-                    OutputStream os = new FileOutputStream(new File(Environment.getExternalStorageDirectory(),"crop_icon.jpg"));
+                    OutputStream os = new FileOutputStream(new File(Environment.getExternalStorageDirectory(), "crop_icon.jpg"));
                     byte[] buffer = new byte[2048];
                     int len;
                     while ((len = inputStream.read(buffer)) != -1) {
                         // 处理下载的数据，比如图片展示或者写入文件等
-                        os.write(buffer,0,len);
+                        os.write(buffer, 0, len);
                     }
                     handler.post(new Runnable() {
                         @Override
@@ -328,7 +355,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             mIv_slide_icon.setImageBitmap(bitmap);
                         }
                     });
-                    SPUtils.putBoolean(MyApplication.getContext(), "isCache",true);
+                    SPUtils.putBoolean(MyApplication.getContext(), "isCache", true);
                     os.close();
                     inputStream.close();
                 } catch (ClientException e) {
@@ -340,14 +367,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }).start();
-
-
-
     }
 
     //获取用户信息
     public void getInterUserInfo() {
-        String body = "phone="+phone+"&token="+token;
+        String body = "phone=" + phone + "&token=" + token;
         RequestUtils.postJsonRequest(ConstantValues.GET_USER_INFO, body, UIUtils.getContext(),
                 new VolleyInterface(UIUtils.getContext(),
                         VolleyInterface.mResponseListener,
@@ -356,19 +380,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onSuccess(JSONObject response) {
                         try {
                             String result = response.getString("result");
-                            if (result.equals("RC100")){
+                            if (result.equals("RC100")) {
                                 String data = response.getString("data");
                                 Gson gson = new Gson();
                                 UserInfoBean userInfoBean = gson.fromJson(data, UserInfoBean.class);
                                 mTv_sign.setText(userInfoBean.getSignature());
                                 mTv_id.setText(userInfoBean.getUsername());
-                                SPUtils.putString(getApplicationContext(),"nickname",userInfoBean.getUsername());
-                                SPUtils.putBoolean(getApplicationContext(),"isUpload",false);
+                                SPUtils.putString(getApplicationContext(), "nickname", userInfoBean.getUsername());
+                                SPUtils.putBoolean(getApplicationContext(), "isUpload", false);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(VolleyError error) {
                     }
@@ -384,16 +409,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public Fragment getItem(int position) {
-            return null;
+            if (position == 2) {
+                return new RelationFragment();
+            }
+            return FragmentFactory.create(position);
         }
 
         @Override
         public int getCount() {
-            return 0;
+            return 4;
         }
+        
+        
     }
-
-
 
 
 }

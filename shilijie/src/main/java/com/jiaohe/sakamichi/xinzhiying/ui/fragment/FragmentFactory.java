@@ -20,9 +20,9 @@ public class FragmentFactory {
                 case 1:
                     mFragment = new MapFragment();
                     break;
-                case 2:
+                /*case 2:
                     mFragment = new RelationFragment();
-                    break;
+                    break;*/
                 case 3:
                     mFragment = new CircleFragment();
                     break;

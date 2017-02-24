@@ -122,7 +122,6 @@ public class EaseContactListFragment extends EaseBaseFragment {
                     clearSearch.setVisibility(View.VISIBLE);
                 } else {
                     clearSearch.setVisibility(View.INVISIBLE);
-                    
                 }
             }
 

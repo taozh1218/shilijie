@@ -10,9 +10,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
+import com.hyphenate.easeui.controller.EaseUI;
+import com.hyphenate.easeui.domain.EaseUser;
 
 import java.util.Iterator;
 import java.util.List;
+
+import static com.hyphenate.easeui.utils.EaseUserUtils.getUserInfo;
 
 /**
  * Created by sakamichi on 16/10/2.
@@ -87,6 +91,16 @@ public class MyApplication extends Application {
 
         // 设置开启debug模式
         EMClient.getInstance().setDebugMode(true);
+        // 初始化EaseUI
+        EaseUI easeUI = EaseUI.getInstance();
+        easeUI.init(mContext, initOptions());
+        //设置用户信息提供器
+        easeUI.setUserProfileProvider(new EaseUI.EaseUserProfileProvider() {
+            @Override
+            public EaseUser getUser(String username) {
+                return getUserInfo(username);
+            }
+        });
 
         // 设置初始化已经完成
         isInit = true;
