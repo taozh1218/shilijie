@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\back_icon.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\mipmap-xxhdpi\\back_icon.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\img_line.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\mipmap-xxhdpi\\img_line.png"
+    }
+]

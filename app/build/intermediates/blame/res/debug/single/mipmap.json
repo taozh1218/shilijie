@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap\\ic_launcher.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\mipmap\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap\\eye_black_16.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\mipmap\\eye_black_16.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap\\eye_yellow16.png",
+        "source": "C:\\workplace_of_git\\app\\app\\src\\main\\res\\mipmap\\eye_yellow16.png"
+    }
+]

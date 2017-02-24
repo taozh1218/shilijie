@@ -66,11 +66,20 @@ public class ConstantValues {
     public static final String ICON_GETHEAD_URL=SERVER_URL+"/getHeadImgUrl";
 
     /**
-     * 用户用户上传信息地址
+     * 用户上传信息地址
      */
     public static final String CHANGE_USER_INFO = SERVER_URL+"/editUser";
     /**
      * 获取用户信息的地址
      */
     public static final String GET_USER_INFO=SERVER_URL+"/getUser";
+    /**
+     * 用户退出地址
+     */
+    public static final String USER_LOGOUT_URL=SERVER_URL+"/userLogout";
+    /**
+     * 用户更改密码
+     */
+    public static final String USER_RESET_PWD=SERVER_URL+"/updatePass";
+
 }

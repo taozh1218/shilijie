@@ -40,6 +40,7 @@
             android:layout_marginLeft="5dp"
             android:background="@null"
             android:hint="手机 / 邮箱 / 用户名"
+            android:textColorHint="#979797"
             android:inputType="number"
             android:textCursorDrawable="@null"
             android:textSize="12sp"/>
@@ -70,6 +71,7 @@
             android:layout_marginLeft="5dp"
             android:background="@null"
             android:hint="请输入密码"
+            android:textColorHint="#979797"
             android:inputType="textPassword"
             android:textCursorDrawable="@null"
             android:textSize="12sp"/>

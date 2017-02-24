@@ -50,7 +50,6 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         UIUtils.initStateBar(RegActivity.this);
         initView();
         initData();

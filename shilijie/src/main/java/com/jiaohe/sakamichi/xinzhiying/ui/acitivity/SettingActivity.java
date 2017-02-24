@@ -23,7 +23,6 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.jiaohe.sakamichi.xinzhiying.R;
-import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
@@ -68,7 +67,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initData() {
         Boolean isCache = SPUtils.getBoolean(this, "isCache", false);
-        //Boolean isUpload = SPUtils.getBoolean(this, "isUpload", true);
         if (isCache) {
             Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
             try {
@@ -91,10 +89,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         ib_back.setOnClickListener(this);
         mTv_nickname.setOnClickListener(this);
 
-        ll_icon = (RelativeLayout) findViewById(R.id.ll_icon);
+        ll_icon = (RelativeLayout) findViewById(R.id.rl_icon);
         ll_icon.setOnClickListener(this);
         iv_icon = (AvatarImageView) findViewById(R.id.iv_icon);
-        ll_nickname= (RelativeLayout) findViewById(R.id.ll_nickname);
+        ll_nickname= (RelativeLayout) findViewById(R.id.rl_nickname);
         ll_nickname.setOnClickListener(this);
     }
 
@@ -104,10 +102,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.ib_back:
                 finish();
                 break;
-            case R.id.ll_nickname:
+            case R.id.rl_nickname:
                 changeNickname();
                 break;
-            case R.id.ll_icon:
+            case R.id.rl_icon:
                 chagenUserIcon();
                 break;
             case R.id.button_back:

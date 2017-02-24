@@ -1,12 +1,15 @@
 package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +29,9 @@ import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtn_login;
@@ -38,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String mPassword;
     private String tag = "LoginActivity";
     private ProgressDialog mDialog;
-
+    private boolean isExit = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +55,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         isLogIn();
 
         initView();
+        initKeyBord();
         initData();
+    }
+
+    private void initKeyBord() {
+            //进入登录页面直接弹出软键盘
+        mEt_id.requestFocus();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() { //弹出软键盘的代码
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(mEt_id, InputMethodManager.RESULT_SHOWN);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+            }
+        }, 0); //设置300毫秒的时长
+
     }
 
     private void isLogIn() {
@@ -57,8 +79,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         isTokenValid(); //token是否有效
         if (token != null || isTokenValid()) {
             //登录成功跳转到主界面
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
+
         }
     }
 
@@ -73,6 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if (result.equals("RC100")) {
                         LogUtils.d("令牌有效");
                         isValid[0] = true;
+
                     } else {
                         LogUtils.d("令牌失效");
                     }
@@ -108,6 +134,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_login:
                 mDialog = ProgressDialog.show(this, "",
                         "正在登录...", true, true);
+                InputMethodManager imm = (InputMethodManager)getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(mEt_id.getWindowToken() , 0);
                 Login();
                 break;
             case R.id.tv_reg:
@@ -157,11 +185,39 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     e.printStackTrace();
                 }
             }
-
             @Override
             public void onError(VolleyError error) {
                 VolleyLog.d(tag, error.getMessage());
             }
         });
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitBy2Click(); // 调用双击退出函数
+        }
+        return false;
+    }
+
+    /**
+     * 双击退出函数
+     */
+    private void exitBy2Click() {
+        Timer tExit;
+        if (!isExit) {// isExit == false的简化版
+            isExit = true; // 准备退出
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            tExit = new Timer();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false; // 取消退出
+                }
+            }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+        } else {
+            finish();
+            System.exit(0);
+        }
     }
 }
