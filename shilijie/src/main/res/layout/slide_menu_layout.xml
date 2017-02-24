@@ -120,7 +120,7 @@
                         android:src="@drawable/qi_grey"/>
                 </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/rl_sign"
+                        android:id="@+id/ll_sign"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="35dp"
                         android:layout_height="wrap_content"

@@ -91,6 +91,9 @@
         </activity>
         <activity android:name=".ui.acitivity.SysSettingActivity">
         </activity>
+        <activity android:name=".ui.acitivity.ChangeSignatureActivity">
+        </activity>
+        
 
         <!-- 设置环信应用的 appkey 换成自己的-->
         <meta-data
