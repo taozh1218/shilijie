@@ -23,13 +23,11 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.acitivity.LoginActivity"
-<<<<<<< HEAD
             android:theme="@style/LoginTheme" />
         <activity android:name=".ui.acitivity.RegActivity" />
         <activity android:name=".ui.acitivity.ForgetActivity" />
@@ -38,17 +36,7 @@
         <activity android:name=".ui.acitivity.QRCodeActivity" />
         <activity android:name=".ui.acitivity.ScanActivity" />
         <activity android:name=".ui.acitivity.SysSettingActivity" />
-        <activity android:name=".ui.acitivity.SignActivity" />
-=======
-            android:theme="@style/LoginTheme"></activity>
-        <activity android:name=".ui.acitivity.RegActivity"></activity>
-        <activity android:name=".ui.acitivity.ForgetActivity"></activity>
-        <activity android:name=".ui.acitivity.MainActivity"></activity>
-        <activity android:name=".ui.acitivity.SettingActivity"></activity>
-        <activity android:name=".ui.acitivity.QRCodeActivity"></activity>
-        <activity android:name=".ui.acitivity.ScanActivity"></activity>
-        <activity android:name=".ui.acitivity.SysSettingActivity"></activity>
->>>>>>> 68c5539f3e22012d99beefe17eebd584ad7f3482
+        <activity android:name=".ui.acitivity.ChangeSignatureActivity"></activity>
     </application>
 
 </manifest>

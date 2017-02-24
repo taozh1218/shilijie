@@ -126,17 +126,25 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:text="签名："/>
                     <TextView
                         android:id="@+id/tv_sign"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="签名：编辑个性签名"
+                        android:text="编辑个性签名"
                         android:layout_alignParentRight="true"
                         android:textColor="#FFFFFF"
-                        android:textSize="11sp"/>
+                        android:textSize="12sp"/>
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="4dp"
                         android:src="@drawable/slide_menu_pen"/>
                     </LinearLayout>
                 </LinearLayout>

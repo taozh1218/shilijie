@@ -21,23 +21,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.Md5Utils;
 import com.jiaohe.sakamichi.xinzhiying.util.RegexUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
-import com.jiaohe.sakamichi.xinzhiying.util.ToastUtil;
 import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.VolleyInterface;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 public class SysSettingActivity extends AppCompatActivity implements View.OnClickListener{
+
+
+    private static final String TYPE_REG = "101";
+    private String tag = "SysSettingActivity";
 
     private String phone,token;
     private ImageButton mIb_back;
@@ -53,6 +57,7 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
     private EditText mEt_pwdPhone,mEt_pwdCode,mEt_newPwd;
     private Button mBt_pwdCode,mBt_rePwd;
 
+    private String pwdCode,newPwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,31 +99,63 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
                 getResetPwdCode();
                 break;
             case R.id.btn_resetPwd:
-                resetPwd();
+                pwdCode= mEt_pwdCode.getText().toString().trim();
+                newPwd=mEt_newPwd.getText().toString().trim();
+                if (TextUtils.isEmpty(pwdCode)||TextUtils.isEmpty(newPwd)){
+                    Toast.makeText(this, "请将信息填写完整", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    resetPwd();
+
+                }
+
                 break;
         }
 
     }
     private void resetPwd() {
+        String body = "phone="+phone+"&pass="+Md5Utils.encode(newPwd)+ "&token="+token+"&code="+pwdCode;
+        RequestUtils.postJsonRequest(ConstantValues.USER_RESET_PWD, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(),VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
+            @Override
+            public void onSuccess(JSONObject response) {
+                try {
+                    String result = response.getString("result");
+                    if (result.equals("RC100")){
+                        Toast.makeText(getApplicationContext(),"修改成功",Toast.LENGTH_LONG).show();
+                        pwdPopupWindow.dismiss();
 
+                    }else {
+                        Toast.makeText(getApplicationContext(), "修改失败", Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            @Override
+            public void onError(VolleyError error) {
+            }
+        });
 
 
 
     }
 
     public void getResetPwdCode() {
-        String pwdPhone = mEt_pwdPhone.getText().toString().trim();
-        if (TextUtils.isEmpty(pwdPhone)) {
-            Toast.makeText(this, "请输入手机号码", Toast.LENGTH_SHORT).show();
-        }else if (!RegexUtils.checkNum(pwdPhone)){
-            Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(this, pwdPhone, Toast.LENGTH_SHORT).show();
-        }
+        String body = "phone=" + phone + "&type=" + TYPE_REG;
+        RequestUtils.postJsonRequest(ConstantValues.CERT_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
+            @Override
+            public void onSuccess(JSONObject response) {
+            }
 
-
-
+            @Override
+            public void onError(VolleyError error) {
+                VolleyLog.d(tag, "获取失败 请重新获取验证码");
+            }
+        });
     }
+
+
     private void resetPhone() {
 
 
@@ -177,13 +214,14 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
         pwdPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
         pwdPopupWindow.showAtLocation(mIb_back, Gravity.CENTER, 0, 0);
         //修改密码控件初始化
-        mEt_pwdPhone= (EditText) pwdPopup.findViewById(R.id.et_pwdPhone);
         mEt_pwdCode= (EditText) pwdPopup.findViewById(R.id.et_pwdCode);
         mEt_newPwd= (EditText) pwdPopup.findViewById(R.id.et_newPwd);
         mBt_pwdCode= (Button) pwdPopup.findViewById(R.id.button_pwdCert);
         mBt_pwdCode.setOnClickListener(this);
         mBt_rePwd= (Button) pwdPopup.findViewById(R.id.btn_resetPwd);
         mBt_rePwd.setOnClickListener(this);
+        TextView tv_phone = (TextView) pwdPopup.findViewById(R.id.tv_phone);
+        tv_phone.setText(phone);
 
     }
 
@@ -192,7 +230,6 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
         phonePopupWindow = new PopupWindow(phonePopup, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT,true);
         //修改电话号码 控件初始化
         mTv_oldPhone= (TextView) phonePopup.findViewById(R.id.tv_oldPhone);
-        mEt_pwd= (EditText) phonePopup.findViewById(R.id.ed_pwd);
         mEt_phoneCode= (EditText) phonePopup.findViewById(R.id.et_phonecode);
         mBt_phoneCode= (Button) phonePopup.findViewById(R.id.button_phoneCert);
         mBt_phoneCode.setOnClickListener(this);

@@ -37,6 +37,7 @@ import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
+import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initUserMsg() {
         Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
+        LogUtils.d(""+isUpload);
         if (isUpload){
             String nickname = SPUtils.getString(this, "nickname", "娇禾生物");
             String sign = SPUtils.getString(this, "sign", "有人的地方就有江湖");
@@ -208,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ll_sign:
                 //跳转到签名页面
-                Intent intent_sign=new Intent(MainActivity.this,SignActivity.class);
+                Intent intent_sign=new Intent(MainActivity.this,ChangeSignatureActivity.class);
                 startActivity(intent_sign);
                 break;
         }
@@ -218,8 +220,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onRestart() {
         super.onRestart();
         initUserIcon();
-        uploadUserMsg();
         initUserMsg();
+        uploadUserMsg();
+
     }
 
     private void uploadUserMsg() {

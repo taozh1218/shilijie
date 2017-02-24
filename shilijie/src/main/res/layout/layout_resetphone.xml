@@ -14,15 +14,32 @@ android:weightSum="1">
     android:layout_marginRight="31dp"
     android:orientation="vertical"
     android:background="@drawable/img_background"
-    android:layout_weight="0.07">
-    <TextView
+    android:layout_weight="0.07"
+    android:weightSum="1">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:textColor="#000"
-        android:textSize="16sp"
-        android:text="修改手机号"/>
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.36">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:paddingLeft="35dp"
+            android:text="修改手机号"/>
+        <ImageView
+            android:id="@+id/image_closePhone"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stetting_close"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -50,23 +67,6 @@ android:weightSum="1">
         android:background="@drawable/img_line"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="20dp"/>
-
-    <EditText
-        android:id="@+id/ed_pwd"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_gravity="center_vertical"
-        android:background="@null"
-        android:focusableInTouchMode="true"
-        android:hint="请设置密码"
-        android:maxLines="1"
-        android:maxLength="20"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="20dp"
-        android:inputType="textPassword"
-        android:textColor="#393939"
-        android:textColorHint="#393939"
-        android:textSize="13sp"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -104,7 +104,6 @@ android:weightSum="1">
             android:hint="请输入验证码"
             android:maxLines="1"
             android:maxLength="6"
-            android:inputType="textPassword"
             android:textColor="#393939"
             android:textSize="13sp"
             android:textColorHint="#393939"

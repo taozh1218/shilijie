@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
+import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.ToastUtil;
@@ -68,11 +69,14 @@ public class ChangeSignatureActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "不能为空！", Toast.LENGTH_SHORT).show();
                         break;
                     }
-                    UserInfoBean userInfoBean = new UserInfoBean();
+                    /*UserInfoBean userInfoBean = new UserInfoBean();
                     userInfoBean.setSignature(signature);
                     mGson = new Gson();
                     String json = mGson.toJson(userInfoBean);
-                    requestServer(json);
+                    requestServer(json);*/
+                    SPUtils.putString(getApplicationContext(), "sign", signature);
+                    SPUtils.putBoolean(getApplicationContext(), "isUpload", true);
+                    finish();
                     break;
             }
         }
