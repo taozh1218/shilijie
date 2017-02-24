@@ -14,11 +14,11 @@
         tools:context="com.jiaohe.sakamichi.xinzhiying.ui.acitivity.MainActivity">
 
         <LinearLayout
-            android:fitsSystemWindows="true"
-            android:clipToPadding="true"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="#36DCE4"
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true"
             android:orientation="horizontal">
 
             <ImageButton
@@ -57,13 +57,13 @@
             android:layout_height="3dp"
             android:background="@drawable/toolbar_dropshadow"/>
 
-        <android.support.v4.view.ViewPager
+        <com.jiaohe.sakamichi.xinzhiying.ui.view.NoScrollViewPager
             android:id="@+id/vp_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
-        </android.support.v4.view.ViewPager>
+        </com.jiaohe.sakamichi.xinzhiying.ui.view.NoScrollViewPager>
 
         <!--<LinearLayout
             android:layout_width="match_parent"
@@ -126,7 +126,7 @@
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:orientation="vertical">
-        
+
         <include layout="@layout/slide_menu_layout"/>
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

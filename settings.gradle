@@ -1,1 +1,1 @@
-include ':shilijie', ':zxinglite'
+include ':shilijie', ':zxinglite', ':easeui'

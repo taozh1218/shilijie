@@ -31,6 +31,7 @@ import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.ui.fragment.FragmentFactory;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
+import com.jiaohe.sakamichi.xinzhiying.ui.view.NoScrollViewPager;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DrawerLayout mDl_root;
     private AvatarImageView mIv_icon;
     private ImageView mIv_camera;
-    private ViewPager mVp_content;
+    private NoScrollViewPager mVp_content;
     private ImageButton mIb_menu;
     private String phone;
     private String token;
@@ -125,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initSlideMenuView() {
-        RadioGroup rg_navi = (RadioGroup) findViewById(R.id.rg_navi);
+        final RadioGroup rg_navi = (RadioGroup) findViewById(R.id.rg_navi);
         mEt_search = (EditText) findViewById(R.id.et_search);
         mIv_slide_icon = (ImageView) findViewById(R.id.iv_slide_icon);
         mIv_qr = (ImageView) findViewById(R.id.iv_qr);
@@ -174,6 +175,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+
+        mVp_content.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                    
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private void initView() {
@@ -181,7 +199,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_icon = (AvatarImageView) findViewById(R.id.iv_icon);
         mIv_camera = (ImageView) findViewById(R.id.iv_camera);
         mIb_menu = (ImageButton) findViewById(R.id.ib_menu);
-        mVp_content = (ViewPager) findViewById(R.id.vp_content);
+        mVp_content = (NoScrollViewPager) findViewById(R.id.vp_content);
+        //设置vp是否禁止滑动
+        mVp_content.setPagingEnabled(false);
 
         mIv_icon.setOnClickListener(this);
         mIv_camera.setOnClickListener(this);
