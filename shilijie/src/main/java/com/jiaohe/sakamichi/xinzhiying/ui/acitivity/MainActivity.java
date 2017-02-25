@@ -36,6 +36,7 @@ import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
 import com.jiaohe.sakamichi.xinzhiying.ui.fragment.FragmentFactory;
+import com.jiaohe.sakamichi.xinzhiying.ui.fragment.MapFragment;
 import com.jiaohe.sakamichi.xinzhiying.ui.fragment.RelationFragment;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.NoScrollViewPager;
@@ -412,6 +413,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (position == 2) {
                 return new RelationFragment();
             }
+            if (position == 1) {
+                return MapFragment.newInstance();
+            }
             return FragmentFactory.create(position);
         }
 
@@ -419,8 +423,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public int getCount() {
             return 4;
         }
-        
-        
+
+
     }
 
 
