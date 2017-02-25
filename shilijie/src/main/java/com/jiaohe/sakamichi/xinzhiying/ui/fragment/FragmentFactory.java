@@ -18,7 +18,7 @@ public class FragmentFactory {
                     mFragment = new FameFragment();
                     break;
                 case 1:
-                    mFragment = new MapFragment();
+                    mFragment = MapFragment.newInstance();
                     break;
                 /*case 2:
                     mFragment = new RelationFragment();
