@@ -31,6 +31,8 @@ import com.alibaba.sdk.android.oss.model.GetObjectRequest;
 import com.alibaba.sdk.android.oss.model.GetObjectResult;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.bean.UserInfoBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
@@ -210,7 +212,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_camera:
-                //EMClient.getInstance().contactManager().addContact("");
+                try {
+                    EMClient.getInstance().contactManager().addContact("18396804155","666666");
+                } catch (HyphenateException e) {
+                    e.printStackTrace();
+                }
                 break;
             case R.id.iv_scan:
                 //跳转到扫一扫页面

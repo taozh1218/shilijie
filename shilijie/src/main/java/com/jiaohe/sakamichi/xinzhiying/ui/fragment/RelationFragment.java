@@ -70,6 +70,9 @@ public class RelationFragment extends Fragment {
 
     class ChatFragmentAdapter extends FragmentPagerAdapter {
 
+        private EaseContactListFragment mContactListFragment;
+        private EaseConversationListFragment mConversationListFragment;
+
         public ChatFragmentAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -77,8 +80,8 @@ public class RelationFragment extends Fragment {
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {//切换到会话列表碎片
-                EaseConversationListFragment conversationListFragment = new EaseConversationListFragment();
-                conversationListFragment.setConversationListItemClickListener(new EaseConversationListFragment.EaseConversationListItemClickListener() {
+                mConversationListFragment = new EaseConversationListFragment();
+                mConversationListFragment.setConversationListItemClickListener(new EaseConversationListFragment.EaseConversationListItemClickListener() {
 
                     @Override
                     public void onListItemClicked(EMConversation conversation) {
@@ -86,20 +89,26 @@ public class RelationFragment extends Fragment {
                         //startActivity(new Intent(MainActivity.this, ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, conversation.getUserName()));
                     }
                 });
-                return conversationListFragment;
-            } else {//切换到好友列表碎片
-                EaseContactListFragment contactListFragment = new EaseContactListFragment();
+                return mConversationListFragment;
+            } else if (position == 1) {//切换到好友列表碎片
+                mContactListFragment = new EaseContactListFragment();
                 //需要设置联系人列表才能启动fragment
-                contactListFragment.setContactsMap(getContacts());
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mContactListFragment.setContactsMap(getContacts());
+                    }
+                }).start();
                 //设置item点击事件
-                contactListFragment.setContactListItemClickListener(new EaseContactListFragment.EaseContactListItemClickListener() {
+                mContactListFragment.setContactListItemClickListener(new EaseContactListFragment.EaseContactListItemClickListener() {
                     @Override
                     public void onListItemClicked(EaseUser user) {
                         // startActivity(new Intent(MainActivity.this, ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, user.getUsername()));
                     }
                 });
-                return contactListFragment;
+                return mContactListFragment;
             }
+            return null;
         }
 
         @Override

@@ -172,12 +172,12 @@
         "source": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ee_11.png"
     },
     {
-        "merged": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ee_17.png",
-        "source": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ee_17.png"
-    },
-    {
         "merged": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ease_groups_icon.png",
         "source": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ease_groups_icon.png"
+    },
+    {
+        "merged": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ee_17.png",
+        "source": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ee_17.png"
     },
     {
         "merged": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ease_record_animate_12.png",
@@ -380,12 +380,12 @@
         "source": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ee_34.png"
     },
     {
-        "merged": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ease_input_bar_bg_normal.9.png",
-        "source": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ease_input_bar_bg_normal.9.png"
-    },
-    {
         "merged": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ease_record_animate_10.png",
         "source": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ease_record_animate_10.png"
+    },
+    {
+        "merged": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ease_input_bar_bg_normal.9.png",
+        "source": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ease_input_bar_bg_normal.9.png"
     },
     {
         "merged": "/Users/sakamichi/Documents/WORKSPACE/xinzhiying/easeui/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ease_chatto_voice_playing_f1.png",

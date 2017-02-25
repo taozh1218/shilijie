@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -17,6 +16,8 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String tag = "LoginActivity";
     private ProgressDialog mDialog;
     private boolean isExit = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,15 +62,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initKeyBord() {
-            //进入登录页面直接弹出软键盘
+        //进入登录页面直接弹出软键盘
         mEt_id.requestFocus();
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() { //弹出软键盘的代码
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showSoftInput(mEt_id, InputMethodManager.RESULT_SHOWN);
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
         }, 0); //设置300毫秒的时长
 
@@ -78,12 +80,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String token = SPUtils.getString(this, "token", null);
         isTokenValid(); //token是否有效
         if (token != null || isTokenValid()) {
+            //自动登录时 也要请求登录环信
+            mPhoneNum = SPUtils.getString(this, "phone", "");
+            if (!EMClient.getInstance().isLoggedInBefore()) { //之前是否成功登陆过
+                logInHX(mPhoneNum, mPhoneNum);
+            }
             //登录成功跳转到主界面
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
-
         }
     }
 
@@ -98,7 +104,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if (result.equals("RC100")) {
                         LogUtils.d("令牌有效");
                         isValid[0] = true;
-
                     } else {
                         LogUtils.d("令牌失效");
                     }
@@ -134,9 +139,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_login:
                 mDialog = ProgressDialog.show(this, "",
                         "正在登录...", true, true);
-                InputMethodManager imm = (InputMethodManager)getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(mEt_id.getWindowToken() , 0);
-                Login();
+                InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(mEt_id.getWindowToken(), 0);
+                login();
                 break;
             case R.id.tv_reg:
                 //跳转注册界面
@@ -151,7 +156,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void Login() {
+    private void login() {
         mPhoneNum = mEt_id.getText().toString().trim();
         mPassword = mEt_pw.getText().toString().trim();
         LogUtils.d(mPhoneNum + "=========" + mPassword);
@@ -169,8 +174,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onSuccess(JSONObject response) {
                 try {
                     String result = response.getString("result");
-                    if (result.equals("RC100")) {
+                    if (result.equals("RC100")) { //成功登录到AppServer
                         LogUtils.d("登录成功");
+                        //请求登录环信
+                        logInHX(mPhoneNum, mPhoneNum);
                         //如果本地无缓存，则缓存返回的token和手机号码
                         SPUtils.putString(LoginActivity.this, "phone", mPhoneNum);
                         SPUtils.putString(LoginActivity.this, "token", response.getString("token"));
@@ -185,12 +192,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onError(VolleyError error) {
                 VolleyLog.d(tag, error.getMessage());
             }
         });
     }
+
+    private void logInHX(String userName, String password) {
+        EMClient.getInstance().login(userName, password, new EMCallBack() {//回调
+            @Override
+            public void onSuccess() {
+               // EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+                
+                LogUtils.d("登录聊天服务器成功");
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+            }
+
+            @Override
+            public void onError(int code, String message) {
+                LogUtils.d("登录聊天服务器失败！");
+            }
+        });
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {

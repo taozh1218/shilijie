@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_sys_setting"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#E5E5E5"
+    android:orientation="vertical"
     >
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:background="#57d4c4"
         android:clipToPadding="true"
         android:fitsSystemWindows="true"
-        android:background="#57d4c4">
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/ib_settingback"
@@ -33,31 +34,35 @@
             android:textColor="#fff"
             android:textSize="18sp"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/settting_background2"
         android:orientation="vertical">
-    <Button
-        android:id="@+id/button_resetPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@null"
-        android:onClick="reset"
-        android:gravity="left|center"
-        android:paddingLeft="19dp"
-        android:text="修改手机号"/>
+
+        <Button
+            android:id="@+id/button_resetPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="left|center"
+            android:onClick="reset"
+            android:paddingLeft="19dp"
+            android:text="修改手机号"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@drawable/img_line"/>
+
         <Button
             android:id="@+id/button_resetPwd"
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@null"
             android:gravity="left|center"
             android:onClick="reset"
@@ -66,14 +71,14 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/button_out"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="17dp"
         android:background="@drawable/settting_background1"
+        android:onClick="signOutHX"
         android:text="退出登录"
-        android:id="@+id/button_out"
-        android:onClick="signOut"
         android:textColor="#E43636"
         android:textSize="16sp"/>
 </LinearLayout>
