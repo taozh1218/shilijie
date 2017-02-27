@@ -92,7 +92,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         ll_icon = (RelativeLayout) findViewById(R.id.rl_icon);
         ll_icon.setOnClickListener(this);
         iv_icon = (AvatarImageView) findViewById(R.id.iv_icon);
-        ll_nickname= (RelativeLayout) findViewById(R.id.rl_nickname);
+        ll_nickname= (RelativeLayout) findViewById(R.id.ll_nickname);
         ll_nickname.setOnClickListener(this);
     }
 
@@ -102,7 +102,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.ib_back:
                 finish();
                 break;
-            case R.id.rl_nickname:
+            case R.id.ll_nickname:
                 changeNickname();
                 break;
             case R.id.rl_icon:

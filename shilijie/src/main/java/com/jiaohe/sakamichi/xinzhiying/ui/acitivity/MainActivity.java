@@ -101,8 +101,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initUserIcon();
         initUserMsg();
+        initPhone();
     }
 
+    private void initPhone() {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < phone.length(); i++) {
+            char c = phone.charAt(i);
+            if (i >= 3 && i <= 6) {
+                sb.append('*');
+            } else {
+                sb.append(c);
+            }
+        }
+        mTv_phone.setText("电话号码："+sb.toString());
+
+
+
+    }
     private void initData() {
         phone = SPUtils.getString(this, "phone", "");
         token = SPUtils.getString(this, "token", "");

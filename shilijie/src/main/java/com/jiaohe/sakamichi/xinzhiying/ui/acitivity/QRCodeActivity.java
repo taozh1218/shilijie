@@ -4,22 +4,30 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.UriUtils;
+
+import java.io.IOException;
 
 public class QRCodeActivity extends AppCompatActivity implements View.OnClickListener {
-
-
+    private final String path = Environment.getExternalStorageDirectory() + "/crop_icon.jpg";
+    private TextView mTv_name;
+    private AvatarImageView mAic_icon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +35,20 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
 
         UIUtils.initStateBar(QRCodeActivity.this);
         initView();
+        initData();
     }
 
+    private void initData() {
+        mTv_name.setText(SPUtils.getString(this,"nickname","娇禾生物"));
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), UriUtils.getUriFromFilePath(path));
+            mAic_icon.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
     private Bitmap createQR() {
         //生成二维码的种子
         String phone = SPUtils.getString(this, "phone", "");
@@ -62,7 +82,8 @@ public class QRCodeActivity extends AppCompatActivity implements View.OnClickLis
         ImageButton ib_back = (ImageButton) findViewById(R.id.ib_back);
         ImageView iv_my_qrcode = (ImageView) findViewById(R.id.iv_my_qrcode);
         ImageView iv_scan = (ImageView) findViewById(R.id.iv_scan);
-
+        mTv_name= (TextView) findViewById(R.id.tv_id);
+        mAic_icon= (AvatarImageView) findViewById(R.id.iv_qrIcon);
         ib_back.setOnClickListener(this);
         iv_scan.setOnClickListener(this);
         //生成二维码bitmap并显示在界面

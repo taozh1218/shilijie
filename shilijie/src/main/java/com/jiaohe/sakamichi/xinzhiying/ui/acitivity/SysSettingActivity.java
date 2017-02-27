@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,7 +46,7 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
     private Button mBt_resetPhone, mBt_resetPwd;
     private PopupWindow pwdPopupWindow, phonePopupWindow;
     private View pwdPopup, phonePopup;
-
+    private ImageView mIv_closePhone,mIv_closePwd;
     //修改电话控件
     private TextView mTv_oldPhone;
     private EditText mEt_pwd, mEt_phoneCode;
@@ -100,8 +101,8 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
                 }
                 break;
             case R.id.button_pwdCert:
-                //获取修改密码验证码
-                getResetPwdCode();
+                //获取修改电话验证码
+                getCode("105");
                 break;
             case R.id.btn_resetPwd:
                 pwdCode = mEt_pwdCode.getText().toString().trim();
@@ -111,6 +112,12 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
                 } else {
                     resetPwd();
                 }
+                break;
+            case R.id.image_closePhone:
+                phonePopupWindow.dismiss();
+                break;
+            case R.id.image_closePwd:
+                pwdPopupWindow.dismiss();
                 break;
         }
 
@@ -186,19 +193,6 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-    public void getResetPwdCode() {
-        String body = "phone=" + phone + "&type=" + TYPE_REG;
-        RequestUtils.postJsonRequest(ConstantValues.CERT_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
-            @Override
-            public void onSuccess(JSONObject response) {
-            }
-
-            @Override
-            public void onError(VolleyError error) {
-                VolleyLog.d(tag, "获取失败 请重新获取验证码");
-            }
-        });
-    }
 
 
 
@@ -224,6 +218,7 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
                         Intent intent = new Intent(SysSettingActivity.this, LoginActivity.class);
                         SPUtils.putString(getApplicationContext(), "phone", null);
                         SPUtils.putString(getApplicationContext(), "token", null);
+                        SPUtils.putBoolean(getApplicationContext(),"isCache",false);
                         finish();
                         startActivity(intent);
                     } else {
@@ -278,6 +273,8 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
         mBt_pwdCode.setOnClickListener(this);
         mBt_rePwd = (Button) pwdPopup.findViewById(R.id.btn_resetPwd);
         mBt_rePwd.setOnClickListener(this);
+        mIv_closePwd= (ImageView) pwdPopup.findViewById(R.id.image_closePwd);
+        mIv_closePwd.setOnClickListener(this);
         TextView tv_phone = (TextView) pwdPopup.findViewById(R.id.tv_phone);
         tv_phone.setText(phone);
 
@@ -293,6 +290,8 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
         mBt_phoneCode.setOnClickListener(this);
         mBt_rePhone = (Button) phonePopup.findViewById(R.id.btn_resetPhone);
         mBt_rePhone.setOnClickListener(this);
+        mIv_closePhone= (ImageView) phonePopup.findViewById(R.id.image_closePhone);
+        mIv_closePhone.setOnClickListener(this);
         phonePopupWindow.setFocusable(true);
         phonePopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
         phonePopupWindow.showAtLocation(mIb_back, Gravity.CENTER, 0, 0);
