@@ -81,5 +81,16 @@ public class ConstantValues {
      * 用户更改密码
      */
     public static final String USER_RESET_PWD=SERVER_URL+"/updatePass";
-
+    /**
+     * 获取用于更改电话 验证旧号码
+     */
+    public static final String GET_OLDPHONE_CODE=SERVER_URL+"/isSmsCode";
+    /**
+     *用户更改电话号码 地址
+     */
+    public static final String USER_RESET_PHONE=SERVER_URL+"/editNumber";
+    /**
+     * 验证手机是否注册
+     */
+    public static final String IS_USER=SERVER_URL+"/isUser";
 }

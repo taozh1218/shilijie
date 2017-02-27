@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         isLogIn();
 
         initView();
-        initKeyBord();
+        //initKeyBord();
         initData();
     }
 
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 imm.showSoftInput(mEt_id, InputMethodManager.RESULT_SHOWN);
                 imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
-        }, 0); //设置300毫秒的时长
+        }, 0);
 
     }
 
@@ -86,8 +86,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 logInHX(mPhoneNum, mPhoneNum);
             }
             //登录成功跳转到主界面
-            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+            //关闭键盘
+            //InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            //imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
@@ -139,8 +140,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_login:
                 mDialog = ProgressDialog.show(this, "",
                         "正在登录...", true, true);
-                InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(mEt_id.getWindowToken(), 0);
+                //InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                //imm.hideSoftInputFromWindow(mEt_id.getWindowToken(), 0);
                 login();
                 break;
             case R.id.tv_reg:

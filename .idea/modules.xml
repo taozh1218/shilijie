@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/easeui/easeui.iml" filepath="$PROJECT_DIR$/easeui/easeui.iml" />
       <module fileurl="file://$PROJECT_DIR$/shilijie/shilijie.iml" filepath="$PROJECT_DIR$/shilijie/shilijie.iml" />
-      <module fileurl="file://$PROJECT_DIR$/xinzhiying.iml" filepath="$PROJECT_DIR$/xinzhiying.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxinglite/zxinglite.iml" filepath="$PROJECT_DIR$/zxinglite/zxinglite.iml" />
     </modules>
   </component>

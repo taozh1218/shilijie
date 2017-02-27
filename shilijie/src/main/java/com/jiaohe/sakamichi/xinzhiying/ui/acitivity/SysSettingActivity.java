@@ -55,7 +55,7 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
     private Button mBt_pwdCode, mBt_rePwd;
 
     private String pwdCode, newPwd;
-
+    private String phoneCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,10 +88,16 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.button_phoneCert:
                 //获取修改电话验证码
-                getResetPhoneCode();
+                getCode("105");
                 break;
             case R.id.btn_resetPhone:
-                resetPhone();
+                phoneCode= mEt_phoneCode.getText().toString().trim();
+
+                if (!TextUtils.isEmpty(phoneCode)&&phoneCode.length()==6){
+                    verifyPhone();
+                }else {
+                    Toast.makeText(this, "请输入完整信息", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.button_pwdCert:
                 //获取修改密码验证码
@@ -108,6 +114,48 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
                 break;
         }
 
+    }
+    private void verifyPhone() {
+        String body = "code="+phoneCode+"&phone="+phone;
+        RequestUtils.postJsonRequest(ConstantValues.GET_OLDPHONE_CODE, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(),VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
+            @Override
+            public void onSuccess(JSONObject response) {
+                try {
+                    String result = response.getString("result");
+                    if (result.equals("RC100")){
+                        Intent intent = new Intent(SysSettingActivity.this,ResetPhoneActivity.class);
+                        phonePopupWindow.dismiss();
+                        startActivity(intent);
+                    }else if (result.equals("RC200")){
+                        Toast.makeText(getApplicationContext(), "验证失败，请重新获取验证码", Toast.LENGTH_LONG).show();
+                    }else {
+                        Toast.makeText(getApplicationContext(), "验证码失效，请重新获取验证码", Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            @Override
+            public void onError(VolleyError error) {
+            }
+        });
+
+
+    }
+
+    private void getCode(String type) {
+        String body = "phone=" + phone + "&type=" + type;
+        RequestUtils.postJsonRequest(ConstantValues.CERT_URL, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
+            @Override
+            public void onSuccess(JSONObject response) {
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                VolleyLog.d(tag, "获取失败 请重新获取验证码");
+            }
+        });
     }
 
     private void resetPwd() {
@@ -152,15 +200,8 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
         });
     }
 
-    private void resetPhone() {
 
 
-    }
-
-    public void getResetPhoneCode() {
-
-
-    }
 
 
     private void initData() {

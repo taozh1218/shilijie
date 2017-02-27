@@ -1,5 +1,29 @@
 [
     {
+        "outputFile": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\res\\values-w820dp\\ease_dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 305,
+                        "endColumn": 57,
+                        "endOffset": 358
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
         "map": [
             {
@@ -24,7 +48,7 @@
         ]
     },
     {
-        "outputFile": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "outputFile": "D:\\shilijie\\app\\easeui\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -35,13 +59,13 @@
                     "endOffset": 108
                 },
                 "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\res\\values-w820dp\\ease_dimens.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\res\\values-w820dp\\ease_dimens.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 305,
+                        "startOffset": 312,
                         "endColumn": 57,
-                        "endOffset": 358
+                        "endOffset": 365
                     }
                 }
             }
