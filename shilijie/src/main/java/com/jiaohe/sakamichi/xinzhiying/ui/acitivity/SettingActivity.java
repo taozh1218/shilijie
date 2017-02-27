@@ -105,7 +105,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.ll_nickname:
                 changeNickname();
                 break;
-            case R.id.rl_icon:
+            case R.id.ll_icon:
                 chagenUserIcon();
                 break;
             case R.id.button_back:

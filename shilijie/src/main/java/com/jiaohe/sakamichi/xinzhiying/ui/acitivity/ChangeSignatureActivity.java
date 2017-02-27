@@ -62,6 +62,8 @@ public class ChangeSignatureActivity extends AppCompatActivity {
                     requestServer(json);*/
                     SPUtils.putString(getApplicationContext(), "sign", signature);
                     SPUtils.putBoolean(getApplicationContext(), "isUpload", true);
+                    //同时上传签名
+
                     finish();
                     break;
             }

@@ -363,13 +363,13 @@
                     "endOffset": 119
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 295,
+                        "startOffset": 55,
                         "endColumn": 68,
-                        "endOffset": 359
+                        "endOffset": 119
                     }
                 }
             },
@@ -378,17 +378,17 @@
                     "startLine": 3,
                     "startColumn": 4,
                     "startOffset": 124,
-                    "endColumn": 69,
-                    "endOffset": 189
+                    "endColumn": 68,
+                    "endOffset": 188
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 364,
-                        "endColumn": 69,
-                        "endOffset": 429
+                        "startOffset": 124,
+                        "endColumn": 68,
+                        "endOffset": 188
                     }
                 }
             },
@@ -396,18 +396,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 194,
+                    "startOffset": 193,
                     "endColumn": 69,
-                    "endOffset": 259
+                    "endOffset": 258
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 434,
+                        "startOffset": 193,
                         "endColumn": 69,
-                        "endOffset": 499
+                        "endOffset": 258
                     }
                 }
             },
@@ -415,18 +415,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 264,
-                    "endColumn": 78,
-                    "endOffset": 338
+                    "startOffset": 263,
+                    "endColumn": 73,
+                    "endOffset": 332
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 504,
-                        "endColumn": 78,
-                        "endOffset": 578
+                        "startOffset": 263,
+                        "endColumn": 73,
+                        "endOffset": 332
                     }
                 }
             },
@@ -434,18 +434,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 343,
+                    "startOffset": 337,
                     "endColumn": 75,
-                    "endOffset": 414
+                    "endOffset": 408
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 583,
+                        "startOffset": 337,
                         "endColumn": 75,
-                        "endOffset": 654
+                        "endOffset": 408
                     }
                 }
             },
@@ -453,18 +453,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 419,
+                    "startOffset": 413,
                     "endColumn": 58,
-                    "endOffset": 473
+                    "endOffset": 467
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 899,
+                        "startOffset": 413,
                         "endColumn": 58,
-                        "endOffset": 953
+                        "endOffset": 467
                     }
                 }
             },
@@ -472,18 +472,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 478,
+                    "startOffset": 472,
                     "endColumn": 70,
-                    "endOffset": 544
+                    "endOffset": 538
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 1198,
+                        "startOffset": 472,
                         "endColumn": 70,
-                        "endOffset": 1264
+                        "endOffset": 538
                     }
                 }
             },
@@ -491,37 +491,18 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 549,
+                    "startOffset": 543,
                     "endColumn": 67,
-                    "endOffset": 612
+                    "endOffset": 606
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 1269,
+                        "startOffset": 543,
                         "endColumn": 67,
-                        "endOffset": 1332
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 10,
-                    "startColumn": 4,
-                    "startOffset": 617,
-                    "endColumn": 54,
-                    "endOffset": 667
-                },
-                "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-sw600dp\\values-sw600dp.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 1337,
-                        "endColumn": 54,
-                        "endOffset": 1387
+                        "endOffset": 606
                     }
                 }
             }
