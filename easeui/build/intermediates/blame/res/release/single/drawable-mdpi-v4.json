@@ -36,12 +36,12 @@
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-mdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-mdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
-    },
-    {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-mdpi\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-mdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",

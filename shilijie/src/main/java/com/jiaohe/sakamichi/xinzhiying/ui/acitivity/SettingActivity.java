@@ -89,7 +89,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         ib_back.setOnClickListener(this);
         mTv_nickname.setOnClickListener(this);
 
-        ll_icon = (RelativeLayout) findViewById(R.id.rl_icon);
+        ll_icon = (RelativeLayout) findViewById(R.id.ll_icon);
         ll_icon.setOnClickListener(this);
         iv_icon = (AvatarImageView) findViewById(R.id.iv_icon);
         ll_nickname= (RelativeLayout) findViewById(R.id.ll_nickname);

@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (HyphenateException e) {
                     e.printStackTrace();
                 }
+
                 break;
             case R.id.iv_scan:
                 //跳转到扫一扫页面
