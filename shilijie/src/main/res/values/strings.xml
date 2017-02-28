@@ -134,4 +134,6 @@
     <string name="wifi_changing_network">Requesting connection to network\u2026</string>
 
     <string name="no_result">对不起，没有搜索到相关数据！</string>
+
+    <string name="agent_addr">地址：%1$s</string>
 </resources>

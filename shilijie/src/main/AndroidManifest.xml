@@ -23,7 +23,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <!-- 读取手机状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <!--唤醒锁屏-->
+    <!-- 唤醒锁屏 -->
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <!-- 写入外部存储 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -38,13 +38,14 @@
 
     <!-- 音视频通话所需权限 -->
 
-    <!--获取当前和最近执行的任务
+
+    <!--
+    获取当前和最近执行的任务
     TODO 已被弃用后期可能会添加另一个权限 REAL_GET_TASKS
-    TODO https://android.googlesource.com/platform/frameworks/base/+/2d7576b%5E!/-->
+    TODO https://android.googlesource.com/platform/frameworks/base/+/2d7576b%5E!/
+    -->
     <uses-permission android:name="android.permission.GET_TASKS"/>
-
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
-
 
     <!-- Demo新添加的一些属性 -->
     <!-- 访问GMail账户列表 -->
@@ -66,7 +67,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--高德地图-->
+        <!-- 高德地图 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="4708e14070455015cabba91f4385c5fd"/>
@@ -75,10 +76,11 @@
             android:name=".ui.acitivity.SplashActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".ui.acitivity.LoginActivity"
@@ -90,16 +92,15 @@
         <activity android:name=".ui.acitivity.QRCodeActivity"/>
         <activity android:name=".ui.acitivity.ScanActivity"/>
         <activity android:name=".ui.acitivity.SysSettingActivity"/>
-        <activity android:name=".ui.acitivity.ChangeSignatureActivity"></activity>
-        <activity android:name=".ui.acitivity.DriveRouteActivity"></activity>
-        <activity android:name=".ui.acitivity.DriveRouteDetailActivity"></activity>
+        <activity android:name=".ui.acitivity.ChangeSignatureActivity"/>
+        <activity android:name=".ui.acitivity.DriveRouteActivity"/>
+        <activity android:name=".ui.acitivity.DriveRouteDetailActivity"/>
 
-
-        <!-- 设置环信应用的 appkey 换成自己的-->
+        <!-- 设置环信应用的 appkey 换成自己的 -->
         <meta-data
             android:name="EASEMOB_APPKEY"
             android:value="1157161227178637#shilijie"/>
-        <!-- 声明sdk所需的service SDK核心功能-->
+        <!-- 声明sdk所需的service SDK核心功能 -->
         <service
             android:name="com.hyphenate.chat.EMChatService"
             android:exported="true"/>
@@ -107,6 +108,7 @@
         <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
                 <data android:scheme="package"/>
             </intent-filter>
             <!-- 可选filter -->
@@ -115,6 +117,18 @@
                 <action android:name="android.intent.action.USER_PRESENT"/>
             </intent-filter>
         </receiver>
+
+        <activity android:name=".ui.acitivity.DemoInfoWindowAct">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.acitivity.BusRouteActivity"></activity>
+        <activity android:name=".ui.acitivity.BusRouteDetailActivity"></activity>
+        <activity android:name=".ui.acitivity.WalkRouteDetailActivity"></activity>
+
     </application>
 
 </manifest>

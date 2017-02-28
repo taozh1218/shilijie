@@ -1,201 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_mm_listitem.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_mm_listitem.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_dark.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_dialog_material_background_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_normal_shape.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_normal_shape.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatting_setmode_keyboard_btn.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatting_setmode_keyboard_btn.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_cab_background_internal_bg.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_check_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_edit_text_bg.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_edit_text_bg.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_sidebar_background_pressed.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_sidebar_background_pressed.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_radio_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_mm_listitem_grey.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_mm_listitem_grey.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_blue_normal_shape.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_blue_normal_shape.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_bj.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_bj.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatting_setmode_voice_btn.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatting_setmode_voice_btn.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_bj.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_bj.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_spinner_textfield_background_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_light.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_dialog_material_background_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_press_speak_btn.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_press_speak_btn.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_recording_text_hint_bg.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_recording_text_hint_bg.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_send_btn_selector.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_send_btn_selector.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_spinner_textfield_background_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_location_selector.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_location_selector.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_cab_background_top_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_holo_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_common_tab_bg.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_common_tab_bg.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatting_setmode_voice_btn.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatting_setmode_voice_btn.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_check_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_tab_indicator_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_common_tab_bg.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_common_tab_bg.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatto_bg.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatto_bg.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_mm_listitem_grey.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_mm_listitem_grey.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_item_background_holo_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_switch_thumb_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_switch_thumb_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatfrom_bg.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatfrom_bg.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_holo_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_blue_normal_shape.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_blue_normal_shape.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_timestampe_bg.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_timestampe_bg.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_blue_selector.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_blue_selector.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_holo_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatting_setmode_keyboard_btn.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatting_setmode_keyboard_btn.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_textfield_search_material.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_pressed_shape.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_pressed_shape.xml"
-    },
-    {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_normal_shape.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_normal_shape.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_timestampe_bg.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_timestampe_bg.xml"
-    },
-    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_search_clear.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_search_clear.xml"
     },
@@ -204,16 +8,8 @@
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_takepic_selector.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_type_select_btn.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_type_select_btn.xml"
-    },
-    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_recording_text_hint_bg.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_recording_text_hint_bg.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_search_clear.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_search_clear.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_recording_hint_bg.xml",
@@ -228,18 +24,6 @@
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_ratingbar_full_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_ratingbar_full_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_image_selector.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_image_selector.xml"
-    },
-    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_cab_background_top_material.xml"
     },
@@ -252,8 +36,8 @@
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_sidebar_background_pressed.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_sidebar_background_pressed.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_textfield_search_material.xml",
@@ -264,40 +48,64 @@
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_mm_listitem.xml"
     },
     {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_mm_listitem_grey.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_mm_listitem_grey.xml"
+    },
+    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_type_select_btn.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_type_select_btn.xml"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_blue_normal_shape.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_blue_normal_shape.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_msg_state_failed_resend.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_msg_state_failed_resend.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_bj.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_bj.xml"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatting_setmode_voice_btn.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatting_setmode_voice_btn.xml"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_press_speak_btn.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_press_speak_btn.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_item_background_holo_light.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_location_selector.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_location_selector.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_holo_light.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_light.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_dialog_material_background_light.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_takepic_selector.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_takepic_selector.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_ratingbar_full_material.xml",
@@ -308,44 +116,52 @@
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_blue_pressed_shape.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatto_bg.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatto_bg.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_common_tab_bg.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_common_tab_bg.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_borderless_material.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_borderless_material.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatto_bg.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatto_bg.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_location_selector.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_location_selector.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_recording_hint_bg.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_recording_hint_bg.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_image_selector.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_image_selector.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_pressed_shape.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_pressed_shape.xml"
-    },
-    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_send_btn_selector.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_send_btn_selector.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_blue_pressed_shape.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_blue_pressed_shape.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatfrom_bg.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatfrom_bg.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_item_background_holo_dark.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_edit_text_bg.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_edit_text_bg.xml"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_timestampe_bg.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_timestampe_bg.xml"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatting_setmode_keyboard_btn.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatting_setmode_keyboard_btn.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_dark.xml",
@@ -356,15 +172,15 @@
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_pressed_shape.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_pressed_shape.xml"
+    },
+    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_msg_state_failed_resend.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_msg_state_failed_resend.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chatfrom_bg.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chatfrom_bg.xml"
-    },
-    {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_sidebar_background_pressed.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_sidebar_background_pressed.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_normal_shape.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_normal_shape.xml"
     }
 ]

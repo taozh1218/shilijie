@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,15 +38,20 @@ import com.amap.api.services.route.RideRouteResult;
 import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.RouteSearch.DriveRouteQuery;
 import com.amap.api.services.route.RouteSearch.OnRouteSearchListener;
+import com.amap.api.services.route.WalkPath;
 import com.amap.api.services.route.WalkRouteResult;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.adapter.BusResultListAdapter;
 import com.jiaohe.sakamichi.xinzhiying.ui.overlay.DrivingRouteOverlay;
+import com.jiaohe.sakamichi.xinzhiying.ui.overlay.WalkRouteOverlay;
 import com.jiaohe.sakamichi.xinzhiying.util.AMapUtil;
 import com.jiaohe.sakamichi.xinzhiying.util.ToastUtil;
 
 
 /**
- * 驾车出行路线规划 实现
+ * 出行路线规划 实现
+ * <p>
+ * 默认是驾车路线规划
  */
 public class DriveRouteActivity extends Activity implements OnMapClickListener,
         OnMarkerClickListener, OnInfoWindowClickListener, InfoWindowAdapter, OnRouteSearchListener, AMapLocationListener, LocationSource {
@@ -52,12 +60,13 @@ public class DriveRouteActivity extends Activity implements OnMapClickListener,
     private MapView mapView;
     private Context mContext;
     private RouteSearch mRouteSearch;
-    private DriveRouteResult mDriveRouteResult;
     //	private LatLonPoint mStartPoint = new LatLonPoint(39.942295,116.335891);//起点，39.942295,116.335891
     //	private LatLonPoint mEndPoint = new LatLonPoint(39.995576,116.481288);//终点，39.995576,116.481288
     private RouteSearch.FromAndTo fromAndTo;
 
+    private final int ROUTE_TYPE_BUS = 1;
     private final int ROUTE_TYPE_DRIVE = 2;
+    private final int ROUTE_TYPE_WALK = 3;
 
     private RelativeLayout mBottomLayout, mHeadLayout;
     private TextView mRotueTimeDes, mRouteDetailDes;
@@ -66,6 +75,16 @@ public class DriveRouteActivity extends Activity implements OnMapClickListener,
     private AMapLocationClient mLocationClient;
     private AMapLocationClientOption mLocationOption;
     private OnLocationChangedListener mListener;
+    //result
+    private DriveRouteResult mDriveRouteResult;
+    private WalkRouteResult mWalkRouteResult;
+    private BusRouteResult mBusRouteResult;
+    private ListView mBusResultList;
+    private LinearLayout mBusResultLayout;
+    private ImageView mDrive;
+    private ImageView mBus;
+    private ImageView mWalk;
+    private String city;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -74,13 +93,19 @@ public class DriveRouteActivity extends Activity implements OnMapClickListener,
 
         //get Bundle
         fromAndTo = getIntent().getParcelableExtra("fromAndTo");
+        city = getIntent().getStringExtra("city");
 
         mContext = this.getApplicationContext();
         mapView = (MapView) findViewById(R.id.route_map);
         mapView.onCreate(bundle);// 此方法必须重写
         init();
         setfromandtoMarker();
+        //默认是drive
         searchRouteResult(ROUTE_TYPE_DRIVE, RouteSearch.DrivingDefault);
+        mDrive.setImageResource(R.drawable.route_drive_select);
+        mBus.setImageResource(R.drawable.route_bus_normal);
+        mWalk.setImageResource(R.drawable.route_walk_normal);
+        mBusResultLayout.setVisibility(View.GONE);
     }
 
     private void setfromandtoMarker() {
@@ -110,8 +135,52 @@ public class DriveRouteActivity extends Activity implements OnMapClickListener,
         mHeadLayout = (RelativeLayout) findViewById(R.id.routemap_header);
         mRotueTimeDes = (TextView) findViewById(R.id.firstline);
         mRouteDetailDes = (TextView) findViewById(R.id.secondline);
-        mHeadLayout.setVisibility(View.GONE);
+        //
+//        mHeadLayout.setVisibility(View.GONE);
+
+
+        mBusResultLayout = (LinearLayout) findViewById(R.id.bus_result);
+        mRotueTimeDes = (TextView) findViewById(R.id.firstline);
+        mRouteDetailDes = (TextView) findViewById(R.id.secondline);
+        mDrive = (ImageView) findViewById(R.id.route_drive);
+        mBus = (ImageView) findViewById(R.id.route_bus);
+        mWalk = (ImageView) findViewById(R.id.route_walk);
+        mBusResultList = (ListView) findViewById(R.id.bus_result_list);
     }
+
+    /**
+     * 公交路线搜索
+     */
+    public void onBusClick(View view) {
+        searchRouteResult(ROUTE_TYPE_BUS, RouteSearch.BusDefault);
+        mDrive.setImageResource(R.drawable.route_drive_normal);
+        mBus.setImageResource(R.drawable.route_bus_select);
+        mWalk.setImageResource(R.drawable.route_walk_normal);
+        mapView.setVisibility(View.GONE);
+        mBusResultLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void onDriveClick(View view) {
+        searchRouteResult(ROUTE_TYPE_DRIVE, RouteSearch.DrivingDefault);
+        mDrive.setImageResource(R.drawable.route_drive_select);
+        mBus.setImageResource(R.drawable.route_bus_normal);
+        mWalk.setImageResource(R.drawable.route_walk_normal);
+        mapView.setVisibility(View.VISIBLE);
+        mBusResultLayout.setVisibility(View.GONE);
+    }
+
+    /**
+     * 步行路线搜索
+     */
+    public void onWalkClick(View view) {
+        searchRouteResult(ROUTE_TYPE_WALK, RouteSearch.WalkDefault);
+        mDrive.setImageResource(R.drawable.route_drive_normal);
+        mBus.setImageResource(R.drawable.route_bus_normal);
+        mWalk.setImageResource(R.drawable.route_walk_select);
+        mapView.setVisibility(View.VISIBLE);
+        mBusResultLayout.setVisibility(View.GONE);
+    }
+
 
     /**
      * 注册监听
@@ -129,6 +198,7 @@ public class DriveRouteActivity extends Activity implements OnMapClickListener,
         aMap.setInfoWindowAdapter(this);
 
     }
+
 
     @Override
     public View getInfoContents(Marker arg0) {
@@ -172,16 +242,47 @@ public class DriveRouteActivity extends Activity implements OnMapClickListener,
             ToastUtil.show(mContext, "终点未设置");
         }
         showProgressDialog();
-        if (routeType == ROUTE_TYPE_DRIVE) {// 驾车路径规划
-            DriveRouteQuery query = new DriveRouteQuery(fromAndTo, mode, null,
-                    null, "");// 第一个参数表示路径规划的起点和终点，第二个参数表示驾车模式，第三个参数表示途经点，第四个参数表示避让区域，第五个参数表示避让道路
-            mRouteSearch.calculateDriveRouteAsyn(query);// 异步路径规划驾车模式查询
+        switch (routeType) {
+            case ROUTE_TYPE_BUS:
+                RouteSearch.BusRouteQuery query_bus = new RouteSearch.BusRouteQuery(fromAndTo, mode,
+                        city, 0);// 第一个参数表示路径规划的起点和终点，第二个参数表示公交查询模式，第三个参数表示公交查询城市区号，第四个参数表示是否计算夜班车，0表示不计算
+                mRouteSearch.calculateBusRouteAsyn(query_bus);// 异步路径规划公交模式查询
+                break;
+            case ROUTE_TYPE_DRIVE:
+                // 驾车路径规划
+                DriveRouteQuery query = new DriveRouteQuery(fromAndTo, mode, null,
+                        null, "");// 第一个参数表示路径规划的起点和终点，第二个参数表示驾车模式，第三个参数表示途经点，第四个参数表示避让区域，第五个参数表示避让道路
+                mRouteSearch.calculateDriveRouteAsyn(query);// 异步路径规划驾车模式查询
+                break;
+            case ROUTE_TYPE_WALK:
+                RouteSearch.WalkRouteQuery query_walk = new RouteSearch.WalkRouteQuery(fromAndTo, mode);
+                mRouteSearch.calculateWalkRouteAsyn(query_walk);// 异步路径规划步行模式查询
+                break;
+
         }
+
     }
 
     @Override
     public void onBusRouteSearched(BusRouteResult result, int errorCode) {
-
+        dissmissProgressDialog();
+        aMap.clear();// 清理地图上的所有覆盖物
+        if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
+            mBottomLayout.setVisibility(View.GONE);//隐藏底部界面
+            if (result != null && result.getPaths() != null) {
+                if (result.getPaths().size() > 0) {
+                    mBusRouteResult = result;
+                    BusResultListAdapter mBusResultListAdapter = new BusResultListAdapter(mContext, mBusRouteResult);
+                    mBusResultList.setAdapter(mBusResultListAdapter);
+                } else if (result != null && result.getPaths() == null) {
+                    ToastUtil.show(mContext, R.string.no_result);
+                }
+            } else {
+                ToastUtil.show(mContext, R.string.no_result);
+            }
+        } else {
+            ToastUtil.showerror(this.getApplicationContext(), errorCode);
+        }
     }
 
     @Override
@@ -239,7 +340,47 @@ public class DriveRouteActivity extends Activity implements OnMapClickListener,
 
     @Override
     public void onWalkRouteSearched(WalkRouteResult result, int errorCode) {
-
+        dissmissProgressDialog();
+        aMap.clear();// 清理地图上的所有覆盖物
+        if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
+            if (result != null && result.getPaths() != null) {
+                if (result.getPaths().size() > 0) {
+                    mWalkRouteResult = result;
+                    final WalkPath walkPath = mWalkRouteResult.getPaths()
+                            .get(0);
+                    WalkRouteOverlay walkRouteOverlay = new WalkRouteOverlay(
+                            this, aMap, walkPath,
+                            mWalkRouteResult.getStartPos(),
+                            mWalkRouteResult.getTargetPos());
+                    walkRouteOverlay.removeFromMap();
+                    walkRouteOverlay.addToMap();
+                    walkRouteOverlay.zoomToSpan();
+                    mBottomLayout.setVisibility(View.VISIBLE);
+                    int dis = (int) walkPath.getDistance();
+                    int dur = (int) walkPath.getDuration();
+                    String des = AMapUtil.getFriendlyTime(dur) + "(" + AMapUtil.getFriendlyLength(dis) + ")";
+                    mRotueTimeDes.setText(des);
+                    mRouteDetailDes.setVisibility(View.GONE);
+                    mBottomLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(mContext,
+                                    WalkRouteDetailActivity.class);
+                            intent.putExtra("walk_path", walkPath);
+                            intent.putExtra("walk_result",
+                                    mWalkRouteResult);
+                            startActivity(intent);
+                        }
+                    });
+                } else if (result != null && result.getPaths() == null) {
+                    ToastUtil.show(mContext, R.string.no_result);
+                }
+            } else {
+                ToastUtil.show(mContext, R.string.no_result);
+            }
+        } else {
+            ToastUtil.showerror(this.getApplicationContext(), errorCode);
+        }
     }
 
 

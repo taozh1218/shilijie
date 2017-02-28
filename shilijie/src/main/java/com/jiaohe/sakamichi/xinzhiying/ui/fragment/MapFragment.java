@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,10 +50,12 @@ import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
 import com.amap.api.services.route.RouteSearch;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.adapter.MyInfoWindowAdapter;
 import com.jiaohe.sakamichi.xinzhiying.ui.acitivity.DriveRouteActivity;
 import com.jiaohe.sakamichi.xinzhiying.ui.overlay.MyPoiOverlay;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.LoadingLayout;
 import com.jiaohe.sakamichi.xinzhiying.util.AMapUtil;
+import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -103,6 +107,8 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, A
     private Location lastKnownLocation;
     private OnLocationChangedListener mListener;
     private AMapLocationClientOption mLocationOption;
+    //自定义infoWindow的adapter
+    private MyInfoWindowAdapter adapter;
 
     public static MapFragment newInstance() {
         if (fragment == null) {
@@ -169,6 +175,10 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, A
             mAMap.setOnMapLoadedListener(this);
             geocoderSearch = new GeocodeSearch(getActivity());
             geocoderSearch.setOnGeocodeSearchListener(this);
+            //TODO 自定义InfoWindow
+//            adapter = new MyInfoWindowAdapter(getActivity().getApplicationContext());
+//            mAMap.setInfoWindowAdapter(adapter);
+
 
             lp = new LatLonPoint(mLocationClient.getLastKnownLocation().getLatitude(), mLocationClient.getLastKnownLocation().getLongitude());
 //            locationMarker = mAMap.addMarker(new MarkerOptions()
@@ -234,7 +244,7 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, A
      */
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
-        mAMap.moveCamera(CameraUpdateFactory.zoomTo(AMapUtil.ZoomLevel));
+//        mAMap.moveCamera(CameraUpdateFactory.zoomTo(AMapUtil.ZoomLevel));
         if (mListener != null && aMapLocation != null) {
             if (aMapLocation != null
                     && aMapLocation.getErrorCode() == 0) {
@@ -291,7 +301,7 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, A
             case R.id.btn_poiClickAct://poiSearch
                 searchPoiByKey();
                 break;
-            case R.id.rl_detail_poiClickAct://TODO 路径规划
+            case R.id.rl_detail_poiClickAct://TODO 其他路径规划，在DriveRouteActivity设置
                 String address = mPoiAddress.getText().toString();
                 String latlng = mTv_latlng.getText().toString();
                 if (TextUtils.isEmpty(address)) {
@@ -533,7 +543,6 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, A
     /**
      * 获取路线
      * <p>
-     * TODO 这里只实现了drive
      *
      * @param latLonPoint 目的地坐标
      */
@@ -560,7 +569,7 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, A
     /**
      * poi clickListener
      * <p>
-     * 点击POI时，为改点设置marker，然后显示detail（等获取到地址信息再显示）
+     * 点击POI时，为该点设置marker，然后显示detail（等获取到地址信息再显示）
      *
      * @param poi
      */
@@ -702,6 +711,11 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, A
             R.mipmap.poi_marker_10
     };
 
+    /**
+     * 是否显示详情
+     *
+     * @param isToShow
+     */
     private void whetherToShowDetailInfo(boolean isToShow) {
         mIsShown = isToShow;
         if (isToShow) {
@@ -734,22 +748,75 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, A
                 .position(new LatLng(mLocationClient.getLastKnownLocation().getLatitude(), mLocationClient.getLastKnownLocation().getLongitude())));
     }
 
+    private void addMarkerToMap(LatLng latLng, String title, String snippet) {
+        mAMap.addMarker(new MarkerOptions().anchor(0.5f, 0.5f)
+                .position(latLng)
+                .title(title)
+                .snippet(snippet)
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.poi_marker_pressed))
+        );
+    }
+
 
     @Override
     public void onInfoWindowClick(Marker marker) {
         Log.d(TAG, "onInfoWindowClick()," + marker.toString());
     }
 
+    /**
+     * 自定义infowindow窗口的infowindow事件回调
+     *
+     * @param marker
+     * @return
+     */
     @Override
     public View getInfoWindow(Marker marker) {
         Log.d(TAG, "getInfoWindow()" + marker.getId());
+
+//        View infoWindow = getActivity().getLayoutInflater().inflate(
+//                R.layout.layout_infowindow, null);
+//        render(marker, infoWindow);
+//        return infoWindow;
+
         return null;
     }
 
+    /**
+     * 自定义infoWindow窗口的infoContents事件回调
+     *
+     * @param marker
+     * @return
+     */
     @Override
     public View getInfoContents(Marker marker) {
         Log.d(TAG, "getInfoContents()" + marker.getId());
+//        View infoContent = getActivity().getLayoutInflater().inflate(
+//                R.layout.layout_infowindow, null);
+//        render(marker, infoContent);
+//        return infoContent;
         return null;
+    }
+
+    /**
+     * 自定义infowinfow窗口
+     */
+    public void render(Marker marker, View view) {
+        LinearLayout mRoot_view = (LinearLayout) view.findViewById(R.id.ll_infoWindow);
+        ImageView img_avatar = (ImageView) view.findViewById(R.id.img_avatar_infoWindow);
+        TextView tv_name = (TextView) view.findViewById(R.id.tv_name_infoWindow);
+        TextView tv_phoneNo = (TextView) view.findViewById(R.id.tv_phoneNo_infoWindow);
+        ImageView img_verification = (ImageView) view.findViewById(R.id.img_verification_infoWindow);
+        EditText edt_sign = (EditText) view.findViewById(R.id.tv_signature_infoWindow);
+//        mEdt.setKeyListener(null);
+        TextView tv_address = (TextView) view.findViewById(R.id.tv_address_infoWindow);
+
+//        img_avatar.setImageBitmap();//TODO 设置用户头像
+        tv_name.setText(SPUtils.getString(getActivity().getApplicationContext(), "nickname", ""));//用户名
+        tv_phoneNo.setText(SPUtils.getString(getActivity().getApplicationContext(), "phone", ""));//用户手机号
+//        tv_name.setText(String.format(mContext.getString(R.string.agent_addr), marker.getSnippet()));
+        tv_address.setText(marker.getPosition().latitude + "+" + marker.getPosition().longitude);
+
+
     }
 
 
