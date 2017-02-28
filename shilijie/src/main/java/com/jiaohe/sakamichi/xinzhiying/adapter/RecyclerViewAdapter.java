@@ -1,6 +1,7 @@
 package com.jiaohe.sakamichi.xinzhiying.adapter;
 
 import android.content.Context;
+import android.os.Environment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 
 import java.util.ArrayList;
 
@@ -17,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
+    private final String path = Environment.getExternalStorageDirectory() + "/crop_icon.jpg";
     private Context context;
     private ArrayList<String> list = new ArrayList<>();
     private final int TYPE_HEAD =0,TYPE_ITEM=1;
@@ -50,8 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
             if (getItemViewType(position)==TYPE_HEAD){
-
-
+                Glide.with(context).load(path).asBitmap().into(((HeadViewHolder) holder).aiv_userIcon);
 
 
             }else {
@@ -88,12 +90,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     //头视图
     class HeadViewHolder extends RecyclerView.ViewHolder{
-
-
-
+        private ImageView iv_circleBg;
+        private AvatarImageView aiv_userIcon;
 
         public HeadViewHolder(View itemView) {
             super(itemView);
+            iv_circleBg= (ImageView) itemView.findViewById(R.id.iv_bgImage);
+            aiv_userIcon= (AvatarImageView) itemView.findViewById(R.id.aiv_circleIcon);
+
         }
     }
 
