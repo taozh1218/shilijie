@@ -4,12 +4,12 @@
         "source": "D:\\shilijie\\app\\easeui\\res\\layout\\ease_widget_title_bar.xml"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_video.xml",
-        "source": "D:\\shilijie\\app\\easeui\\res\\layout\\ease_row_sent_video.xml"
-    },
-    {
         "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_video.xml",
+        "source": "D:\\shilijie\\app\\easeui\\res\\layout\\ease_row_sent_video.xml"
     },
     {
         "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
@@ -44,12 +44,12 @@
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\res\\layout\\ease_conversation_item.xml"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_picture.xml",
-        "source": "D:\\shilijie\\app\\easeui\\res\\layout\\ease_row_sent_picture.xml"
-    },
-    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_received_location.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\res\\layout\\ease_row_received_location.xml"
+    },
+    {
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_picture.xml",
+        "source": "D:\\shilijie\\app\\easeui\\res\\layout\\ease_row_sent_picture.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_emojicon.xml",
@@ -84,20 +84,20 @@
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_big_media.xml"
     },
     {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_search_bar_with_padding.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\res\\layout\\ease_search_bar_with_padding.xml"
-    },
-    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\layout\\select_dialog_item_material.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_search_bar_with_padding.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\res\\layout\\ease_search_bar_with_padding.xml"
     },
     {
         "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\layout\\select_dialog_item_material.xml"
     },
     {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_big_expression.xml",
@@ -116,12 +116,12 @@
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\res\\layout\\ease_row_received_message.xml"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_voice_call.xml",
-        "source": "D:\\shilijie\\app\\easeui\\res\\layout\\ease_row_sent_voice_call.xml"
-    },
-    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_voice_call.xml",
+        "source": "D:\\shilijie\\app\\easeui\\res\\layout\\ease_row_sent_voice_call.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
@@ -152,12 +152,12 @@
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\res\\layout\\ease_widget_title_bar.xml"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_widget_contact_list.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\res\\layout\\ease_widget_contact_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_bigexpression.xml",

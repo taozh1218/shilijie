@@ -1,15 +1,15 @@
 [
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_chat_image_selector.xml",
-        "source": "D:\\shilijie\\app\\easeui\\res\\drawable\\ease_chat_image_selector.xml"
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_list_selector_holo_dark.xml"
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_chat_image_selector.xml",
+        "source": "D:\\shilijie\\app\\easeui\\res\\drawable\\ease_chat_image_selector.xml"
     },
     {
         "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_blue_normal_shape.xml",
@@ -44,20 +44,20 @@
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\notification_bg.xml"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
-        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\notification_icon_background.xml"
-    },
-    {
         "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_cancel_bj.xml",
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\res\\drawable\\ease_btn_cancel_bj.xml"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_cancel_pressed_shape.xml",
-        "source": "D:\\shilijie\\app\\easeui\\res\\drawable\\ease_btn_cancel_pressed_shape.xml"
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\notification_icon_background.xml"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_cancel_pressed_shape.xml",
+        "source": "D:\\shilijie\\app\\easeui\\res\\drawable\\ease_btn_cancel_pressed_shape.xml"
     },
     {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_sidebar_background_pressed.xml",

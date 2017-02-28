@@ -72,7 +72,7 @@ public class CircleFragment extends BaseFragment implements SwipeRefreshLayout.O
     private void initView() {
         mSwipeRefreshLayout= (SwipeRefreshLayout) getView().findViewById(R.id.srl_SwipeRefreshLayout);
         mRecyclerView= (RecyclerView) getView().findViewById(R.id.rlv_recyclerView);
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.color_1B85FF,R.color.colorPrimaryDark,R.color.top_bar_normal_bg,R.color.primary_dark_material_light);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.circle_refresh_one,R.color.circle_refresh_two);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(linearLayoutManager);

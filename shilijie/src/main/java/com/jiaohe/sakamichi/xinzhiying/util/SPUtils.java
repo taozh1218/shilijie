@@ -32,4 +32,5 @@ public class SPUtils {
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(ConstantValues.CONFIG, Context.MODE_PRIVATE);
         return sharedPreferences.getString(key, value);
     }
+
 }

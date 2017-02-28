@@ -44,6 +44,10 @@
     <color name="translucent">#66000000</color>
     <color name="color666">#661B85FF</color>
     <color name="color_1B85FF">#1B85FF</color>
+    
+    <color name="circle_refresh_one">#90cffa</color>
+    <color name="circle_refresh_two">#3df9d8</color>
+    
 </resources>
 
 

@@ -104,12 +104,12 @@
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_active.9.png"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_contact_list_selected.png",
-        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_contact_list_selected.png"
-    },
-    {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_record_animate_11.png",
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_record_animate_11.png"
+    },
+    {
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_contact_list_selected.png",
+        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_contact_list_selected.png"
     },
     {
         "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chat_video_mask_to.9.png",
@@ -204,12 +204,12 @@
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_16.png"
     },
     {
-        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatting_biaoqing_btn_normal.png",
-        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatting_biaoqing_btn_normal.png"
-    },
-    {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatting_biaoqing_btn_normal.png",
+        "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatting_biaoqing_btn_normal.png"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_8.png",
@@ -276,12 +276,12 @@
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatfrom_voice_playing_f1.png"
     },
     {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png"
-    },
-    {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_33.png",
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_33.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_22.png",
@@ -360,12 +360,12 @@
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_type_select_btn_pressed.png"
     },
     {
-        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_25.png",
-        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_25.png"
-    },
-    {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_25.png",
+        "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_25.png"
     },
     {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
@@ -420,12 +420,12 @@
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_voice_unread.png"
     },
     {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_input_bar_bg_active.9.png",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_active.9.png"
-    },
-    {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_12.png",
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_12.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_input_bar_bg_active.9.png",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_active.9.png"
     },
     {
         "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_app_panel_video_icon.9.png",
@@ -524,12 +524,12 @@
         "source": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_normal.9.png"
     },
     {
-        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_1.png",
-        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_1.png"
-    },
-    {
         "merged": "D:\\shilijie\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_35.png",
         "source": "D:\\shilijie\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_35.png"
+    },
+    {
+        "merged": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_1.png",
+        "source": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_1.png"
     },
     {
         "merged": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_default_image.png",

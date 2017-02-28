@@ -1,7 +1,9 @@
 package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,11 +15,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -88,6 +93,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mTv_location;
     private Handler handler = new Handler();
     private RadioGroup mRg_navi;
+    //根据被选择的fragment来设置顶部菜单键
+    private int CHOOSE_FRAGMENT =1;
+    private LinearLayout ll_toolbar;
+    private ImageView iv_circlePen,iv_circlePhoto,iv_circleVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView(); //初始化MainActivity中控件
         initSlideMenuView(); //初始化侧边栏中控件
         initData();
-
         initUserIcon();
         initUserMsg();
         initPhone();
@@ -122,7 +130,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initData() {
         phone = SPUtils.getString(this, "phone", "");
         token = SPUtils.getString(this, "token", "");
-
     }
 
     private void initUserMsg() {
@@ -194,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIb_menu = (ImageButton) findViewById(R.id.ib_menu);
         mVp_content = (NoScrollViewPager) findViewById(R.id.vp_content);
         mRg_navi = (RadioGroup) findViewById(R.id.rg_navi);
-
+        ll_toolbar= (LinearLayout) findViewById(R.id.ll_toolbar);
         mIv_icon.setOnClickListener(this);
         mIv_camera.setOnClickListener(this);
         mIb_menu.setOnClickListener(this);
@@ -208,15 +215,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rb_fame:
+                        CHOOSE_FRAGMENT=1;
+                        mIv_camera.setImageResource(R.drawable.photo_icon);
                         mVp_content.setCurrentItem(0, false);
                         break;
                     case R.id.rb_map:
+                        CHOOSE_FRAGMENT=2;
+                        mIv_camera.setImageResource(R.drawable.slide_menu_search);
                         mVp_content.setCurrentItem(1, false);
                         break;
                     case R.id.rb_relation:
+                        CHOOSE_FRAGMENT=3;
+                        mIv_camera.setImageResource(R.drawable.btu_add);
                         mVp_content.setCurrentItem(2, false);
                         break;
                     case R.id.rb_circle:
+                        CHOOSE_FRAGMENT=4;
+                        mIv_camera.setImageResource(R.drawable.btu_add);
                         mVp_content.setCurrentItem(3, false);
                         break;
                 }
@@ -233,6 +248,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     EMClient.getInstance().contactManager().addContact("18396804155","666666");
                 } catch (HyphenateException e) {
                     e.printStackTrace();
+                }
+                switch (CHOOSE_FRAGMENT){
+                    case 1:
+
+
+                        break;
+                    case 2:
+
+
+                        break;
+                    case 3:
+
+
+                        break;
+                    case 4:
+                        showCircleMenu();
+                        break;
                 }
 
                 break;
@@ -264,7 +296,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent_sign = new Intent(MainActivity.this, ChangeSignatureActivity.class);
                 startActivity(intent_sign);
                 break;
+            case R.id.iv_circlePen:
+                Intent intent = new Intent(MainActivity.this,CircleIssueActivity.class);
+                startActivity(intent);
+                break;
         }
+    }
+
+    private void showCircleMenu() {
+        View circleMenu = LayoutInflater.from(this).inflate(R.layout.layout_cricle_menu, null);
+        PopupWindow popupWindow  =new PopupWindow(circleMenu, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT,true);
+        popupWindow.setFocusable(true);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+        WindowManager wm = (WindowManager) this
+                .getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        popupWindow.showAsDropDown(ll_toolbar,width*100/193,14);
+        iv_circlePen= (ImageView) circleMenu.findViewById(R.id.iv_circlePen);
+        iv_circlePen.setOnClickListener(this);
+        iv_circlePhoto= (ImageView) circleMenu.findViewById(R.id.iv_circlePhoto);
+        iv_circlePhoto.setOnClickListener(this);
+        iv_circleVideo= (ImageView) circleMenu.findViewById(R.id.iv_circleVideo);
+        iv_circleVideo.setOnClickListener(this);
+
     }
 
     @Override

@@ -118,7 +118,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.acitivity.ResetPhoneActivity"></activity>
+        <activity android:name=".ui.acitivity.ResetPhoneActivity" />
+        <activity android:name=".ui.acitivity.CircleBackgroundImageActivity" />
+        <activity android:name=".ui.acitivity.CircleIssueActivity" />
+        <activity android:name=".ui.acitivity.DefaultImageActivity"></activity>
     </application>
 
 </manifest>

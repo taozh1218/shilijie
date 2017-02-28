@@ -38,34 +38,19 @@
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
                 android:textColor="#5b5b5b"
+                android:maxLines="3"
                 android:text="标题"/>
 
         </LinearLayout>
 
     </LinearLayout>
-    <GridView
+    <android.support.v7.widget.RecyclerView
         android:layout_marginLeft="53dp"
-        android:id="@+id/gv_photo"
+        android:id="@+id/rlv_photo"
         android:layout_width="match_parent"
         android:numColumns="auto_fit"
         android:layout_height="118dp">
-    </GridView>
-    <GridView
-        android:id="@+id/gv_commentIcon"
-        android:layout_marginLeft="53dp"
-        android:layout_marginTop="13dp"
-        android:layout_width="match_parent"
-        android:numColumns="auto_fit"
-        android:layout_height="18dp">
-
-    </GridView>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="11dp"
-        android:background="@drawable/cricle_img_line"
-        android:layout_marginLeft="53dp"
-        android:layout_marginRight="23dp"/>
+    </android.support.v7.widget.RecyclerView>
     <LinearLayout
         android:layout_marginLeft="53dp"
         android:layout_marginTop="13dp"
@@ -115,6 +100,35 @@
             android:layout_height="wrap_content"
             android:src="@drawable/circle_share"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/cricle_img_line"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="23dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_commentIcon"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="13dp"
+        android:layout_width="match_parent"
+        android:numColumns="auto_fit"
+        android:layout_height="18dp">
+
+    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/rlv_comment"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="23dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
 
     <View
         android:layout_width="match_parent"

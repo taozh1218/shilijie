@@ -6,6 +6,7 @@
     android:gravity="center"
     android:background="@drawable/circle_menu_background">
     <ImageView
+        android:id="@+id/iv_circlePen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -17,6 +18,7 @@
         android:layout_marginBottom="11dp"
         android:background="@drawable/circle_img_line"/>
     <ImageView
+        android:id="@+id/iv_circlePhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -28,6 +30,7 @@
         android:layout_marginBottom="11dp"
         android:background="@drawable/circle_img_line"/>
     <ImageView
+        android:id="@+id/iv_circleVideo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"

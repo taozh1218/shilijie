@@ -1,6 +1,8 @@
 package com.jiaohe.sakamichi.xinzhiying.adapter;
 
+
 import android.content.Context;
+import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.ui.acitivity.CircleBackgroundImageActivity;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 
 import java.util.ArrayList;
@@ -57,9 +60,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 ((HeadViewHolder) holder).iv_circleBg.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        
-
-
+                        Intent intent = new Intent(context, CircleBackgroundImageActivity.class);
+                        context.startActivity(intent);
                     }
                 });
 
