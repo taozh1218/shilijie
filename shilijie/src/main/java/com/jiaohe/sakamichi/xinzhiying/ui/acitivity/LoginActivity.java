@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -186,6 +187,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         mDialog.dismiss();
                         //登录成功跳转到主界面
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
                     } else {
                         LogUtils.d("登录失败");
                     }

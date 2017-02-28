@@ -17,7 +17,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/ib_backCircle"
+            android:id="@+id/ib_backCircle1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

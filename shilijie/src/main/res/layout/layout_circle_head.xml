@@ -9,13 +9,13 @@
         android:id="@+id/iv_bgImage"
         android:layout_width="match_parent"
         android:layout_height="179dp"
-        android:src="@color/background_floating_material_dark"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/default_image1"/>
 
         <com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView
             android:id="@+id/aiv_circleIcon"
             android:layout_width="59dp"
             android:layout_height="59dp"
-
             android:src="@drawable/default_icon"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"

@@ -24,6 +24,7 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
+import com.jiaohe.sakamichi.xinzhiying.util.AppManager;
 import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.Md5Utils;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
@@ -49,10 +50,10 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
     private ImageView mIv_closePhone,mIv_closePwd;
     //修改电话控件
     private TextView mTv_oldPhone;
-    private EditText mEt_pwd, mEt_phoneCode;
+    private EditText  mEt_phoneCode;
     private Button mBt_phoneCode, mBt_rePhone;
     //修改密码控件
-    private EditText mEt_pwdPhone, mEt_pwdCode, mEt_newPwd;
+    private EditText mEt_pwdCode, mEt_newPwd;
     private Button mBt_pwdCode, mBt_rePwd;
 
     private String pwdCode, newPwd;
@@ -219,6 +220,7 @@ public class SysSettingActivity extends AppCompatActivity implements View.OnClic
                         SPUtils.putString(getApplicationContext(), "phone", null);
                         SPUtils.putString(getApplicationContext(), "token", null);
                         SPUtils.putBoolean(getApplicationContext(),"isCache",false);
+                        AppManager.getAppManager().finishAllActivity();
                         finish();
                         startActivity(intent);
                     } else {

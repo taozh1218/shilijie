@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -25,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.sdk.android.oss.ClientException;
 import com.alibaba.sdk.android.oss.OSS;
@@ -47,7 +49,7 @@ import com.jiaohe.sakamichi.xinzhiying.ui.fragment.MapFragment;
 import com.jiaohe.sakamichi.xinzhiying.ui.fragment.RelationFragment;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.NoScrollViewPager;
-import com.jiaohe.sakamichi.xinzhiying.util.LogUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.AppManager;
 import com.jiaohe.sakamichi.xinzhiying.util.RequestUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 import com.jiaohe.sakamichi.xinzhiying.util.UIUtils;
@@ -62,6 +64,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -97,13 +101,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int CHOOSE_FRAGMENT =1;
     private LinearLayout ll_toolbar;
     private ImageView iv_circlePen,iv_circlePhoto,iv_circleVideo;
+    private boolean isExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         UIUtils.initStateBar(MainActivity.this); //设置透明状态栏
-
+        AppManager.getAppManager().addActivity(this);
         initView(); //初始化MainActivity中控件
         initSlideMenuView(); //初始化侧边栏中控件
         initData();
@@ -130,11 +135,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initData() {
         phone = SPUtils.getString(this, "phone", "");
         token = SPUtils.getString(this, "token", "");
+        System.out.println("----"+token);
     }
 
     private void initUserMsg() {
         Boolean isUpload = SPUtils.getBoolean(this, "isUpload", false);
-        LogUtils.d("" + isUpload);
         if (isUpload) {
             String nickname = SPUtils.getString(this, "nickname", "娇禾生物");
             String sign = SPUtils.getString(this, "sign", "有人的地方就有江湖");
@@ -502,6 +507,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitBy2Click(); // 调用双击退出函数
+        }
+        return false;
+    }
+
+    /**
+     * 双击退出函数
+     */
+    private void exitBy2Click() {
+        Timer tExit;
+        if (!isExit) {// isExit == false的简化版
+            isExit = true; // 准备退出
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            tExit = new Timer();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false; // 取消退出
+                }
+            }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+        } else {
+            finish();
+            System.exit(0);
+        }
     }
 
 

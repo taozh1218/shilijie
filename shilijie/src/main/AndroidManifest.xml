@@ -58,7 +58,6 @@
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
     <!-- 连续广播（允许一个程序收到广播后快速收到下一个广播） -->
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-
     <application
         android:name=".global.MyApplication"
         android:allowBackup="true"
@@ -88,6 +87,7 @@
         <activity android:name=".ui.acitivity.RegActivity" />
         <activity android:name=".ui.acitivity.ForgetActivity" />
         <activity android:name=".ui.acitivity.MainActivity" />
+
         <activity android:name=".ui.acitivity.SettingActivity" />
         <activity android:name=".ui.acitivity.QRCodeActivity" />
         <activity android:name=".ui.acitivity.ScanActivity" />

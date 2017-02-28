@@ -111,6 +111,20 @@ public class CircleFragment extends BaseFragment implements SwipeRefreshLayout.O
 
     }
 
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+
     @Override
     protected LoadingLayout.ResultStat reqData() {
         return null;

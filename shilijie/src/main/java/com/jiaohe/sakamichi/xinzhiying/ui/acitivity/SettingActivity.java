@@ -88,7 +88,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
         ib_back.setOnClickListener(this);
         mTv_nickname.setOnClickListener(this);
-
         ll_icon = (RelativeLayout) findViewById(R.id.ll_icon);
         ll_icon.setOnClickListener(this);
         iv_icon = (AvatarImageView) findViewById(R.id.iv_icon);
@@ -291,6 +290,5 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         // 关闭人脸识别
         intent.putExtra("noFaceDetection", false);
         startActivityForResult(intent, RESULT_CROP_IMAGE);
-
     }
 }

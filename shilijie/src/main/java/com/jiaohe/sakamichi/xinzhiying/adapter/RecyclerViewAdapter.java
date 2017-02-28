@@ -3,20 +3,28 @@ package com.jiaohe.sakamichi.xinzhiying.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.ui.acitivity.CircleBackgroundImageActivity;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
+import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
+import com.jiaohe.sakamichi.xinzhiying.util.UriUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * Created by Administrator on 2017/2/27 0027.
@@ -56,7 +64,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
             if (getItemViewType(position)==TYPE_HEAD){
-                Glide.with(context).load(path).asBitmap().into(((HeadViewHolder) holder).aiv_userIcon);
+                Uri uriFromFilePath = UriUtils.getUriFromFilePath(path);
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), uriFromFilePath);
+                    ((HeadViewHolder) holder).aiv_userIcon.setImageBitmap(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 ((HeadViewHolder) holder).iv_circleBg.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -64,6 +78,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         context.startActivity(intent);
                     }
                 });
+                String imageId = SPUtils.getString(context, "imageId", "");
+                if (!TextUtils.isEmpty(imageId)){
+                    int id=Integer.parseInt(imageId);
+                    switch (id){
+                        case 1:
+                            ((HeadViewHolder) holder).iv_circleBg.setImageResource(R.drawable.default_image1);
+                            break;
+                        case 2:
+                            ((HeadViewHolder) holder).iv_circleBg.setImageResource(R.drawable.default_image2);
+                            break;
+                        case 3:
+                            ((HeadViewHolder) holder).iv_circleBg.setImageResource(R.drawable.default_image3);
+                            break;
+                    }
+                }
 
             }else {
                 ((OneViewHolder) holder).tv_userName.setText(list.get(position-1));
@@ -71,7 +100,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     @Override
                     public void onClick(View v) {
                         String trim = ((OneViewHolder) holder).tv_comment.getText().toString().trim();
-                        int i = Integer.parseInt(trim);
+                        int i = parseInt(trim);
                         i++;
                         ((OneViewHolder) holder).tv_comment.setText(i+"");
 
