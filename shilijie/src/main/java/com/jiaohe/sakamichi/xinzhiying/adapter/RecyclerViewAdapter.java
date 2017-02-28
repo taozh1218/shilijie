@@ -26,7 +26,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private final int TYPE_HEAD =0,TYPE_ITEM=1;
     //是否已经评论
     private boolean isComment=false;
-    //shif已经点赞
+    //是否已经点赞
     private boolean isGood=false;
 
     public RecyclerViewAdapter(Context context, ArrayList<String> list) {
@@ -54,7 +54,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
             if (getItemViewType(position)==TYPE_HEAD){
                 Glide.with(context).load(path).asBitmap().into(((HeadViewHolder) holder).aiv_userIcon);
+                ((HeadViewHolder) holder).iv_circleBg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        
 
+
+                    }
+                });
 
             }else {
                 ((OneViewHolder) holder).tv_userName.setText(list.get(position-1));

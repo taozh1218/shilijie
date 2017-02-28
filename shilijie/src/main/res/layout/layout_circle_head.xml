@@ -3,21 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="175dp">
+    android:layout_height="209dp">
 
     <ImageView
         android:id="@+id/iv_bgImage"
         android:layout_width="match_parent"
-        android:layout_height="145dp"
+        android:layout_height="179dp"
         android:src="@color/background_floating_material_dark"/>
 
         <com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView
             android:id="@+id/aiv_circleIcon"
             android:layout_width="59dp"
             android:layout_height="59dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginTop="115dp"
+
+            android:src="@drawable/default_icon"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/default_icon"/>
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="146dp" />
     </RelativeLayout>
