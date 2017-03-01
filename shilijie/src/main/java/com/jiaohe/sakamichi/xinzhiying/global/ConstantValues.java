@@ -93,4 +93,9 @@ public class ConstantValues {
      * 验证手机是否注册
      */
     public static final String IS_USER=SERVER_URL+"/isUser";
+    /**
+     * 朋友圈背景图回调地址
+     */
+    public static final String CIRCLE_BACKGROUP_IMAGE=SERVER_URL+"/momentBackimg";
+
 }

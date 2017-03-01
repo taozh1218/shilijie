@@ -938,7 +938,7 @@ public final class R {
 		public static final int never = 0x7f0a0025;
 		public static final int none = 0x7f0a000f;
 		public static final int normal = 0x7f0a000b;
-		public static final int notification_background = 0x7f0a00cb;
+		public static final int notification_background = 0x7f0a00ca;
 		public static final int notification_main_column = 0x7f0a00c6;
 		public static final int notification_main_column_container = 0x7f0a00c5;
 		public static final int open = 0x7f0a001e;
@@ -956,7 +956,7 @@ public final class R {
 		public static final int radio = 0x7f0a0045;
 		public static final int recording_hint = 0x7f0a00bc;
 		public static final int rectangle = 0x7f0a001b;
-		public static final int right_icon = 0x7f0a00ca;
+		public static final int right_icon = 0x7f0a00cb;
 		public static final int right_image = 0x7f0a00ba;
 		public static final int right_layout = 0x7f0a00b9;
 		public static final int right_side = 0x7f0a00c7;

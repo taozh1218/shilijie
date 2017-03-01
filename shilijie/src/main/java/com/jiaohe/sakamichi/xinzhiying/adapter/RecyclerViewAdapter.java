@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
 import com.jiaohe.sakamichi.xinzhiying.ui.acitivity.CircleBackgroundImageActivity;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
@@ -79,6 +80,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     }
                 });
                 String imageId = SPUtils.getString(context, "imageId", "");
+
+
                 if (!TextUtils.isEmpty(imageId)){
                     int id=Integer.parseInt(imageId);
                     switch (id){
@@ -90,6 +93,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                             break;
                         case 3:
                             ((HeadViewHolder) holder).iv_circleBg.setImageResource(R.drawable.default_image3);
+                            break;
+                        case 4:
+                            String path = MyApplication.getContext().getExternalCacheDir() + "/circle_bg.jpg";
+                            Uri uriPath = UriUtils.getUriFromFilePath(path);
+                            System.out.println(uriPath);
+                            try {
+                                Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), uriPath);
+                                ((HeadViewHolder) holder).iv_circleBg.setImageBitmap(bitmap);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             break;
                     }
                 }

@@ -9,25 +9,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 
 public class ChangeSignatureActivity extends AppCompatActivity {
 
     private EditText mEdt_signature;
-    private String phone;
-    private String TAG = "ChangeNameAct";
-    private String token;
-    private Gson mGson;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_signature);
-
-
         init();
     }
 
@@ -36,7 +28,6 @@ public class ChangeSignatureActivity extends AppCompatActivity {
         ImageView img_back = (ImageView) findViewById(R.id.img_back_changeSignAct);
         Button btn_save = (Button) findViewById(R.id.btn_save_changeSignAct);
         mEdt_signature = (EditText) findViewById(R.id.edt_signature_changeSignAct);
-
         img_back.setOnClickListener(mOnClickListener);
         btn_save.setOnClickListener(mOnClickListener);
     }
@@ -55,14 +46,8 @@ public class ChangeSignatureActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "不能为空！", Toast.LENGTH_SHORT).show();
                         break;
                     }
-                    /*UserInfoBean userInfoBean = new UserInfoBean();
-                    userInfoBean.setSignature(signature);
-                    mGson = new Gson();
-                    String json = mGson.toJson(userInfoBean);
-                    requestServer(json);*/
                     SPUtils.putString(getApplicationContext(), "sign", signature);
                     SPUtils.putBoolean(getApplicationContext(), "isUpload", true);
-                    //同时上传签名
 
                     finish();
                     break;

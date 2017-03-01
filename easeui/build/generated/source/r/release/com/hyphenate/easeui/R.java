@@ -2477,7 +2477,7 @@ containing a value of this type.
         public static int never=0x7f0a0025;
         public static int none=0x7f0a000f;
         public static int normal=0x7f0a000b;
-        public static int notification_background=0x7f0a00cb;
+        public static int notification_background=0x7f0a00ca;
         public static int notification_main_column=0x7f0a00c6;
         public static int notification_main_column_container=0x7f0a00c5;
         public static int open=0x7f0a001e;
@@ -2495,7 +2495,7 @@ containing a value of this type.
         public static int radio=0x7f0a0045;
         public static int recording_hint=0x7f0a00bc;
         public static int rectangle=0x7f0a001b;
-        public static int right_icon=0x7f0a00ca;
+        public static int right_icon=0x7f0a00cb;
         public static int right_image=0x7f0a00ba;
         public static int right_layout=0x7f0a00b9;
         public static int right_side=0x7f0a00c7;

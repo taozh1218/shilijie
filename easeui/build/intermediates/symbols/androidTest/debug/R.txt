@@ -916,7 +916,7 @@ int id name 0x7f0a007a
 int id never 0x7f0a0025
 int id none 0x7f0a000f
 int id normal 0x7f0a000b
-int id notification_background 0x7f0a00cb
+int id notification_background 0x7f0a00ca
 int id notification_main_column 0x7f0a00c6
 int id notification_main_column_container 0x7f0a00c5
 int id open 0x7f0a001e
@@ -934,7 +934,7 @@ int id query 0x7f0a009b
 int id radio 0x7f0a0045
 int id recording_hint 0x7f0a00bc
 int id rectangle 0x7f0a001b
-int id right_icon 0x7f0a00ca
+int id right_icon 0x7f0a00cb
 int id right_image 0x7f0a00ba
 int id right_layout 0x7f0a00b9
 int id right_side 0x7f0a00c7

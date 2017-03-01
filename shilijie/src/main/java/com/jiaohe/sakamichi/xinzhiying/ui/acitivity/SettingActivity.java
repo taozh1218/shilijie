@@ -61,6 +61,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         UIUtils.initStateBar(SettingActivity.this);
         initView();
         initData();
+
     }
 
 

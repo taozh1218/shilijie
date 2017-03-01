@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.adapter.RecyclerViewAdapter;
 import com.jiaohe.sakamichi.xinzhiying.ui.view.LoadingLayout;
+import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
 
 import java.util.ArrayList;
 
@@ -56,6 +57,7 @@ public class CircleFragment extends BaseFragment implements SwipeRefreshLayout.O
         super.onViewCreated(view, savedInstanceState);
         initData();
         initView();
+        getBackimg();
 
 
     }
@@ -74,10 +76,14 @@ public class CircleFragment extends BaseFragment implements SwipeRefreshLayout.O
         mRecyclerView= (RecyclerView) getView().findViewById(R.id.rlv_recyclerView);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.circle_refresh_one,R.color.circle_refresh_two);
         mSwipeRefreshLayout.setOnRefreshListener(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(linearLayoutManager);
+        RecyclerView.LayoutManager layoutManager =new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
+
+        mRecyclerView.setLayoutManager(layoutManager);
+
         adapter=new RecyclerViewAdapter(getActivity(),list);
         mRecyclerView.setAdapter(adapter);
+
+
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -86,9 +92,11 @@ public class CircleFragment extends BaseFragment implements SwipeRefreshLayout.O
                 if (newState==RecyclerView.SCROLL_STATE_IDLE){
                     int lastCompletelyVisibleItemPosition = layoutManager.findLastCompletelyVisibleItemPosition();
                     int itemCount = layoutManager.getItemCount();
-                    System.out.println("-------"+lastCompletelyVisibleItemPosition+"----"+itemCount);
                     if (lastCompletelyVisibleItemPosition==(itemCount-1)&&isSlidingToLast){
                         list.add("测试刷新");
+
+
+
                         adapter.notifyDataSetChanged();
                     }
                 }
@@ -99,7 +107,6 @@ public class CircleFragment extends BaseFragment implements SwipeRefreshLayout.O
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                System.out.println("-------"+dx+"----"+dy);
                             if (dy>0){
                                 isSlidingToLast=true;
                             }else {
@@ -121,7 +128,8 @@ public class CircleFragment extends BaseFragment implements SwipeRefreshLayout.O
     @Override
     public void onResume() {
         super.onResume();
-        adapter.notifyDataSetChanged();
+
+       adapter.notifyDataSetChanged();
     }
 
 
@@ -153,5 +161,11 @@ public class CircleFragment extends BaseFragment implements SwipeRefreshLayout.O
     handler.sendEmptyMessageDelayed(0,4000);
 
 
+    }
+
+    public void getBackimg() {
+        if (SPUtils.getBoolean(getActivity(),"isCache",false)){
+
+        }
     }
 }

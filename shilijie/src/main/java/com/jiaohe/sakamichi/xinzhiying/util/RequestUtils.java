@@ -107,6 +107,77 @@ public class RequestUtils {
                 Log.d("PutObject", "UploadSuccess");
                 Log.d("ETag", result.getETag());
                 Log.d("RequestId", result.getRequestId());
+
+            }
+
+            @Override
+            public void onFailure(PutObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
+                // 请求异常
+                if (clientExcepion != null) {
+                    // 本地异常如网络异常等
+                    clientExcepion.printStackTrace();
+                }
+                if (serviceException != null) {
+                    // 服务异常
+                    Log.e("ErrorCode", serviceException.getErrorCode());
+                    Log.e("RequestId", serviceException.getRequestId());
+                    Log.e("HostId", serviceException.getHostId());
+                    Log.e("RawMessage", serviceException.getRawMessage());
+                }
+            }
+        });
+        // task.cancel(); // 可以取消任务
+        task.waitUntilFinished(); // 可以等待任务完成
+    }
+    /**
+     * @param id
+     * @param secret
+     * @param token
+     * @param path   上传朋友圈背景图到阿里云oss服务器
+     */
+    public static void updateBackgroupImage(String id, String secret, final String token, final String path) {
+        String endpoint = "http://oss.xinzhiying.net";
+        // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
+        OSSCredentialProvider credentialProvider = new OSSStsTokenCredentialProvider(id, secret, token);
+        OSS oss = new OSSClient(UIUtils.getContext(), endpoint, credentialProvider);
+        // 构造上传请求
+        final PutObjectRequest put = new PutObjectRequest("jiaohe", "images/app/backimg/" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_backimg", path);
+        put.setCallbackParam(new HashMap<String, String>() {
+            {
+                put("callbackUrl", ConstantValues.CIRCLE_BACKGROUP_IMAGE);
+                put("callbackHost", "www.xinzhiying.net");
+                put("callbackBodyType", "application/json");
+                //拼装回调请求体
+                String phone = SPUtils.getString(MyApplication.getContext(),"phone","");
+                String token1 = SPUtils.getString(MyApplication.getContext(),"token","");
+                String str = "{\"phone\":" + "\"" +phone+ "\""
+                        + ",\"token\":" + "\"" +token1+ "\""
+                        + ",\"object\":" + "\"" + phone+ "_backimg" + "\"" + "}";
+
+
+                String body = "{\"phone\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "\""
+                        + ",\"token\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "token", "") + "\""
+                        + ",\"object\":" + "\"" + SPUtils.getString(UIUtils.getContext(), "phone", "") + "_circle_bg" + "\"" +"}";
+                put("callbackBody", str);
+            }
+        });
+        // 异步上传时可以设置进度回调
+        put.setProgressCallback(new OSSProgressCallback<PutObjectRequest>() {
+            @Override
+            public void onProgress(PutObjectRequest request, long currentSize, long totalSize) {
+                Log.d("PutObject", "currentSize: " + currentSize + " totalSize: " + totalSize);
+            }
+        });
+        OSSAsyncTask task = oss.asyncPutObject(put, new OSSCompletedCallback<PutObjectRequest, PutObjectResult>() {
+            @Override
+            public void onSuccess(PutObjectRequest request, PutObjectResult result) {
+                // 只有设置了servercallback，这个值才有数据
+                String serverCallbackReturnJson = result.getServerCallbackReturnBody();
+                Log.d("servercallback", serverCallbackReturnJson);
+                Log.d("PutObject", "UploadSuccess");
+                Log.d("ETag", result.getETag());
+                Log.d("RequestId", result.getRequestId());
+
             }
 
             @Override

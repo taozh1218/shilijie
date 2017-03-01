@@ -431,11 +431,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Bitmap bitmap = null;
                             try {
                                 bitmap = MediaStore.Images.Media.getBitmap(MainActivity.this.getContentResolver(), uriFromFilePath);
+                                mIv_icon.setImageBitmap(bitmap);
+                                mIv_slide_icon.setImageBitmap(bitmap);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                            mIv_icon.setImageBitmap(bitmap);
-                            mIv_slide_icon.setImageBitmap(bitmap);
+
                         }
                     });
                     SPUtils.putBoolean(MyApplication.getContext(), "isCache", true);
