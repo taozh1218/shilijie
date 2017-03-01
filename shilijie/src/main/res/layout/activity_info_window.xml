@@ -29,7 +29,7 @@
                 android:layout_centerVertical="true"
                 android:background="@null"
                 android:drawableLeft="@mipmap/search_input"
-                android:hint="请输入信息"
+                android:hint="请输入关键词"
                 android:maxLines="1"
                 />
 
@@ -67,6 +67,8 @@
                 android:layout_marginStart="12dp"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
+                android:maxEms="18"
+                android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="#5566b8"
                 android:textSize="15sp"/>
@@ -81,7 +83,9 @@
                 android:layout_below="@id/poi_name_InfoWindowAct"
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
+                android:maxEms="18"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="#000000"
@@ -114,26 +118,31 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:orientation="horizontal">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
 
                 <TextView
+                    android:id="@+id/tv_navigation_infoWindowAct"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:text="导航"
                     android:textColor="@color/blue"
                     android:textSize="14sp"/>
 
-                <Button
-                    android:layout_width="7dp"
-                    android:layout_height="13dp"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
-                    android:background="@drawable/arrow_right_blue"
-                    android:gravity="center_vertical"/>
+                    android:src="@drawable/arrow_right_blue"
+                    />
             </LinearLayout>
         </RelativeLayout>
 
     </RelativeLayout>
+    <!--android:layout_width="7dp"-->
+    <!--android:layout_height="13dp"-->
 
 
 </RelativeLayout>

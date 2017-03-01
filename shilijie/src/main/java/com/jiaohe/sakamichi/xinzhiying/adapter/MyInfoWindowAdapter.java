@@ -2,6 +2,7 @@ package com.jiaohe.sakamichi.xinzhiying.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +15,8 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.jiaohe.sakamichi.xinzhiying.R;
 import com.jiaohe.sakamichi.xinzhiying.util.SPUtils;
+
+import static com.hyphenate.chat.EMGCMListenerService.TAG;
 
 /**
  * Created by DIY on 2017/2/25.
@@ -74,15 +77,13 @@ public class MyInfoWindowAdapter implements AMap.InfoWindowAdapter, View.OnClick
     }
 
 
-
     /**
-     *
      * @param marker
      * @return
      */
     @Override
     public View getInfoWindow(Marker marker) {
-
+        Log.e(TAG,"Adapter---getInfoWindow");
         View view = initView(marker);
         return view;
     }
@@ -110,9 +111,9 @@ public class MyInfoWindowAdapter implements AMap.InfoWindowAdapter, View.OnClick
         img_avatar = (ImageView) view.findViewById(R.id.img_avatar_infoWindow);
         tv_name = (TextView) view.findViewById(R.id.tv_name_infoWindow);
         tv_phoneNo = (TextView) view.findViewById(R.id.tv_phoneNo_infoWindow);
-        TextView tv_go = (TextView) view.findViewById(R.id.tv_go_infoWindow);
+//        TextView tv_go = (TextView) view.findViewById(R.id.tv_go_infoWindow);
         img_verification = (ImageView) view.findViewById(R.id.img_verification_infoWindow);
-        ImageView img_go = (ImageView) view.findViewById(R.id.img_go_infoWindow);
+//        ImageView img_go = (ImageView) view.findViewById(R.id.img_go_infoWindow);
         mEdt = (EditText) view.findViewById(R.id.tv_signature_infoWindow);
 //        mEdt.setKeyListener(null);
         tv_address = (TextView) view.findViewById(R.id.tv_address_infoWindow);
@@ -120,16 +121,15 @@ public class MyInfoWindowAdapter implements AMap.InfoWindowAdapter, View.OnClick
         //avatar,name,sign,latlng,
 //        tv_name.setText(String.format(mContext.getString(R.string.agent_addr), snippet));
         tv_name.setText(marker.getSnippet());
-        tv_phoneNo.setText(SPUtils.getString(mContext,"phone",""));
+        tv_phoneNo.setText(SPUtils.getString(mContext, "phone", ""));
         tv_address.setText(marker.getPosition().latitude + "+" + marker.getPosition().longitude);
 
-        tv_go.setOnClickListener(this);
-        img_go.setOnClickListener(this);
+//        tv_go.setOnClickListener(this);
+//        img_go.setOnClickListener(this);
         img_avatar.setOnClickListener(this);
         tv_name.setOnClickListener(this);
         return view;
     }
-
 
 
 }

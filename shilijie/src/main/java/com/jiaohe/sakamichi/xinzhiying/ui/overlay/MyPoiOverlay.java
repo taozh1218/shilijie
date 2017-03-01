@@ -112,6 +112,7 @@ public class MyPoiOverlay {
     public int getPoiIndex(Marker marker) {
         for (int i = 0; i < mPoiMarks.size(); i++) {
             if (mPoiMarks.get(i).equals(marker)) {
+
                 return i;
             }
         }

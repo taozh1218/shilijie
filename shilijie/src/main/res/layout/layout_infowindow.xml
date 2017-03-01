@@ -91,27 +91,11 @@
         android:layout_marginTop="8dp"
         android:gravity="center_vertical"
         >
-        <ImageView
-            android:id="@+id/img_go_infoWindow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/go_48"
-            />
-        <TextView
-            android:id="@+id/tv_go_infoWindow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/img_go_infoWindow"
-            android:text="到这去"
-            android:textSize="10sp"
-            />
+
         <EditText
             android:id="@+id/tv_signature_infoWindow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/tv_go_infoWindow"
             android:background="@null"
             android:editable="false"
             android:hint="供需签名"
@@ -130,6 +114,23 @@
             />
     </RelativeLayout>
 </LinearLayout>
+
+<!--<ImageView-->
+<!--android:id="@+id/img_go_infoWindow"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_alignParentRight="true"-->
+<!--android:layout_centerVertical="true"-->
+<!--android:src="@mipmap/go_48"-->
+    <!--/>-->
+<!--<TextView-->
+<!--android:id="@+id/tv_go_infoWindow"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_toLeftOf="@id/img_go_infoWindow"-->
+<!--android:text="到这去"-->
+<!--android:textSize="10sp"-->
+    <!--/>-->
 
 <!--<ImageView-->
 <!--android:id="@+id/img_pencil_infoWindow"-->

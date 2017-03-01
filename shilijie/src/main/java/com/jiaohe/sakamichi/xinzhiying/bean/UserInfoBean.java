@@ -17,6 +17,8 @@ public class UserInfoBean {
     String interest;
     String signature;
 
+
+
     public UserInfoBean() {
     }
 

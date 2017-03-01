@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -81,7 +80,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //登录成功跳转到主界面
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, DemoInfoWindowAct.class);
             startActivity(intent);
 
         }
@@ -177,7 +177,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         //关闭进度条对话框
                         mDialog.dismiss();
                         //登录成功跳转到主界面
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+//                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(LoginActivity.this, DemoInfoWindowAct.class));
                     } else {
                         LogUtils.d("登录失败");
                     }

@@ -55,7 +55,7 @@ public class ConstantValues {
      * 获取sts凭证的url
      */
     public static final String GET_STS_URL = SERVER_URL + "/getOssSts";
-    
+
     /**
      * 上传头像后的回调地址
      */
@@ -63,23 +63,36 @@ public class ConstantValues {
     /**
      * 用户登录获取头像地址
      */
-    public static final String ICON_GETHEAD_URL=SERVER_URL+"/getHeadImgUrl";
+    public static final String ICON_GETHEAD_URL = SERVER_URL + "/getHeadImgUrl";
 
     /**
      * 用户上传信息地址
      */
-    public static final String CHANGE_USER_INFO = SERVER_URL+"/editUser";
+    public static final String CHANGE_USER_INFO = SERVER_URL + "/editUser";
     /**
      * 获取用户信息的地址
      */
-    public static final String GET_USER_INFO=SERVER_URL+"/getUser";
+    public static final String GET_USER_INFO = SERVER_URL + "/getUser";
     /**
      * 用户退出地址
      */
-    public static final String USER_LOGOUT_URL=SERVER_URL+"/userLogout";
+    public static final String USER_LOGOUT_URL = SERVER_URL + "/userLogout";
     /**
      * 用户更改密码
      */
-    public static final String USER_RESET_PWD=SERVER_URL+"/updatePass";
+    public static final String USER_RESET_PWD = SERVER_URL + "/updatePass";
+
+    /**
+     *
+     */
+    public static final String GET_LOCATION_INFO = "https://www.xinzhiying.net/rest/app/getPosition";
+    /**
+     * 提交用户信息
+     */
+    public static final String SUBMIT_LOCATION_INFO = "https://www.xinzhiying.net/rest/app/savePosition";
+    /**
+     * 获取周边服务
+     */
+    public static final String GET_AROUND_SERVICE = "https://www.xinzhiying.net/rest/app/listPosition";
 
 }
