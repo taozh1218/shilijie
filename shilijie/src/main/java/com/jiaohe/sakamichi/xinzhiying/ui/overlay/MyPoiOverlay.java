@@ -112,6 +112,7 @@ public class MyPoiOverlay {
     public int getPoiIndex(Marker marker) {
         for (int i = 0; i < mPoiMarks.size(); i++) {
             if (mPoiMarks.get(i).equals(marker)) {
+
                 return i;
             }
         }
@@ -139,7 +140,7 @@ public class MyPoiOverlay {
             return icon;
         } else {
             BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(
-                    BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.marker_other_highlight));
+                    BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.poi_marker_pressed));
             return icon;
         }
     }
@@ -156,4 +157,17 @@ public class MyPoiOverlay {
             R.mipmap.poi_marker_9,
             R.mipmap.poi_marker_10
     };
+
+//    private int[] markers = {
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon
+//    };
 }

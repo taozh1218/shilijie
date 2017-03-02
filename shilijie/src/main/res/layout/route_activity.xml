@@ -63,21 +63,7 @@
                     android:layout_weight="1"
                     android:src="@drawable/route_walk_normal" />
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onCrosstownBusClick" >
 
-                <TextView
-                    android:id="@+id/route_CrosstownBus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:textColor="@color/gary"
-                    android:text="跨城公交"/>
-            </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
 
@@ -113,7 +99,7 @@
             android:visibility="gone"/>
 
         <LinearLayout
-            android:id="@+id/detail"
+            android:id="@+id/ll_detail_mapFrag"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_alignParentRight="true"

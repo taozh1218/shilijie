@@ -75,7 +75,7 @@ public class AvatarImageView extends ImageView {
         }
     }
 
-    private Bitmap toRoundCorner(Bitmap bitmap, int pixels) {
+    public Bitmap toRoundCorner(Bitmap bitmap, int pixels) {
 
         //指定为 ARGB_4444 可以减小图片大小  
         Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);

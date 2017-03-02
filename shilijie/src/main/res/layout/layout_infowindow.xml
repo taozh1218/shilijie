@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/ll_infoWindow"
+              android:layout_width="168dp"
+              android:layout_height="wrap_content"
+              android:background="@mipmap/infowindow_bg_big"
+              android:gravity="center_vertical"
+              android:orientation="vertical"
+              android:paddingBottom="9dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        >
+
+        <com.jiaohe.sakamichi.xinzhiying.ui.view.AvatarImageView
+            android:id="@+id/img_avatar_infoWindow"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/default_icon"/>
+
+        <LinearLayout
+            android:id="@+id/ll_info_infoWindow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img_avatar_infoWindow"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_name_infoWindow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="娇禾生物"
+                android:textColor="#333333"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:maxEms="8"
+                android:ellipsize="end"
+                />
+
+            <TextView
+                android:id="@+id/tv_phoneNo_infoWindow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="12345678901"
+                android:textColor="#B3333333"
+                android:textSize="10sp"
+                android:maxLines="1"
+                android:maxEms="8"
+                android:ellipsize="end"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_divider_infoWindow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_toRightOf="@id/ll_info_infoWindow"
+            android:background="#f2f2f2"
+            />
+
+        <ImageView
+            android:id="@+id/img_verification_infoWindow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/img_divider_infoWindow"
+            android:src="@mipmap/shop"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        >
+
+        <EditText
+            android:id="@+id/tv_signature_infoWindow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:editable="false"
+            android:hint="供需签名"
+            android:inputType="none"
+            android:textSize="10sp"
+            android:maxLines="1"
+            android:maxEms="16"
+            android:ellipsize="end"
+            />
+
+        <TextView
+            android:id="@+id/tv_address_infoWindow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+</LinearLayout>
+
+<!--<ImageView-->
+<!--android:id="@+id/img_go_infoWindow"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_alignParentRight="true"-->
+<!--android:layout_centerVertical="true"-->
+<!--android:src="@mipmap/go_48"-->
+    <!--/>-->
+<!--<TextView-->
+<!--android:id="@+id/tv_go_infoWindow"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_toLeftOf="@id/img_go_infoWindow"-->
+<!--android:text="到这去"-->
+<!--android:textSize="10sp"-->
+    <!--/>-->
+
+<!--<ImageView-->
+<!--android:id="@+id/img_pencil_infoWindow"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_alignParentRight="true"-->
+<!--android:layout_centerVertical="true"-->
+<!--android:src="@mipmap/pencil"-->
+<!--android:visibility="gone"-->
+    <!--/>-->

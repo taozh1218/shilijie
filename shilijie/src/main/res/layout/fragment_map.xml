@@ -6,20 +6,20 @@
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
-        android:id="@+id/activity_map_poi_click"
+        android:id="@+id/rl_mapFrag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="5dp"
         >
 
         <RelativeLayout
-            android:id="@+id/rl_search_poiClickAct"
+            android:id="@+id/rl_search_mapFrag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical">
 
             <EditText
-                android:id="@+id/edt_poiClickAct"
+                android:id="@+id/edt_search_mapFrag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -30,7 +30,7 @@
                 />
 
             <Button
-                android:id="@+id/btn_poiClickAct"
+                android:id="@+id/btn_search_mapFrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -43,11 +43,11 @@
             android:id="@+id/map_poiClickAct"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/rl_search_poiClickAct">
+            android:layout_below="@id/rl_search_mapFrag">
         </com.amap.api.maps.MapView>
 
         <RelativeLayout
-            android:id="@+id/rl_detail_poiClickAct"
+            android:id="@+id/rl_detail_mapFrag"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_alignParentBottom="true"
@@ -55,7 +55,7 @@
             android:visibility="gone">
 
             <TextView
-                android:id="@+id/poi_name_poiClickAct"
+                android:id="@+id/tv_detail_name_mapFrag"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_alignParentLeft="true"
@@ -70,12 +70,12 @@
 
 
             <TextView
-                android:id="@+id/poi_address_poiClickAct"
+                android:id="@+id/tv_detail_address_mapFrag"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@id/poi_name_poiClickAct"
+                android:layout_below="@id/tv_detail_name_mapFrag"
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
                 android:gravity="center_vertical"
@@ -85,12 +85,12 @@
                 android:textSize="15sp"/>
 
             <TextView
-                android:id="@+id/poi_info_poiClickAct"
+                android:id="@+id/tv_detail_info_mapFrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@id/poi_address_poiClickAct"
+                android:layout_below="@id/tv_detail_address_mapFrag"
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
                 android:gravity="center_vertical"
@@ -98,11 +98,36 @@
                 android:textSize="12sp"/>
 
             <TextView
-                android:id="@+id/tv_latlng_poiClickAct"
+                android:id="@+id/tv_detail_latlng_mapFrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 />
+
+            <LinearLayout
+                android:id="@+id/ll_navigation_mapFrag"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="导航"
+                    android:textColor="@color/blue"
+                    android:textSize="14sp"/>
+
+                <Button
+                    android:layout_width="7dp"
+                    android:layout_height="13dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/arrow_right_blue"
+                    android:gravity="center_vertical"/>
+            </LinearLayout>
         </RelativeLayout>
 
     </RelativeLayout>

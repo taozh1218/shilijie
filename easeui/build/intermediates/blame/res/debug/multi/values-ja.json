@@ -11,511 +11,7 @@
                     "endOffset": 147
                 },
                 "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 291,
-                        "endColumn": 96,
-                        "endOffset": 383
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 152,
-                    "endColumn": 92,
-                    "endOffset": 240
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 388,
-                        "endColumn": 92,
-                        "endOffset": 476
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 4,
-                    "startColumn": 4,
-                    "startOffset": 245,
-                    "endColumn": 104,
-                    "endOffset": 345
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 481,
-                        "endColumn": 104,
-                        "endOffset": 581
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 5,
-                    "startColumn": 4,
-                    "startOffset": 350,
-                    "endColumn": 81,
-                    "endOffset": 427
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 586,
-                        "endColumn": 81,
-                        "endOffset": 663
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 6,
-                    "startColumn": 4,
-                    "startOffset": 432,
-                    "endColumn": 97,
-                    "endOffset": 525
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 668,
-                        "endColumn": 97,
-                        "endOffset": 761
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 7,
-                    "startColumn": 4,
-                    "startOffset": 530,
-                    "endColumn": 107,
-                    "endOffset": 633
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 766,
-                        "endColumn": 107,
-                        "endOffset": 869
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 8,
-                    "startColumn": 4,
-                    "startOffset": 638,
-                    "endColumn": 101,
-                    "endOffset": 735
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 874,
-                        "endColumn": 101,
-                        "endOffset": 971
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 9,
-                    "startColumn": 4,
-                    "startOffset": 740,
-                    "endColumn": 98,
-                    "endOffset": 834
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 976,
-                        "endColumn": 98,
-                        "endOffset": 1070
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 10,
-                    "startColumn": 4,
-                    "startOffset": 839,
-                    "endColumn": 94,
-                    "endOffset": 929
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 1075,
-                        "endColumn": 94,
-                        "endOffset": 1165
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 11,
-                    "startColumn": 4,
-                    "startOffset": 934,
-                    "endColumn": 102,
-                    "endOffset": 1032
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 1170,
-                        "endColumn": 102,
-                        "endOffset": 1268
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 12,
-                    "startColumn": 4,
-                    "startOffset": 1037,
-                    "endColumn": 94,
-                    "endOffset": 1127
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 1273,
-                        "endColumn": 94,
-                        "endOffset": 1363
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 13,
-                    "startColumn": 4,
-                    "startOffset": 1132,
-                    "endColumn": 95,
-                    "endOffset": 1223
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 1368,
-                        "endColumn": 95,
-                        "endOffset": 1459
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 14,
-                    "startColumn": 4,
-                    "startOffset": 1228,
-                    "endColumn": 110,
-                    "endOffset": 1334
-                },
-                "from": {
-                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 1464,
-                        "endColumn": 110,
-                        "endOffset": 1570
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 96,
-                    "endOffset": 147
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 291,
-                        "endColumn": 96,
-                        "endOffset": 383
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 152,
-                    "endColumn": 92,
-                    "endOffset": 240
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 388,
-                        "endColumn": 92,
-                        "endOffset": 476
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 4,
-                    "startColumn": 4,
-                    "startOffset": 245,
-                    "endColumn": 104,
-                    "endOffset": 345
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 481,
-                        "endColumn": 104,
-                        "endOffset": 581
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 5,
-                    "startColumn": 4,
-                    "startOffset": 350,
-                    "endColumn": 81,
-                    "endOffset": 427
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 586,
-                        "endColumn": 81,
-                        "endOffset": 663
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 6,
-                    "startColumn": 4,
-                    "startOffset": 432,
-                    "endColumn": 97,
-                    "endOffset": 525
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 668,
-                        "endColumn": 97,
-                        "endOffset": 761
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 7,
-                    "startColumn": 4,
-                    "startOffset": 530,
-                    "endColumn": 107,
-                    "endOffset": 633
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 766,
-                        "endColumn": 107,
-                        "endOffset": 869
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 8,
-                    "startColumn": 4,
-                    "startOffset": 638,
-                    "endColumn": 101,
-                    "endOffset": 735
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 874,
-                        "endColumn": 101,
-                        "endOffset": 971
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 9,
-                    "startColumn": 4,
-                    "startOffset": 740,
-                    "endColumn": 98,
-                    "endOffset": 834
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 976,
-                        "endColumn": 98,
-                        "endOffset": 1070
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 10,
-                    "startColumn": 4,
-                    "startOffset": 839,
-                    "endColumn": 94,
-                    "endOffset": 929
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 1075,
-                        "endColumn": 94,
-                        "endOffset": 1165
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 11,
-                    "startColumn": 4,
-                    "startOffset": 934,
-                    "endColumn": 102,
-                    "endOffset": 1032
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 1170,
-                        "endColumn": 102,
-                        "endOffset": 1268
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 12,
-                    "startColumn": 4,
-                    "startOffset": 1037,
-                    "endColumn": 94,
-                    "endOffset": 1127
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 1273,
-                        "endColumn": 94,
-                        "endOffset": 1363
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 13,
-                    "startColumn": 4,
-                    "startOffset": 1132,
-                    "endColumn": 95,
-                    "endOffset": 1223
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 1368,
-                        "endColumn": 95,
-                        "endOffset": 1459
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 14,
-                    "startColumn": 4,
-                    "startOffset": 1228,
-                    "endColumn": 110,
-                    "endOffset": 1334
-                },
-                "from": {
-                    "file": "C:\\Users\\sakamichi\\Documents\\WORKSPACE\\xinzhiying\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 1464,
-                        "endColumn": 110,
-                        "endOffset": 1570
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "D:\\shilijie\\app\\easeui\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 96,
-                    "endOffset": 147
-                },
-                "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -534,7 +30,7 @@
                     "endOffset": 254
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -553,7 +49,7 @@
                     "endOffset": 375
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -572,7 +68,7 @@
                     "endOffset": 468
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -591,7 +87,7 @@
                     "endOffset": 573
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -610,7 +106,7 @@
                     "endOffset": 655
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -629,7 +125,7 @@
                     "endOffset": 753
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -648,7 +144,7 @@
                     "endOffset": 861
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -667,7 +163,7 @@
                     "endOffset": 938
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -686,7 +182,7 @@
                     "endOffset": 1014
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -705,7 +201,7 @@
                     "endOffset": 1092
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -724,7 +220,7 @@
                     "endOffset": 1194
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -743,7 +239,7 @@
                     "endOffset": 1293
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -762,7 +258,7 @@
                     "endOffset": 1388
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -781,7 +277,7 @@
                     "endOffset": 1491
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -800,7 +296,7 @@
                     "endOffset": 1586
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -819,7 +315,7 @@
                     "endOffset": 1682
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -838,7 +334,7 @@
                     "endOffset": 1793
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -857,7 +353,7 @@
                     "endOffset": 1890
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -876,7 +372,7 @@
                     "endOffset": 1968
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -895,7 +391,7 @@
                     "endOffset": 2069
                 },
                 "from": {
-                    "file": "D:\\shilijie\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
+                    "file": "C:\\workplace_of_git\\app1\\app\\easeui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\values-ja\\values-ja.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
