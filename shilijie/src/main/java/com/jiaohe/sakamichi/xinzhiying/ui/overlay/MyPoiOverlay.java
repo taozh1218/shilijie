@@ -138,38 +138,36 @@ public class MyPoiOverlay {
             BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(
                     BitmapFactory.decodeResource(mContext.getResources(), markers[arg0]));
             return icon;
-        }
-        else {
+        } else {
             BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(
-                    BitmapFactory.decodeResource(mContext.getResources(), R.drawable.default_icon));
+                    BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.poi_marker_pressed));
             return icon;
         }
     }
 
-//    private int[] markers = {
-//            R.mipmap.poi_marker_1,
-//            R.mipmap.poi_marker_2,
-//            R.mipmap.poi_marker_3,
-//            R.mipmap.poi_marker_4,
-//            R.mipmap.poi_marker_5,
-//            R.mipmap.poi_marker_6,
-//            R.mipmap.poi_marker_7,
-//            R.mipmap.poi_marker_8,
-//            R.mipmap.poi_marker_9,
-//            R.mipmap.poi_marker_10
-//    };
-
-    //TODO
     private int[] markers = {
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon
+            R.mipmap.poi_marker_1,
+            R.mipmap.poi_marker_2,
+            R.mipmap.poi_marker_3,
+            R.mipmap.poi_marker_4,
+            R.mipmap.poi_marker_5,
+            R.mipmap.poi_marker_6,
+            R.mipmap.poi_marker_7,
+            R.mipmap.poi_marker_8,
+            R.mipmap.poi_marker_9,
+            R.mipmap.poi_marker_10
     };
+
+//    private int[] markers = {
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon
+//    };
 }

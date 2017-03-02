@@ -274,13 +274,14 @@ public class DriveRouteActivity extends Activity implements OnMapClickListener,
                     mBusRouteResult = result;
                     BusResultListAdapter mBusResultListAdapter = new BusResultListAdapter(mContext, mBusRouteResult);
                     mBusResultList.setAdapter(mBusResultListAdapter);
-                } else if (result != null && result.getPaths() == null) {
+                } else if (result != null && (result.getPaths() == null) || result.getPaths().size() == 0) {
                     ToastUtil.show(mContext, R.string.no_result);
                 }
             } else {
                 ToastUtil.show(mContext, R.string.no_result);
             }
         } else {
+//            ToastUtil.show(mContext, R.string.no_result);
             ToastUtil.showerror(this.getApplicationContext(), errorCode);
         }
     }

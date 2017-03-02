@@ -1,28 +1,27 @@
 package com.jiaohe.sakamichi.xinzhiying.ui.acitivity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +42,7 @@ import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.Projection;
 import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -74,6 +74,7 @@ import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.jiaohe.sakamichi.xinzhiying.R;
+import com.jiaohe.sakamichi.xinzhiying.adapter.MyInfoWindowAdapter;
 import com.jiaohe.sakamichi.xinzhiying.bean.UserLocationBean;
 import com.jiaohe.sakamichi.xinzhiying.global.ConstantValues;
 import com.jiaohe.sakamichi.xinzhiying.global.MyApplication;
@@ -183,7 +184,7 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
 
         btn.setOnClickListener(this);
         mPoiDetailView.setOnClickListener(this);
-
+        mEdt_search.setOnClickListener(this);
     }
 
     private void initMap() {
@@ -244,9 +245,9 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
         //点击地图上没marker 的地方，隐藏infoWindow
         if (current_marker != null) {
             current_marker.hideInfoWindow();
-            current_marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.default_icon));
+            whetherToShowDetailInfo(false);
+//            current_marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.default_icon));
         }
-        clearAll();
     }
 
     @Override
@@ -263,7 +264,7 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
     public boolean onMarkerClick(Marker marker) {
         Log.i(TAG, "onMarkerClick()");
         current_marker = marker;
-
+        jumpPoint(marker);
 
         if (!(marker.getObject() instanceof UserLocationBean)) {
             Log.i(TAG, "onMarkerClick()," + marker.getTitle());
@@ -275,34 +276,10 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
             whetherToShowDetailInfo(true);
             return true;
         }
-
-
-//        if (!(marker.getObject() instanceof UserLocationBean)) {
-//            Log.i(TAG, marker.getTitle());
-//
-//            mPoiName.setText(marker.getTitle());
-//            mPoiAddress.setText(marker.getSnippet());
-//            mTv_latlng.setText(marker.getPosition().latitude + "+" + marker.getPosition().longitude);
-//
-//            whetherToShowDetailInfo(true);
-//        }
-
-
-//        insertUserInfo(marker.getPosition().latitude + "", "" + marker.getPosition().longitude);
-//        insertUserInfo();
-
-//        if (current_marker != null) {
-//            current_marker.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.poi_marker_pressed));
-//        }
-//        current_marker = marker;
-//        marker.setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.poi_marker_pressed));
-
-
         return false; //返回 “false”，除定义的操作之外，默认操作也将会被执行
     }
 
     private void insertUserInfo() {
-//        String body = "phone=" + "15680731371" + "&token=" + "0A8FD5AAB6194A9BBDDFA4CF729D8984";
         String body = "phone=" + SPUtils.getString(getApplicationContext(), "phone", "") + "&token=" + SPUtils.getString(getApplicationContext(), "token", "");
         RequestUtils.postJsonRequest(ConstantValues.GET_LOCATION_INFO, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
             @Override
@@ -360,7 +337,6 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
      * @param lng 纬度
      */
     private void insertUserInfo(String lat, String lng) {
-//        String body = "phone=" + "15680731371" + "&token=" + "0A8FD5AAB6194A9BBDDFA4CF729D8984" + "&latitude=" + lat + "&longitude=" + lng;
         String body = "phone=" + SPUtils.getString(getApplicationContext(), "phone", "") + "&token=" + Md5Utils.encode(SPUtils.getString(getApplicationContext(), "token", "")) + "&latitude=" + lat + "&longitude=" + lng;
         RequestUtils.postJsonRequest(ConstantValues.SUBMIT_LOCATION_INFO, body, UIUtils.getContext(), new VolleyInterface(UIUtils.getContext(), VolleyInterface.mResponseListener, VolleyInterface.mErrorListener) {
             @Override
@@ -517,6 +493,7 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
     }
 
     /**
+     * 从服务器获取玩头像后，
      * 设置marker到map
      */
     private void setMarker() {
@@ -738,6 +715,9 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
+            case R.id.edt_InfoWindowAct:
+                clearAll();
+                break;
             case R.id.btn_InfoWindowAct://poiSearch
                 searchPoiByKey();
                 break;
@@ -898,10 +878,9 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
                         poiOverlay.addToMap();
                         poiOverlay.zoomToSpan();
 
-                        for (PoiItem poiItem : poiItems) {
-
-                            Log.d(TAG, poiItem.getLatLonPoint().toString());
-                        }
+//                        for (PoiItem poiItem : poiItems) {
+//                            Log.d(TAG, poiItem.getLatLonPoint().toString());
+//                        }
 
 //                        drawLocationCircle();
 
@@ -990,25 +969,38 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
                             markers[index])));
         } else {
             current_marker.setIcon(BitmapDescriptorFactory.fromBitmap(
-                    BitmapFactory.decodeResource(getResources(), R.mipmap.marker_other_highlight)));
+                    BitmapFactory.decodeResource(getResources(), R.mipmap.poi_marker_pressed)));
         }
         current_marker = null;
     }
 
 
-    private int[] markers = {
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon,
-            R.drawable.default_icon
-    };
+//    private int[] markers = {
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon,
+//            R.drawable.default_icon
+//    };
 
+
+    private int[] markers = {
+            R.mipmap.poi_marker_1,
+            R.mipmap.poi_marker_2,
+            R.mipmap.poi_marker_3,
+            R.mipmap.poi_marker_4,
+            R.mipmap.poi_marker_5,
+            R.mipmap.poi_marker_6,
+            R.mipmap.poi_marker_7,
+            R.mipmap.poi_marker_8,
+            R.mipmap.poi_marker_9,
+            R.mipmap.poi_marker_10
+    };
 
     /**
      * 是否显示详情
@@ -1067,6 +1059,38 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
         }
     }
 
+    /**
+     * marker点击时跳动一下
+     */
+    public void jumpPoint(final Marker marker) {
+        final Handler handler = new Handler();
+        final long start = SystemClock.uptimeMillis();
+        Projection proj = mAMap.getProjection();
+        final LatLng markerLatlng = marker.getPosition();
+        Point markerPoint = proj.toScreenLocation(markerLatlng);
+        markerPoint.offset(0, -100);
+        final LatLng startLatLng = proj.fromScreenLocation(markerPoint);
+        final long duration = 1500;
+
+        final Interpolator interpolator = new BounceInterpolator();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                long elapsed = SystemClock.uptimeMillis() - start;
+                float t = interpolator.getInterpolation((float) elapsed
+                        / duration);
+                double lng = t * markerLatlng.longitude + (1 - t)
+                        * startLatLng.longitude;
+                double lat = t * markerLatlng.latitude + (1 - t)
+                        * startLatLng.latitude;
+                marker.setPosition(new LatLng(lat, lng));
+                if (t < 1.0) {
+                    handler.postDelayed(this, 16);
+                }
+            }
+        });
+    }
+
 //    /**
 //     * 自定义infowinfow窗口
 //     */
@@ -1096,125 +1120,6 @@ public class DemoInfoWindowAct extends AppCompatActivity implements AMap.OnMapCl
 //            snippetUi.setText("");
 //        }
 //    }
-
-
-    public class MyInfoWindowAdapter implements AMap.InfoWindowAdapter, View.OnClickListener {
-
-        private Context mContext;
-        /**
-         * 根布局，非布局文件指代的view
-         */
-        private LinearLayout mRoot_view;
-        /**
-         * 头像
-         */
-        private ImageView img_avatar;
-        /**
-         * 姓名
-         */
-        private TextView tv_name;
-        /**
-         * 电话
-         */
-        private TextView tv_phoneNo;
-        private ImageView img_verification;
-        /**
-         * 签名，暂定是EditText
-         */
-        private EditText mEdt;
-        /**
-         * 存放的是经纬度信息
-         */
-        private TextView tv_address;
-        private String snippet;
-
-        private LatLng latLng;
-        private String name;
-        private String phone;
-        /**
-         * 暂存经纬度 lat+lng
-         */
-        private String address;
-        private Marker mMarker;
-
-        public MyInfoWindowAdapter(Context context) {
-            mContext = context;
-        }
-
-        @Override
-        public void onClick(View v) {
-            int id = v.getId();
-            switch (id) {
-//            case R.id.tv_go_infoWindow:
-////                getDrivingRoute(new LatLonPoint(mMarker.getPosition().latitude,mMarker.getPosition().longitude));
-//                break;
-//            case R.id.img_go_infoWindow:
-//                break;
-            }
-        }
-
-
-        /**
-         * 当InfoWindow显示时触发
-         *
-         * @param marker
-         * @return
-         */
-        @Override
-        public View getInfoWindow(Marker marker) {
-            View view = initView(marker);
-            return view;
-        }
-
-        @Override
-        public View getInfoContents(Marker marker) {
-            View view = initView(marker);
-            return view;
-        }
-
-        private void initData(Marker marker) {
-            name = marker.getTitle();
-//        address = marker.getSnippet();
-            address = marker.getPosition().latitude + "+" + marker.getPosition().longitude;
-        }
-
-
-        @NonNull
-        private View initView(Marker marker) {
-            mMarker = marker;
-            //获取这个marker用户的信息
-//            getUserInfo();
-            View view = LayoutInflater.from(mContext).inflate(R.layout.layout_infowindow, null);
-            mRoot_view = (LinearLayout) view.findViewById(R.id.ll_infoWindow);
-            img_avatar = (ImageView) view.findViewById(R.id.img_avatar_infoWindow);
-            tv_name = (TextView) view.findViewById(R.id.tv_name_infoWindow);
-            tv_phoneNo = (TextView) view.findViewById(R.id.tv_phoneNo_infoWindow);
-            img_verification = (ImageView) view.findViewById(R.id.img_verification_infoWindow);
-            mEdt = (EditText) view.findViewById(R.id.tv_signature_infoWindow);
-            tv_address = (TextView) view.findViewById(R.id.tv_address_infoWindow);
-
-            //avatar,name,sign,latlng,
-
-//            if (marker.getObject() != null) {
-            if ((marker.getObject() instanceof UserLocationBean)) {
-                UserLocationBean bean = (UserLocationBean) marker.getObject();
-                if (bean.getBitmap() != null) {
-                    img_avatar.setImageBitmap(bean.getBitmap());
-                    tv_name.setText(bean.getUserinfo().getUsername());
-                    tv_phoneNo.setText(bean.getUserinfo().getPhone());
-                }
-            }
-            tv_address.setText(marker.getPosition().latitude + "+" + marker.getPosition().longitude);
-//            tv_name.setText(marker.getSnippet());
-//            tv_phoneNo.setText(SPUtils.getString(mContext, "phone", ""));
-
-            img_avatar.setOnClickListener(this);
-            tv_name.setOnClickListener(this);
-            return view;
-        }
-
-
-    }
 
 
 }
