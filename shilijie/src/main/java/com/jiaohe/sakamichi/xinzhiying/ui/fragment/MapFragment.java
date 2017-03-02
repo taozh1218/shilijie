@@ -292,12 +292,12 @@ public class MapFragment extends BaseFragment implements AMap.OnPOIClickListener
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        Log.i(TAG, "onMarkerClick()");
+//        Log.i(TAG, "onMarkerClick()");
         current_marker = marker;
         jumpPoint(marker);
 
         if (!(marker.getObject() instanceof UserLocationBean)) {
-            Log.i(TAG, "onMarkerClick()," + marker.getTitle());
+//            Log.i(TAG, "onMarkerClick()," + marker.getTitle());
 
             mPoiName.setText(marker.getTitle());
             mPoiAddress.setText(marker.getSnippet());
@@ -755,7 +755,7 @@ public class MapFragment extends BaseFragment implements AMap.OnPOIClickListener
                     searchPoiByKey();
                     break;
                 case R.id.ll_navigation_mapFrag://路径规划
-                    Log.e(TAG, "点击导航");
+//                    Log.e(TAG, "点击导航");
 
                     String address = mPoiAddress.getText().toString();
                     String latlng = mTv_latlng.getText().toString();
@@ -1059,7 +1059,7 @@ public class MapFragment extends BaseFragment implements AMap.OnPOIClickListener
     public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
         //解析result获取地址描述信息
 //        dismissDialog();
-        Log.i(TAG, "onRegeocodeSearched(),rCode:" + i);
+//        Log.i(TAG, "onRegeocodeSearched(),rCode:" + i);
         if (i == AMapException.CODE_AMAP_SUCCESS) {
             if (regeocodeResult != null) {
                 RegeocodeAddress regeocodeAddress = regeocodeResult.getRegeocodeAddress();
